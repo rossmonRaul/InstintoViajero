@@ -1,0 +1,250 @@
+﻿/*ENCABEZADO*/
+
+.encabezado-container {
+    padding: 3%;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.title-col{
+    border-left: 5px solid #007BFF;
+    margin-left: 2vw;
+    height : 6vh;
+}
+
+.title-producciondiaria {
+    color: #38454C;
+    font-weight: 700;
+}
+
+.logo-encabezado {
+
+    width: 30vw;
+    height: 4vw;
+    object-fit : contain;
+}
+
+.producto-container {
+    padding: 3%;
+    border-radius: 15px;
+    background-color: #007BFF;
+}
+
+.producto-left {
+    display: inline-block;
+    color: white;
+    font-weight: 600;
+    font-size:1.5vw;
+}
+
+.producto-right {
+    display: inline-block;
+    float: right;
+}
+
+.producto-icon {
+    width: 6vw;
+    height: 5vw;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+/*DESGLOSE DE PRODUCCION*/
+
+.section-container {
+    padding: 3%;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.produccion-left{
+    display: inline-block;
+}
+
+.produccion-left h2 {
+    color: #38454C;
+    font-weight: 600;
+    line-height: 9vh;
+}
+
+.produccion-right {
+    display: inline-block;
+    float: right;
+}
+
+.produccion-right img {
+    width: 5.5vw;
+    height: 5vw;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: #EEE;
+    padding: 10%;
+}
+
+
+
+/* TURNOS */
+
+.turno-left {
+    display: inline-block;
+}
+
+.turno-left h2 {
+    color: #38454C;
+    font-weight: 600;
+    line-height: 9vh;
+}
+
+.turno-right {
+    display: inline-block;
+    float: right;
+}
+
+.turno-right img {
+    width: 5.5vw;
+    height: 5vw;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: #EEE;
+    padding: 15%;
+}
+
+
+
+/*TABLAS ESTILOS*/
+
+.tabla-header {
+    background-color: #007bff;
+    color: white;
+}
+
+.tabla-header-top {
+    border-radius: 15px 0px 0px 15px;
+}
+
+.tabla-header-bottom {
+    border-radius: 0px 15px 15px 0px;
+}
+
+.tabla-horarios {
+    color: #38454C;
+    font-weight: 500;
+}
+
+.table td{
+    vertical-align: middle !important;
+}
+
+.table tbody tr:nth-child(1) td {
+    border-top: none !important;
+}
+
+.table thead th {
+    border-bottom: none;
+    border-top: none;
+}
+
+/*AGREGADOS y OBSERVACIONES*/
+
+#agregados-container {
+    padding: 3%;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.agregados-title {
+    color: #38454C;
+    font-weight: 600;
+    border-left: 5px solid #007BFF;
+    height: 5vh;
+    padding-left: 1vw;
+
+}
+
+.observaciones-title{
+    color: #38454C;
+    font-weight: 600;
+    border-left: 5px solid #007BFF;
+    height: 5vh;
+    padding-left: 1vw;
+}
+
+.btn-agregados{
+    float: right;
+}
+
+
+.btn-section{
+    float:right;
+    margin-bottom: 3vw;
+}
+
+.btn-section button:nth-child(1) {
+    margin-right: 1vw;
+}
+
+#buttons-end{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+@media only screen and (min-width: 200px) and (max-width: 992px) {
+    .title-producciondiaria {
+        font-size: 7vw;
+        line-height: 10vw;       
+    }
+
+    .logo-encabezado {
+       display: none;
+    }
+
+    .producto-left {
+        font-size: 6vw;
+    }
+
+    .producto-right {
+        display: none;
+    }
+
+    .produccion-left h2 {
+        line-height: 5vh;
+    }
+    .produccion-right{
+        display: none;
+    }
+
+    .turno-left h2{
+        line-height: 5vh;
+    }
+
+    .turno-right{
+        display: none;
+    }
+
+    #agregados-container {
+        margin-top: 2vh;
+        width: 100% !important;
+    }
+
+
+    element.style {
+    }
+
+    @media only screen and (min-width: 200px) and (max-width: 992px) #agregados-container {
+        margin-top: 2vh;
+        width: 100% !important;
+    }
+
+    #agregados-container {
+        padding: 3%;
+        border-radius: 15px;
+        background-color: white;
+    }
+
+    .offset-1{
+        margin-left: 0 !important;
+    }
+}
+
+

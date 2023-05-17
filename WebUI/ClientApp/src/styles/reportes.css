@@ -1,0 +1,62 @@
+﻿
+/*ENCABEZADO*/
+
+.encabezado-container {
+    padding: 3%;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.title-reporte {
+    border-left: 5px solid #007BFF;
+    margin-left: 2vw;
+    height: 6vh;
+}
+
+.title-reporte h1 {
+    color: #38454C;
+    font-weight: 700;
+}
+
+.logo-reporte{
+    width: 7vw;
+    height: 4vw;
+    object-fit: contain;
+    float:right;
+}
+
+.section-container-reporte {
+    padding: 3%;
+    border-radius: 15px;
+    background-color: white;
+    border-radius: 20px;
+    border-top: 8px solid #0080FF;
+}
+
+.reporte-left {
+    display: inline-block;
+}
+
+.reporte-left h2 {
+    color: #38454C;
+    font-weight: 600;
+    line-height: 7vh;
+}
+
+.reporte-right {
+    display: inline-block;
+    float: right;
+}
+
+    .reporte-right img {
+        width: 3.5vw;
+        height: 3.5vw;
+        object-fit: contain;
+    
+    }
+
+    .reporte-right.tipos img {
+        width: 3vw;
+        height: 3vw;
+        object-fit: contain;
+    }

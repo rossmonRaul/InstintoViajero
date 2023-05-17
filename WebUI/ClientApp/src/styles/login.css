@@ -1,0 +1,177 @@
+﻿
+.body {
+    margin: 0;
+    padding: 0;
+    
+}
+
+#login {
+    background: url("../images/fondo-login.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+
+.login-title{
+    color: black;
+    font-weight: 500;
+}
+
+.container-login {   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+
+
+.content-login {
+    background-color: white;
+    border-radius: 20px;
+    width: 50vw;
+    border-top: 8px solid #0080FF;
+}
+
+.logo-login{
+    object-fit: contain;
+    width: 20vw;
+    height: 15vh;
+}
+
+.layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 3% 0 3% 0;
+   
+}
+
+#btn-ingresar, #btn-actualizar {
+    background-color: #0080FF;
+    font-size: 1vw;
+    color: white;
+    padding: 3% 7%;
+    cursor: pointer;
+    border-radius: 15px;
+    text-align: center;
+    border-color: #0080FF !important;
+    margin-top: 1vh;
+    width: 100%;
+}
+
+   #btn-ingresar:hover, #btn-actualizar:hover {
+        text-align: center;
+        background: #044E9F;
+        color: white;
+    }
+
+.menu-list {
+    display: block !important;
+}
+
+.menu-responsive {
+    display: none !important;
+}
+
+.user-responsive {
+    display: inline-block !important;
+    width: 100%;
+}
+
+.user-responsive a {
+    display: inline-block !important;
+}
+
+.user-info {
+    display: none!important;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 992px) {
+    .menu-list{
+        display: none !important;
+    }
+
+    .menu-responsive {
+        display: block !important;
+        margin-top: 2vh;
+    }
+
+        .menu-responsive li {
+            text-align: center;
+        }
+
+            .menu-responsive li:hover {
+                background-color: #044E9F;
+                border-radius: 5px;
+            }
+
+
+        .menu-responsive li  a{
+            color: white;
+            font-weight: 500;
+        }
+
+    .img-user{
+        display: none !important;
+    }
+
+    .user-info{
+        display: inline-block !important;
+    }
+
+    .user-info h1{
+        display: inline-block;
+        font-size: 2.5vw;
+    }
+
+        .user-info a {
+            display: inline-block;
+        }
+
+    .user-responsive {
+        display: none !important;
+    }
+
+
+    .nav-link:nth-child(1) {
+        display: none;
+    }
+
+    .nav-link {
+        text-align: center;
+    }
+
+    .content-login {
+        background-color: white;
+        border-radius: 20px;
+        width: 80vw;
+        border-top: 8px solid #0080FF;
+    }
+
+    .layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 3% 0 3% 0;
+    }
+
+    #btn-ingresar, #btn-actualizar {
+        font-size: 4vw;
+
+    }
+}
+
+
+
+
+
