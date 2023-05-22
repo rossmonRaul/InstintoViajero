@@ -37,47 +37,19 @@ const Layout = ({ CerrarSession }) => {
             <div className="wrapper">
                 <div className="body-overlay"></div>
                 <nav id="sidebar">
-                    <div className="sidebar-header">
+                    <div className="sidebar-header" style={{ backgroundColor: "#005CB8" }}>
                         <h3><img src={logo} className="img-fluid" style={{ width: "150px" }} /><span></span></h3>
                     </div>
                     <div className="menu-list">
                     <ul className="list-unstyled components">
-                        {rol === "Inspector" || rol === "Administrador" ?
-                            <li className={linkActive === 'producciondiaria' ? 'active' : ''}>
-                                <Link className={`dashboard`} to="/producciondiaria" onClick={() => ActivarLink('producciondiaria')}>{' '}<span>Producción Diaria</span></Link>
-                            </li>
-                            : ""
-                        }
+                        
                         {rol === "Administrador" ?
-                            <li className={linkActive === 'planta' ? 'active' : ''}>
-                                <Link className={`dashboard`} to="/planta" onClick={() => ActivarLink('planta')}>{' '}<span>Plantas</span></Link>
+                            <li className={linkActive === 'sucursal' ? 'active' : ''}>
+                                <Link className={`dashboard`} to="/sucursal" onClick={() => ActivarLink('sucursal')}>{' '}<span>Sucursales</span></Link>
                             </li>
                             : ""
                         }
-                        {rol === "Inspector" || rol === "Administrador" ?
-                            <li className={linkActive === 'actividadplanta' ? 'active' : ''}>
-                                <Link className={`dashboard`} to="/actividadplanta" onClick={() => ActivarLink('actividadplanta')}>{' '}<span>Actividad de plantas</span></Link>
-                            </li>
-                            : ""
-                        }
-                        {rol === "Administrador" ? 
-                        <li className={linkActive === 'producto' ? 'active' : ''}>
-                            <Link className={`dashboard`} to="/producto" onClick={() => ActivarLink('producto')}>{' '}<span>Productos</span></Link>
-                        </li>
-                            : ""
-                        }
-                            {rol === "Administrador" || rol === "Inspector" ? 
-                        <li className={linkActive === 'controldecalidad' ? 'active' : ''}>
-                            <Link className={`dashboard`} to="/controldecalidad" onClick={() => ActivarLink('controldecalidad')}>{' '}<span>Control de calidad</span></Link>
-                        </li>
-                            : ""
-                        }
-                        {rol === "Administrador" ?
-                            <li className={linkActive === 'tipomaterial' ? 'active' : ''}>
-                                <Link className={`dashboard`} to="/tipomaterial" onClick={() => ActivarLink('tipomaterial')}>{' '}<span>Tipos de materiales</span></Link>
-                            </li>
-                            : ""
-                        }
+                        
                         {rol === "Administrador" ? 
                         <li className={linkActive === 'usuarios' ? 'active' : ''}>
                             <Link className={`dashboard`} to="/usuarios" onClick={() => ActivarLink('usuarios')}>{' '}<span>Usuarios</span></Link>
@@ -107,43 +79,16 @@ const Layout = ({ CerrarSession }) => {
                                    
                                     <div className="menu-responsive">
                                         <ul className="list-unstyled components">
-                                            {rol === "Inspector" || rol === "Administrador" ?
-                                                <li className={linkActive === 'producciondiaria' ? 'active' : ''}>
-                                                    <Link className={`dashboard`} to="/producciondiaria" onClick={() => ActivarLink('producciondiaria')}>{' '}<span>Producción Diaria</span></Link>
-                                                </li>
-                                                : ""
-                                            }
+                                            
                                         
                                             {rol === "Administrador" ?
-                                                <li className={linkActive === 'planta' ? 'active' : ''}>
-                                                    <Link className={`dashboard`} to="/planta" onClick={() => ActivarLink('planta')}>{' '}<span>Plantas</span></Link>
+                                                <li className={linkActive === 'sucursal' ? 'active' : ''}>
+                                                    <Link className={`dashboard`} to="/sucursal" onClick={() => ActivarLink('sucursal')}>{' '}<span>Sucursales</span></Link>
                                                 </li>
                                                 : ""
                                             }
-                                            {rol === "Inspector" || rol === "Administrador" ?
-                                                <li className={linkActive === 'actividadplanta' ? 'active' : ''}>
-                                                    <Link className={`dashboard`} to="/actividadplanta" onClick={() => ActivarLink('actividadplanta')}>{' '}<span>Actividad de plantas</span></Link>
-                                                </li>
-                                                : ""
-                                            }
-                                            {rol === "Administrador" ?
-                                                <li className={linkActive === 'producto' ? 'active' : ''}>
-                                                    <Link className={`dashboard`} to="/producto" onClick={() => ActivarLink('producto')}>{' '}<span>Productos</span></Link>
-                                                </li>
-                                                : ""
-                                            }
-                                            {rol === "Inspector" || rol === "Administrador" ?
-                                                <li className={linkActive === 'controldecalidad' ? 'active' : ''}>
-                                                    <Link className={`dashboard`} to="/controldecalidad" onClick={() => ActivarLink('controldecalidad')}>{' '}<span>Control de calidad</span></Link>
-                                                </li>
-                                                : ""
-                                            }
-                                            {rol === "Administrador" ?
-                                                <li className={linkActive === 'tipomaterial' ? 'active' : ''}>
-                                                    <Link className={`dashboard`} to="/tipomaterial" onClick={() => ActivarLink('tipomaterial')}>{' '}<span>Tipos de materiales</span></Link>
-                                                </li>
-                                                : ""
-                                            }
+                                            
+                                            
                                             {rol === "Administrador" ?
                                                 <li className={linkActive === 'usuarios' ? 'active' : ''}>
                                                     <Link className={`dashboard`} to="/usuarios" onClick={() => ActivarLink('usuarios')}>{' '}<span>Usuarios</span></Link>

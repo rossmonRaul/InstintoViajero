@@ -31,7 +31,7 @@ const Usuarios = () => {
         { id: 'apellido1', name: 'P. Apellido', selector: row => row.primerApellido, head: "P. Apellido" },
         { id: 'apellido2', name: 'S. Apellido', selector: row => row.segundoApellido, head: "S. Apellido" },
         { id: 'Rol', name: 'Rol', selector: row => row.descripcion, head: "Rol" },
-        { id: 'nombrePlanta', name: 'N. Planta', selector: row => row.nombrePlanta, head: "N. Planta" },
+        { id: 'nombreSucursal', name: 'Sucursal', selector: row => row.nombreSucursal, head: "Sucursal" },
         { id: 'Estado', name: 'Estado', selector: row => row.estado, head: "Estado" }
     ]
 
@@ -128,7 +128,7 @@ const Usuarios = () => {
                 <hr />
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickNuevoUsuario()}>Registrar</Button>{' '}
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarUsuario()} disabled={bloquearBoton}>Actualizar</Button>{' '}
-                <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarContrasenha()} disabled={bloquearBoton}>Contrase�a</Button>{' '}
+                <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarContrasenha()} disabled={bloquearBoton}>Contraseña</Button>{' '}
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarUsuario()} disabled={bloquearBoton}>{textoBotonInactivar}</Button>
                 <br /><br />
                 {mensajeRespuesta.mensaje !== "" ?

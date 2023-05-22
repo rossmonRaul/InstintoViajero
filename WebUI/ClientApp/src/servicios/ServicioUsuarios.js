@@ -1,6 +1,6 @@
 import { ProcesarDatosApi } from "../api/ApiFetch";
 const controlador = "usuario";
-const controladorPlantas = "planta";
+const controladorSucursal = "Sucursal";
 const controladorRol = "rol";
 const controladorTipos = "tiposidentificacion";
 
@@ -29,8 +29,8 @@ export const ObtenerUsuarioPorId = async (id) => {
     return await ProcesarDatosApi('GET', url);
 }
 
-export const ObtenerPlantas = async () => {
-    const url = `${controladorPlantas}/ObtenerPlantas`;
+export const ObtenerSucursales = async () => {
+    const url = `${controladorSucursal}/ObtenerSucursales`;
     return await ProcesarDatosApi('GET', url);
 }
 

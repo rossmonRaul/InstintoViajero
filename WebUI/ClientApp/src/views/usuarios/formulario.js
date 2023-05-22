@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Button, Form, Row } from 'react-bootstrap';
 import { InputSelect, InputText } from '../../components/inputs';
 import { ComboBox } from '../../components/combobox';
-import { ObtenerPlantas, ObtenerRoles, ObtenerTiposIdentificacion } from '../../servicios/ServicioUsuarios';
+import { ObtenerSucursales, ObtenerRoles, ObtenerTiposIdentificacion } from '../../servicios/ServicioUsuarios';
 
 const Formulario = ({ labelButton, data, proceso, onClickProcesarUsuario, mensaje }) => {
-    const [listaPlantas, setListaPlantas] = useState([]);
+    const [listaSucursales, setListaSucursales] = useState([]);
     const [listaTiposIdentificacion, setListaTiposIdentificacion] = useState([]);
     const [listaRoles, setListaRoles] = useState([]);
 
@@ -21,23 +21,23 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarUsuario, mensaj
     const [telefono, setTelefono] = useState(proceso == 2 ? data.telefono : '');
 
     //variables de combo box
-    const [idPlanta, setIdPlanta] = useState(proceso == 2 ? data.idPlanta : 0);
+    const [idSucursal, setIdSucursal] = useState(proceso == 2 ? data.idSucursal : 0);
     const [idRol, setIdRol] = useState(proceso == 2 ?data.idRol : 0);
     const [idTiposIdentificacion, setidTiposIdentificacion] = useState(proceso == 2 ? data.idTipoIdentificacion : 0);
 
     const [validated, setValidated] = useState(false);
 
     useEffect(() => {
-        ObtenerListadoDePlantas();
+        ObtenerListadoDeSucursales();
         ObtenerListadoDeTiposID();
         ObtenerListadoDeRoles();
     }, []);
 
     //llenado de combo box
-    const ObtenerListadoDePlantas = async () => {
-        const plantas = await ObtenerPlantas();
-        if (plantas !== undefined ) {
-            setListaPlantas(plantas);
+    const ObtenerListadoDeSucursales = async () => {
+        const Sucursales = await ObtenerSucursales();
+        if (Sucursales !== undefined ) {
+            setListaSucursales(Sucursales);
         }
     }
 
@@ -63,7 +63,7 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarUsuario, mensaj
             event.stopPropagation();
         } else {
             const data = {
-                idPlanta: idPlanta == 0 ? listaPlantas[0].idPlanta : idPlanta,
+                idSucursal: idSucursal == 0 ? listaSucursales[0].idSucursal : idSucursal,
                 coreoElectronico: correo,
                 contrasenaTemporal: contrasenaTemporal,
                 idRol: idRol == 0 ? listaRoles[0].idRol : idRol,
@@ -84,8 +84,8 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarUsuario, mensaj
 
 
     //eventos del form
-    const onChangePlanta = (event) => {
-        setIdPlanta(event.target.value);
+    const onChangeSucursal = (event) => {
+        setIdSucursal(event.target.value);
     }
 
     const onChangeRol = (event) => {
@@ -138,7 +138,7 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarUsuario, mensaj
                         text='Dirección exacta.' onChange={onChangeDireccion} mensajeValidacion="El campo es requerido" className="col-md-10" />
                 </Row>
                 <Row>
-                    <ComboBox data={listaPlantas} label="Plantas" controlId="sel-idPlanta" onChange={onChangePlanta} value={idPlanta} optionValue="idPlanta" optionLabel="nombrePlanta" indicacion="Seleccione la planta" classGroup="col-md-5" />
+                    <ComboBox data={listaSucursales} label="Sucursales" controlId="sel-idSucursal" onChange={onChangeSucursal} value={idSucursal} optionValue="idSucursal" optionLabel="nombreSucursal" indicacion="Seleccione la Sucursal" classGroup="col-md-5" />
                     <ComboBox data={listaRoles} label="Rol" controlId="sel-rol" onChange={onChangeRol} value={idRol} optionValue="idRol" optionLabel="descripcion" optionValue="idRol" optionLabel="descripcion" indicacion="Seleccione el rol" classGroup="col-md-5" />
                 </Row>
                 <br />

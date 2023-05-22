@@ -16,13 +16,5 @@ namespace Aplicacion.Reporte
             this.repositorioReporte = repositorioReporte;
         }
 
-        public async Task<List<DtoReporteAcumulativoPlacasMensual>> ReporteAcumulativoMensual(EntitiReporte reporte)
-        {
-            return await this.repositorioReporte.ReporteAcumulativoMensual(reporte);
-        }
-        public async Task<List<DtoReporteCementoPorPlacasProductos>> ReporteProductos(EntitiReporte reporte)
-        {
-            return await this.repositorioReporte.ReporteProductos(reporte);
-        }
     }
 }

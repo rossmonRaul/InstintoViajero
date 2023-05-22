@@ -26,7 +26,7 @@ namespace Infraestrutura.BaseDatos
                 data.Add("IdRol", entitiUsuario.idRol);
                 data.Add("CoreoElectronico", entitiUsuario.coreoElectronico);
                 data.Add("ContrasenaTemporal", entitiUsuario.contrasenaTemporal);
-                data.Add("IdPlanta", entitiUsuario.idPlanta);
+                data.Add("IdSucursal", entitiUsuario.idSucursal);
                 data.Add("Identificacion", entitiUsuario.identificacion);
                 data.Add("IdTipoIdentificacion", entitiUsuario.idTipoIdentificacion);
                 data.Add("Nombre", entitiUsuario.nombre);
@@ -56,7 +56,7 @@ namespace Infraestrutura.BaseDatos
                 data.Add("IdPersona", entitiUsuario.idPersona);
                 data.Add("IdRol", entitiUsuario.idRol);
                 data.Add("CoreoElectronico", entitiUsuario.coreoElectronico);
-                data.Add("IdPlanta", entitiUsuario.idPlanta);
+                data.Add("IdSucursal", entitiUsuario.idSucursal);
                 data.Add("Identificacion", entitiUsuario.identificacion);
                 data.Add("IdTipoIdentificacion", entitiUsuario.idTipoIdentificacion);
                 data.Add("Nombre", entitiUsuario.nombre);

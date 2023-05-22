@@ -18,38 +18,6 @@ namespace Infraestrutura.BaseDatos
         {
             this.contextoBD = contextoBD;
         }
-        public async Task <List<DtoReporteAcumulativoPlacasMensual>> ReporteAcumulativoMensual(EntitiReporte reporte)
-        {
-            try
-            {
-                Dictionary<string, object> data = new Dictionary<string, object>();
-                data.Add("FechaInicio", reporte.FechaInicio);
-                data.Add("FechaFinal", reporte.FechaFin);
-                string query = "SPRptAcumulativoPlacasMensual";
-
-                return await this.contextoBD.ObtenerListaDeDatos<DtoReporteAcumulativoPlacasMensual>(query, data);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public async Task<List<DtoReporteCementoPorPlacasProductos>> ReporteProductos(EntitiReporte reporte)
-        {
-            try
-            {
-                Dictionary<string, object> data = new Dictionary<string, object>();
-                data.Add("FechaInicio", reporte.FechaInicio);
-                data.Add("FechaFinal", reporte.FechaFin);
-                data.Add("IdProducto", reporte.idProducto);
-                string query = "SPRptCementoPorUnidadProductos";
-
-                return await this.contextoBD.ObtenerListaDeDatos<DtoReporteCementoPorPlacasProductos>(query, data);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+       
     }
 }

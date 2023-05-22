@@ -64,7 +64,7 @@ const Login = ({ ValidarSesionActiva }) => {
             <div className="container-login">
                 <div className="content-login">
                     <div className="layout">   
-                        <div >
+                        <div style={{ backgroundColor: "#005CB8" }}>
                             <img src={logo} className="logo-login"/>
                         </div>
                         <div>

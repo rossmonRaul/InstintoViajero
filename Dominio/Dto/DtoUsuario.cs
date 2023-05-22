@@ -14,7 +14,7 @@ namespace Dominio.Dto
         public int idRol { get; set; }
         public string coreoElectronico { get; set; }
         public string contrasenaTemporal { get; set; }
-        public int idPlanta { get; set; }
+        public int idSucursal { get; set; }
         public int identificacion { get; set; }
         public int idTipoIdentificacion { get; set; }
         public string nombre { get; set; }
@@ -26,7 +26,7 @@ namespace Dominio.Dto
         public string descripcion { get; set; }
 
         public string telefono { get; set; }
-        public string nombrePlanta { get; set; }
+        public string nombreSucursal { get; set; }
         public string estado { get; set; }
     }
 }

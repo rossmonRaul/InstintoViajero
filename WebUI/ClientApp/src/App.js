@@ -3,14 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Layout from './views/home/layout'
 import Home from './views/home/'
-import Planta from './views/planta'
-import TipoMaterial from './views/tipomateriales'
-import ActividadPlanta from './views/actividadesplanta'
+import Sucursal from './views/sucursal'
 import Usuarios from './views/usuarios';
-import ControlDeCalidad from './views/controldecalidad';
-import Producto from './views/producto';
 import Contrasena from './views/actualizarcontrasena';
-import ProduccionDiaria from './views/producciondiaria';
 import Reportes from './views/reportes';
 import { ObtenerTokenUsuario } from './utils/utilidades';
 import { ObtenerDatosDeUsuario } from './utils/utilidades';
@@ -60,15 +55,9 @@ const App = () => {
                       
                         <Route path="/" element={<Layout CerrarSession={CerrarSession} />}>
                             <Route index element={<Home />} />
-                            { rol=== "Administrador" ? <Route path="planta" element={<Planta />} /> : ""}
-                            {rol === "Administrador" ? <Route path="tipomaterial" element={<TipoMaterial />} /> : ""}
-
-                            <Route path="actividadplanta" element={<ActividadPlanta />} />
+                            { rol=== "Administrador" ? <Route path="sucursal" element={<Sucursal />} /> : ""}
                             {rol === "Administrador" ? <Route path="usuarios" element={<Usuarios />} /> : ""}
-                             <Route path="controldecalidad" element={<ControlDeCalidad />} /> 
-                            {rol === "Administrador" ? <Route path="producto" element={<Producto />} /> : ""}
                             <Route path="contrasena" element={<Contrasena />} />
-                            <Route path="producciondiaria" element={<ProduccionDiaria />} />
                             {rol === "Administrador" ? <Route path="reportes" element={<Reportes />} /> : ""}
                             <Route path="*" element={<Navigate to="/" replace />} />
                         </Route>
