@@ -104,11 +104,6 @@
     <Build Include="dbo\Stored Procedures\SPObtenerDetalleUsuarioNombre.sql" />
     <Build Include="dbo\Stored Procedures\SPObtenerPersonas.sql" />
     <Build Include="Security\INSTINTO_VIAJERO.sql" />
-    <Build Include="dbo\InitialData\InitialPersonas.sql" />
-    <Build Include="dbo\InitialData\InitialRoles.sql" />
-    <Build Include="dbo\InitialData\InitialSucursales.sql" />
-    <Build Include="dbo\InitialData\InitialTiposIdentificacion.sql" />
-    <Build Include="dbo\InitialData\InitialUsuarios.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />

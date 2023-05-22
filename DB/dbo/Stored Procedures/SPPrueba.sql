@@ -9,7 +9,7 @@ AS
 
 		IF EXISTS (
 			SELECT 1 FROM Usuarios  
-			WHERE		CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('PANABLOCK', Contrasena)) = @ContrasenaTemporal
+			WHERE		CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('INSTINTOVIAJERO', Contrasena)) = @ContrasenaTemporal
 			AND			CoreoElectronico = @CoreoElectronico
 			AND			Estado = 1
 		)
@@ -29,7 +29,7 @@ AS
 				INNER JOIN	Roles R
 				ON			U.IdRol = R.IdRol
 
-				WHERE		CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('PANABLOCK', Contrasena)) = @ContrasenaTemporal
+				WHERE		CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('INSTINTOVIAJERO', Contrasena)) = @ContrasenaTemporal
 				AND			U.CoreoElectronico   = @CoreoElectronico
 				AND			U.Estado = 1
 
@@ -40,7 +40,7 @@ AS
 			BEGIN
 
 				IF EXISTS (SELECT 1 FROM Usuarios  
-				WHERE		CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('PANABLOCK', ContrasenaTemporal)) = @ContrasenaTemporal
+				WHERE		CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('INSTINTOVIAJERO', ContrasenaTemporal)) = @ContrasenaTemporal
 				AND			CoreoElectronico = @CoreoElectronico
 				AND			Estado = 1)
 
@@ -48,11 +48,11 @@ AS
 
 						UPDATE Usuarios SET
 						ContrasenaTemporal = NULL
-						, Contrasena = ENCRYPTBYPASSPHRASE('PANABLOCK', CONVERT(varbinary (150), @ContrasenaTemporal))
+						, Contrasena = ENCRYPTBYPASSPHRASE('INSTINTOVIAJERO', CONVERT(varbinary (150), @ContrasenaTemporal))
 						WHERE
 						CoreoElectronico = @CoreoElectronico
 						AND
-						CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('PANABLOCK', ContrasenaTemporal)) = @ContrasenaTemporal
+						CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('INSTINTOVIAJERO', ContrasenaTemporal)) = @ContrasenaTemporal
 
 						SELECT		P.Nombre
 									, P.PrimerApellido 
@@ -67,7 +67,7 @@ AS
 						INNER JOIN	Roles R
 						ON			U.IdRol = R.IdRol
 
-						WHERE		CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('PANABLOCK', Contrasena)) = @ContrasenaTemporal
+						WHERE		CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('INSTINTOVIAJERO', Contrasena)) = @ContrasenaTemporal
 						AND			U.CoreoElectronico   = @CoreoElectronico
 						AND			U.Estado = 1
 
@@ -78,7 +78,7 @@ AS
 					BEGIN
 
 						IF EXISTS(SELECT		1 FROM Usuarios U 
-						WHERE		CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('PANABLOCK', Contrasena)) = @ContrasenaTemporal
+						WHERE		CONVERT(varchar(MAX), DECRYPTBYPASSPHRASE('INSTINTOVIAJERO', Contrasena)) = @ContrasenaTemporal
 						AND			U.CoreoElectronico = @CoreoElectronico
 						AND			U.Estado = 0)
 

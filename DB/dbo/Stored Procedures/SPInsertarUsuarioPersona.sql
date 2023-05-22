@@ -73,7 +73,7 @@ AS
 							( @IdPersona
 							, @IdRol
 							, @CoreoElectronico
-							, ENCRYPTBYPASSPHRASE('PANABLOCK', @ContrasenaTemporal)
+							, ENCRYPTBYPASSPHRASE('INSTINTOVIAJERO', @ContrasenaTemporal)
 							, 1
 							, @IdPlanta
 							, GETDATE()

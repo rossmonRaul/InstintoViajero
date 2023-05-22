@@ -7,7 +7,7 @@ AS
 			BEGIN
 				SELECT		U.IdUsuario
 							, U.CoreoElectronico
-							, CONVERT(VARCHAR(150), DECRYPTBYPASSPHRASE('PANABLOCK', U.ContrasenaTemporal)) AS ContrasenaTemporal
+							, CONVERT(VARCHAR(150), DECRYPTBYPASSPHRASE('INSTINTOVIAJERO', U.ContrasenaTemporal)) AS ContrasenaTemporal
 							, CONVERT(VARCHAR(150), U.Contrasena) AS Contrasena
 							, U.Estado
 							, U.FechaCreacion
