@@ -7,13 +7,13 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{1ed0f909-9d78-47bd-bcab-35f17ef2a16d}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
     <RootNamespace>DB</RootNamespace>
     <AssemblyName>DB</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>3082,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,6 +22,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Modern_Spanish_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -56,5 +58,63 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\InitialData" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Sucursales.sql" />
+    <Build Include="dbo\Tables\Usuarios.sql" />
+    <Build Include="dbo\Tables\Personas.sql" />
+    <Build Include="dbo\Tables\Roles.sql" />
+    <Build Include="dbo\Tables\TiposIdentificacion.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerRol.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerRoles.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerRolPorEstado.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerTiposIdentificacion.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerUsuarios.sql" />
+    <Build Include="dbo\Stored Procedures\SPPrueba.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarSucursal.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarSucursal.sql" />
+    <Build Include="dbo\Stored Procedures\SPEliminarSucursal.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleSucursal.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleSucursalID.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleSucursalNombre.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerSucursales.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarContrasena.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarContrasenaTemporal.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarPersona.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarRol.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarUsuario.sql" />
+    <Build Include="dbo\Stored Procedures\SPEliminarPersona.sql" />
+    <Build Include="dbo\Stored Procedures\SPEliminarRol.sql" />
+    <Build Include="dbo\Stored Procedures\SPEliminarUsuario.sql" />
+    <Build Include="dbo\Stored Procedures\SPIniciarSesionUsuario.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarPersona.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarRol.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarUsuario.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarUsuarioPersona.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetallePersona.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleRol.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleTipoIdentificacion.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleUsuario.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleUsuarioID.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleUsuarioNombre.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerPersonas.sql" />
+    <Build Include="Security\INSTINTO_VIAJERO.sql" />
+    <Build Include="dbo\InitialData\InitialPersonas.sql" />
+    <Build Include="dbo\InitialData\InitialRoles.sql" />
+    <Build Include="dbo\InitialData\InitialSucursales.sql" />
+    <Build Include="dbo\InitialData\InitialTiposIdentificacion.sql" />
+    <Build Include="dbo\InitialData\InitialUsuarios.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dbo\InitialData\Personas.sql" />
+    <None Include="dbo\InitialData\Roles.sql" />
+    <None Include="dbo\InitialData\Sucursales.sql" />
+    <None Include="dbo\InitialData\Usuarios.sql" />
+    <None Include="dbo\InitialData\TiposIdentificacion.sql" />
   </ItemGroup>
 </Project>

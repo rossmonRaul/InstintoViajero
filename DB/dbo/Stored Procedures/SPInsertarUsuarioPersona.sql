@@ -63,7 +63,7 @@ AS
 							, CoreoElectronico
 							, ContrasenaTemporal
 							, Estado
-							, IdPlanta
+							, IdSucursal
 							, FechaCreacion
 							, UsuarioCreacion
 							, Accion )
