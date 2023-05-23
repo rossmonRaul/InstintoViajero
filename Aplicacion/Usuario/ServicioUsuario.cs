@@ -1,5 +1,5 @@
 ﻿using Dominio.Dto;
-using Dominio.Entiti;
+using Dominio.Entity;
 using Dominio.Interfaces.Aplicacion.Usuario;
 using Dominio.Interfaces.Infraestrutura.BaseDatos;
 using System;
@@ -19,12 +19,12 @@ namespace Aplicacion.Usuario
             this.repositorioUsuario = repositorioUsuario;
         }
 
-        public async Task<DtoDatosSP> InsertarUsuario(EntitiUsuario entitiUsuario)
+        public async Task<DtoDatosSP> InsertarUsuario(EntityUsuario entitiUsuario)
         {
             return await this.repositorioUsuario.InsertarUsuario(entitiUsuario);
         }
 
-        public async Task<DtoDatosSP> ActualizarUsuario(EntitiUsuario entitiUsuario)
+        public async Task<DtoDatosSP> ActualizarUsuario(EntityUsuario entitiUsuario)
         {
             return await this.repositorioUsuario.ActualizarUsuario(entitiUsuario);
         }
@@ -49,7 +49,7 @@ namespace Aplicacion.Usuario
             return await this.repositorioUsuario.ObtenerUsuarios();
         }
 
-        public async Task<DtoDatosSP> ActualizarContrasenhaTemporal(EntitiUsuario entitiUsuario)
+        public async Task<DtoDatosSP> ActualizarContrasenhaTemporal(EntityUsuario entitiUsuario)
         {
             return await this.repositorioUsuario.ActualizarContrasenhaTemporal(entitiUsuario);
         }

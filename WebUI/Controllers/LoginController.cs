@@ -1,5 +1,5 @@
 ﻿using Dominio.Dto;
-using Dominio.Entiti;
+using Dominio.Entity;
 using Dominio.Interfaces.Aplicacion.Login;
 using Dominio.Interfaces.WebUI;
 using Microsoft.AspNetCore.Authorization;

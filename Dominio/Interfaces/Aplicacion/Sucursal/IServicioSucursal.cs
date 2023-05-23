@@ -1,5 +1,5 @@
 ﻿using Dominio.Dto;
-using Dominio.Entiti;
+using Dominio.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ namespace Dominio.Interfaces.Aplicacion.Surcusal
 {
     public interface IServicioSucursal
     {
-        Task<DtoDatosSP> InsertarSucursal(EntitiSucursal entitiPlanta);
+        Task<DtoDatosSP> InsertarSucursal(EntitySucursal entitiPlanta);
 
-        Task<DtoDatosSP> ActualizarSucursal(EntitiSucursal entitiPlanta);
+        Task<DtoDatosSP> ActualizarSucursal(EntitySucursal entitiPlanta);
 
         Task<DtoDatosSP> EliminarSucursal(int idPlanta);
 

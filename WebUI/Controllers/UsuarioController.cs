@@ -1,4 +1,4 @@
-﻿using Dominio.Entiti;
+﻿using Dominio.Entity;
 using Dominio.Interfaces.Aplicacion.Usuario;
 using Dominio.Interfaces.Infraestrutura.BaseDatos;
 using Microsoft.AspNetCore.Authorization;
@@ -21,7 +21,7 @@ namespace WebUI.Controllers
 
         [HttpPost("[action]")]
         [Authorize]
-        public async Task<JsonResult> InsertarUsuario(EntitiUsuario entitiUsuario)
+        public async Task<JsonResult> InsertarUsuario(EntityUsuario entitiUsuario)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace WebUI.Controllers
 
         [HttpPut("[action]")]
         [Authorize]
-        public async Task<JsonResult> ActualizarUsuario(EntitiUsuario entitiPlanta)
+        public async Task<JsonResult> ActualizarUsuario(EntityUsuario entitiPlanta)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace WebUI.Controllers
 
         [HttpPut("[action]")]
         [Authorize]
-        public async Task<JsonResult> ActualizarContrasenhaTemporal(EntitiUsuario entitiPlanta)
+        public async Task<JsonResult> ActualizarContrasenhaTemporal(EntityUsuario entitiPlanta)
         {
             try
             {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dominio.Entiti
+namespace Dominio.Entity
 {
-    public class EntitiLogin
+    public class EntityLogin
     {
         public string coreoElectronico { get; set; }
 

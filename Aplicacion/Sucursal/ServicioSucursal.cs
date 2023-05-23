@@ -1,5 +1,5 @@
 ﻿using Dominio.Dto;
-using Dominio.Entiti;
+using Dominio.Entity;
 using Dominio.Interfaces.Aplicacion.Surcusal;
 using Dominio.Interfaces.Infraestrutura.BaseDatos;
 using System;
@@ -19,12 +19,12 @@ namespace Aplicacion.Sucursal
             this.repositorioSucursal = repositorioSucursal;
         }
 
-        public async Task<DtoDatosSP> InsertarSucursal(EntitiSucursal entitiSucursal)
+        public async Task<DtoDatosSP> InsertarSucursal(EntitySucursal entitiSucursal)
         {
             return await this.repositorioSucursal.InsertarSucursal(entitiSucursal);
         }
 
-        public async Task<DtoDatosSP> ActualizarSucursal(EntitiSucursal entitiSucursal)
+        public async Task<DtoDatosSP> ActualizarSucursal(EntitySucursal entitiSucursal)
         {
             return await this.repositorioSucursal.ActualizarSucursal(entitiSucursal);
         }

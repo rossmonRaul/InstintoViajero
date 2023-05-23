@@ -1,5 +1,5 @@
 ﻿using Dominio.Dto;
-using Dominio.Entiti;
+using Dominio.Entity;
 using Dominio.Interfaces.Infraestrutura.BaseDatos;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace Infraestrutura.BaseDatos
             this.contextoBD = contextoBD;
         }
 
-        public async Task<DtoDatosSP> InsertarUsuario(EntitiUsuario entitiUsuario)
+        public async Task<DtoDatosSP> InsertarUsuario(EntityUsuario entitiUsuario)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace Infraestrutura.BaseDatos
             }
         }
 
-        public async Task<DtoDatosSP> ActualizarUsuario(EntitiUsuario entitiUsuario)
+        public async Task<DtoDatosSP> ActualizarUsuario(EntityUsuario entitiUsuario)
         {
 
             try
@@ -140,7 +140,7 @@ namespace Infraestrutura.BaseDatos
             }
         }
 
-        public async Task<DtoDatosSP> ActualizarContrasenhaTemporal(EntitiUsuario entitiUsuario)
+        public async Task<DtoDatosSP> ActualizarContrasenhaTemporal(EntityUsuario entitiUsuario)
         {
             try
             {

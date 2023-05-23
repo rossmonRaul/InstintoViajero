@@ -1,5 +1,5 @@
 ﻿
-using Dominio.Entiti;
+using Dominio.Entity;
 using Dominio.Interfaces.Aplicacion.Reporte;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

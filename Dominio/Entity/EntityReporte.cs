@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dominio.Entiti
+namespace Dominio.Entity
 {
-    public class EntitiReporte
+    public class EntityReporte
     {
         public DateTime FechaInicio { get; set; }
 
