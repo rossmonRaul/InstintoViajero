@@ -1,4 +1,4 @@
-﻿using Dominio.Entiti;
+﻿using Dominio.Entity;
 using Dominio.Interfaces.Aplicacion.Surcusal;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,14 +25,14 @@ namespace WebUI.Controllers
 
         [HttpPost("[action]")]
         [Authorize]
-        public async Task<JsonResult> InsertarSucursal(EntitiSucursal entitiSucursal)
+        public async Task<JsonResult> InsertarSucursal(EntitySucursal entitiSucursal)
         {
             return Json(await this.servicioSucursal.InsertarSucursal(entitiSucursal));
         }
 
         [HttpPut("[action]")]
         [Authorize]
-        public async Task<JsonResult> ActualizarSucursal(EntitiSucursal entitiSucursal)
+        public async Task<JsonResult> ActualizarSucursal(EntitySucursal entitiSucursal)
         {           
             return Json(await this.servicioSucursal.ActualizarSucursal(entitiSucursal));
         }

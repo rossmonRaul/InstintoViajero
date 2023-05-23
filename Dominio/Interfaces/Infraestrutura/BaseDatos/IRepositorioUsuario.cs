@@ -1,5 +1,5 @@
 ﻿using Dominio.Dto;
-using Dominio.Entiti;
+using Dominio.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ namespace Dominio.Interfaces.Infraestrutura.BaseDatos
 {
     public interface IRepositorioUsuario
     {
-        Task<DtoDatosSP> InsertarUsuario(EntitiUsuario entitiUsuario);
+        Task<DtoDatosSP> InsertarUsuario(EntityUsuario entitiUsuario);
 
-        Task<DtoDatosSP> ActualizarUsuario(EntitiUsuario entitiUsuario);
+        Task<DtoDatosSP> ActualizarUsuario(EntityUsuario entitiUsuario);
 
         Task<DtoDatosSP> EliminarUsuario(int idUsuario);
 
@@ -21,7 +21,7 @@ namespace Dominio.Interfaces.Infraestrutura.BaseDatos
         Task<DtoUsuario> ObtenerDetalleUsuarioNombre(string nombre);
 
         Task<List<DtoUsuario>> ObtenerUsuarios();
-        Task<DtoDatosSP> ActualizarContrasenhaTemporal(EntitiUsuario entitiUsuario);
+        Task<DtoDatosSP> ActualizarContrasenhaTemporal(EntityUsuario entitiUsuario);
 
         Task<DtoDatosSP> ActualizarContrasenha(int idUsuario, string contrasena);
     }

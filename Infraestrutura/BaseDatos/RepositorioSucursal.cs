@@ -1,5 +1,5 @@
 ﻿using Dominio.Dto;
-using Dominio.Entiti;
+using Dominio.Entity;
 using Dominio.Interfaces.Infraestrutura.BaseDatos;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace Infraestrutura.BaseDatos
             this.contextoBD = contextoBD;
         }
 
-        public async Task<DtoDatosSP> InsertarSucursal(EntitiSucursal entitiSucursal)
+        public async Task<DtoDatosSP> InsertarSucursal(EntitySucursal entitiSucursal)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace Infraestrutura.BaseDatos
             }
         }
 
-        public async Task<DtoDatosSP> ActualizarSucursal(EntitiSucursal entitiSucursal)
+        public async Task<DtoDatosSP> ActualizarSucursal(EntitySucursal entitiSucursal)
         {
 
             try

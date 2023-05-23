@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dominio.Entiti
+namespace Dominio.Entity
 {
-    public class EntitiRol
+    public class EntityRol
     {
         public int idRol { get; set; }
 

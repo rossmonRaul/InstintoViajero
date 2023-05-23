@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio.Dto;
-using Dominio.Entiti;
+using Dominio.Entity;
 using Dominio.Interfaces.Infraestrutura.BaseDatos;
 
 namespace Infraestrutura.BaseDatos

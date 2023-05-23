@@ -1,5 +1,5 @@
 ﻿using Dominio.Dto;
-using Dominio.Entiti;
+using Dominio.Entity;
 using Dominio.Interfaces.Infraestrutura.BaseDatos;
 using System;
 using System.Collections.Generic;
