@@ -29,7 +29,6 @@
 						, Estado = @Estado
 						, FechaModificacion = GETDATE()
 						, UsuarioModificacion = '1'
-						, Accion = 'A'
 						WHERE IdPersona = @IdPersona
 					END
 					COMMIT TRAN ACTUALIZAR

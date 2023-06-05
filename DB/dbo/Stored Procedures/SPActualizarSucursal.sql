@@ -20,7 +20,6 @@ AS
 					, Ubicacion = @Ubicacion
 					, FechaModificacion = GETDATE()
 					, UsuarioModificacion = '1'
-					, Accion = 'A'
 					WHERE	IdSucursal = @IdSucursal
 					END
 

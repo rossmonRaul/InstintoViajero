@@ -10,8 +10,8 @@ AS
 				BEGIN TRAN INSERTAR
 					BEGIN
 						INSERT INTO Roles
-						(Descripcion, Estado,FechaCreacion, UsuarioCreacion, Accion) VALUES 
-						(@Descripcion, @Estado, GETDATE(),'1','I')
+						(Descripcion, Estado,FechaCreacion, UsuarioCreacion) VALUES 
+						(@Descripcion, @Estado, GETDATE(),'1')
 					END
 			COMMIT TRAN INSERTAR
 					SET @INDICADOR = 0

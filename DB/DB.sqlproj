@@ -104,6 +104,7 @@
     <Build Include="dbo\Stored Procedures\SPObtenerDetalleUsuarioNombre.sql" />
     <Build Include="dbo\Stored Procedures\SPObtenerPersonas.sql" />
     <Build Include="Security\INSTINTO_VIAJERO.sql" />
+    <Build Include="dbo\Tables\Bitacora.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />

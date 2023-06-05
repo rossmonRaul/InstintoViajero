@@ -32,7 +32,6 @@ AS
 							, Estado
 							, FechaCreacion
 							, UsuarioCreacion
-							, Accion
 						) VALUES 
 						(
 							@Identificacion
@@ -46,7 +45,6 @@ AS
 							, @Estado
 							, GETDATE()
 							, '1'
-							, 'I'
 						)
 
 					END

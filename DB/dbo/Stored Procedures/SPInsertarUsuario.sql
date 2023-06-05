@@ -35,8 +35,7 @@ AS
                             , Telefono
                             , Estado
                             , FechaCreacion
-                            , UsuarioCreacion
-                            , Accion
+                            , UsuarioCreacion                            
                         ) VALUES 
                         (
                             @Identificacion
@@ -50,7 +49,6 @@ AS
                             , 1
                             , GETDATE()
                             , '1'
-                            , 'I'
                         )
                         DECLARE @IdPersona int;
                         SET @IdPersona = (SELECT TOP 1 IdPersona FROM Personas where  Estado = 1 ORDER BY FechaCreacion DESC );
@@ -64,8 +62,7 @@ AS
                             , Estado
                             , IdSucursal
                             , FechaCreacion
-                            , UsuarioCreacion
-                            , Accion )
+                            , UsuarioCreacion )
 
                             VALUES 
 
@@ -76,8 +73,7 @@ AS
                             , 1
                             , @IdSucursal
                             , GETDATE()
-                            , '1'
-                            , 'I' )
+                            , '1' )
 
                     END
 

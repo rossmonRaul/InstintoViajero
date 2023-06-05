@@ -17,7 +17,6 @@ AS
 					  , Estado = @Estado
 					  , FechaModificacion = GETDATE()
 					  , UsuarioModificacion = '1'
-					  , Accion = 'A'
 					  WHERE	IdRol = @IdRol	  
 				END
 
