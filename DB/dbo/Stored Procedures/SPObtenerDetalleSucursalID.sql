@@ -14,7 +14,6 @@ AS
 							, FechaModificacion
 							, UsuarioCreacion
 							, UsuarioModificacion
-							, Accion
 				FROM		Sucursales  WITH (NOLOCK) 
 				WHERE		IdSucursal = @IdSucursal
 			END

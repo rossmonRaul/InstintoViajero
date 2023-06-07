@@ -37,7 +37,6 @@ AS
 							, Estado
 							, FechaCreacion
 							, UsuarioCreacion
-							, Accion
 						) VALUES 
 						(
 							@Identificacion
@@ -51,7 +50,6 @@ AS
 							, 1
 							, GETDATE()
 							, '1'
-							, 'I'
 						)
 
 					SET @IdPersona = (SELECT IdPersona FROM Personas WHERE Identificacion = @Identificacion)
@@ -65,8 +63,7 @@ AS
 							, Estado
 							, IdSucursal
 							, FechaCreacion
-							, UsuarioCreacion
-							, Accion )
+							, UsuarioCreacion )
 
 							VALUES 
 						
@@ -78,7 +75,6 @@ AS
 							, @IdPlanta
 							, GETDATE()
 							, '1'
-							, 'I' 
 						)
 					END
 

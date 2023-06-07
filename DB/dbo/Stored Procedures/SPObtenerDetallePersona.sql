@@ -18,7 +18,6 @@ AS
 				P.FechaModificacion,
 				P.UsuarioCreacion,
 				P.UsuarioModificacion,
-				P.Accion,
 				T.IdTipoIdentificacion,
 				T.Descripcion
 				FROM		 Personas P WITH (NOLOCK) 

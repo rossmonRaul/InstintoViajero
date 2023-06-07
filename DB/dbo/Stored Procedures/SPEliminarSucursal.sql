@@ -14,7 +14,6 @@ AS
 					Estado =  CASE WHEN @ESTADO_ACTUAL = 1 THEN 0 ELSE 1 END
 				  , FechaModificacion = GETDATE()
 				  , UsuarioModificacion = '1'
-				  , Accion =CASE WHEN @ESTADO_ACTUAL = 1 THEN 'E' ELSE 'A' END
 				  WHERE	IdSucursal = @IdSucursal
 				  END
 				

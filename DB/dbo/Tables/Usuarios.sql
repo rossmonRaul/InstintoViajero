@@ -11,6 +11,12 @@
     [FechaModificacion]   DATETIME        NULL,
     [UsuarioCreacion]     NVARCHAR (MAX)  NULL,
     [UsuarioModificacion] NVARCHAR (MAX)  NULL,
-    [Accion]              VARCHAR (1)     NULL
+    CONSTRAINT [PK_Usuarios] PRIMARY KEY ([IdUsuario]),
+    CONSTRAINT [FK_Usuarios_Personas] FOREIGN KEY ([IdPersona])
+        REFERENCES [dbo].[Personas]([IdPersona]),
+    CONSTRAINT [FK_Usuarios_Roles] FOREIGN KEY ([IdRol])
+        REFERENCES [dbo].[Roles]([IdRol]),
+    CONSTRAINT [FK_Usuarios_Sucursales] FOREIGN KEY ([IdSucursal])
+        REFERENCES [dbo].[Sucursales]([IdSucursal])
 );
 

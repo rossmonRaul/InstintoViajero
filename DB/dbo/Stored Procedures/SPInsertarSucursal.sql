@@ -18,8 +18,8 @@ BEGIN
 
 
 
-INSERT INTO Sucursales (NombreSucursal, Estado,Ubicacion,FechaCreacion,UsuarioCreacion,Accion)
-VALUES (@NombreSucursal,1,@Ubicacion,GETDATE(),'1','I');
+INSERT INTO Sucursales (NombreSucursal, Estado,Ubicacion,FechaCreacion,UsuarioCreacion)
+VALUES (@NombreSucursal,1,@Ubicacion,GETDATE(),'1');
 END
 
 COMMIT TRAN INSERTAR

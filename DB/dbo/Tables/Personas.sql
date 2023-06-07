@@ -13,6 +13,8 @@
     [FechaModificacion]    DATETIME       NULL,
     [UsuarioCreacion]      NVARCHAR (MAX) NULL,
     [UsuarioModificacion]  NVARCHAR (MAX) NULL,
-    [Accion]               VARCHAR (1)    NULL
+    CONSTRAINT [PK_Personas] PRIMARY KEY ([IdPersona]),
+    CONSTRAINT [FK_Personas_TiposIdentificacion] FOREIGN KEY ([IdTipoIdentificacion])
+        REFERENCES [dbo].[TiposIdentificacion]([IdTipoIdentificacion])
 );
 
