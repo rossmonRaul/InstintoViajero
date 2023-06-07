@@ -7,6 +7,7 @@ import Sucursal from './views/sucursal'
 import Usuarios from './views/usuarios';
 import Contrasena from './views/actualizarcontrasena';
 import Reportes from './views/reportes';
+import Personas from './views/personas';
 import { ObtenerTokenUsuario } from './utils/utilidades';
 import { ObtenerDatosDeUsuario } from './utils/utilidades';
 
@@ -57,6 +58,7 @@ const App = () => {
                             <Route index element={<Home />} />
                             { rol=== "Administrador" ? <Route path="sucursal" element={<Sucursal />} /> : ""}
                             {rol === "Administrador" ? <Route path="usuarios" element={<Usuarios />} /> : ""}
+                            {rol === "Administrador" ? <Route path="personas" element={<Personas />} /> : ""}
                             <Route path="contrasena" element={<Contrasena />} />
                             {rol === "Administrador" ? <Route path="reportes" element={<Reportes />} /> : ""}
                             <Route path="*" element={<Navigate to="/" replace />} />

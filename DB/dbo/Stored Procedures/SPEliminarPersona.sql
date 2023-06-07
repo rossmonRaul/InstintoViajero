@@ -1,6 +1,6 @@
 ﻿CREATE   PROCEDURE [dbo].[SPEliminarPersona]
 
-( @Identificacion INT
+( @IdPersona INT
 ,@INDICADOR INT OUT
 ,@MENSAJE VARCHAR(50) OUT)
 
@@ -9,13 +9,13 @@ AS
 		DECLARE @ESTADO_ACTUAL BIT;
 			BEGIN TRY
 				BEGIN TRAN DESACTIVAR
-				SET @ESTADO_ACTUAL = (SELECT TOP 1 Estado FROM Personas WHERE Identificacion = @Identificacion)
+				SET @ESTADO_ACTUAL = (SELECT TOP 1 Estado FROM Personas WHERE IdPersona = @IdPersona)
 					BEGIN
 						UPDATE Personas SET
 						Estado = CASE WHEN @ESTADO_ACTUAL = 1 THEN 0 ELSE 1 END
 					  , FechaModificacion = GETDATE()
 					  , UsuarioModificacion = '1'
-					  WHERE Identificacion = @Identificacion
+					  WHERE IdPersona = @IdPersona
 					END
 					COMMIT TRAN DESACTIVAR
 					SET @INDICADOR = 0

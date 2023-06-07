@@ -56,6 +56,12 @@ const Layout = ({ CerrarSession }) => {
                         </li>
                         : ""
                         }
+                        {rol === "Administrador" ? 
+                        <li className={linkActive === 'personas' ? 'active' : ''}>
+                                    <Link className={`dashboard`} to="/personas" onClick={() => ActivarLink('personas')}>{' '}<span>Personas</span></Link>
+                        </li>
+                        : ""
+                        }
                         {rol === "Administrador" ?
                             <li className={linkActive === 'reportes' ? 'active' : ''}>
                                 <Link className={`dashboard`} to="/reportes" onClick={() => ActivarLink('reportes')}>{' '}<span>Reportes</span></Link>
@@ -92,6 +98,12 @@ const Layout = ({ CerrarSession }) => {
                                             {rol === "Administrador" ?
                                                 <li className={linkActive === 'usuarios' ? 'active' : ''}>
                                                     <Link className={`dashboard`} to="/usuarios" onClick={() => ActivarLink('usuarios')}>{' '}<span>Usuarios</span></Link>
+                                                </li>
+                                                : ""
+                                            }
+                                            {rol === "Administrador" ?
+                                                <li className={linkActive === 'personas' ? 'active' : ''}>
+                                                    <Link className={`dashboard`} to="/personas" onClick={() => ActivarLink('personas')}>{' '}<span>Personas</span></Link>
                                                 </li>
                                                 : ""
                                             }
