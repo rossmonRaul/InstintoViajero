@@ -3,6 +3,7 @@ import { Nav, Navbar, Container, Button } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
 import logo from '../../images/logo.webp';
 import user from '../../images/user.png';
+import classNames from "classnames";
 
 const Layout = ({ CerrarSession }) => {
     const [linkActive, setLinkActive] = useState(window.location.pathname.replace('/', ''));
@@ -30,13 +31,17 @@ const Layout = ({ CerrarSession }) => {
         setRol(rol.descripcion);
 
     }
-
+    const [sidebarIsOpen, setSidebarOpen] = useState(false);
+    const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
 
     return (
         <>
+
             <div className="wrapper">
                 <div className="body-overlay"></div>
-                <nav id="sidebar">
+
+
+                <nav id="sidebar" className={classNames( { "is-open": sidebarIsOpen })}>
                     <div className="sidebar-header" style={{ backgroundColor: "#005CB8" }}>
                         <h3><img src={logo} className="img-fluid" style={{ width: "150px" }} /><span></span></h3>
                     </div>
@@ -65,8 +70,10 @@ const Layout = ({ CerrarSession }) => {
                     </div>
                 </nav>
 
+                
 
                 <div id="content">
+
                     <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: "#005CB8" }} >                    
                         <Container fluid>                          
                             <Navbar.Toggle aria-controls="navbarScroll" style={{ backgroundColor: "#005CB8" }} />
