@@ -13,6 +13,8 @@ using Dominio.Interfaces.Aplicacion.Login;
 using Aplicacion.Login;
 using Dominio.Interfaces.Aplicacion.Reporte;
 using Aplicacion.Reporte;
+using Dominio.Interfaces.Aplicacion.Persona;
+using Aplicacion.Persona;
 
 namespace Aplicacion
 {
@@ -27,6 +29,7 @@ namespace Aplicacion
             services.AddScoped<IServicioTiposIdentificacion, ServicioTiposIdentificacion>();
             services.AddScoped<IServicioLogin, ServicioLogin>();
             services.AddScoped<IServicioReporte, ServicioReporte>();
+            services.AddScoped<IServicioPersona, ServicioPersona>();
 
 
             return services;

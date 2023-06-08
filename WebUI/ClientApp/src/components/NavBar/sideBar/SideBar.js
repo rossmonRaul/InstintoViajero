@@ -76,7 +76,11 @@ const submenus = [
     {
       title: "Usuarios",
       target: "usuarios",
-    },
+      },
+    {
+      title: "Personas",
+      target: "personas",
+     },
   ],
 ];
 

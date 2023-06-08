@@ -6,6 +6,7 @@ import TopbarViajero from "../../components/NavBar/TopBar";
 import Sucursal from "../sucursal";
 import Reportes from "../reportes";
 import Usuarios from "../usuarios";
+import Personas from "../personas";
 import Home from ".";
 
 
@@ -26,7 +27,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar, rol, CerrarSession }) => (
       { rol=== "Administrador" ? <Route exact path="/sucursal" element={<Sucursal />} component={() => "sucursal"} /> : ""}
       { rol=== "Administrador" ? <Route exact path="/usuarios" element={<Usuarios />} component={() => "usuarios"} /> : ""}
       { rol=== "Administrador" ? <Route exact path="/reportes" element={<Reportes />} component={() => "reportes"} /> : ""}
-
+      {rol === "Administrador" ? <Route exact path="/personas" element={<Personas />} component={() => "personas"} /> : ""}
       
       
     </Routes>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import DataTable from "react-data-table-component"
 
-export const Grid = ({gridHeading, gridData, selectableRows, pending, setFilaSeleccionada, idBuscar}) => {
+export const Grid = ({ gridHeading, gridData, selectableRows, pending, setFilaSeleccionada, idBuscar }) => {
     const [id, setId] = useState(-1);
     const paginationComponentOptions = {
         rowsPerPageText: 'Filas por página',
@@ -40,19 +40,50 @@ export const Grid = ({gridHeading, gridData, selectableRows, pending, setFilaSel
         }      
     }
 
+    // Estilos  
+    const customStyles = {      
+        headCells: {
+            style: {            
+                fontSize: '16px',
+                color: '#005CB8'
+            },
+        },
+        rows: {
+            highlightOnHoverStyle: {
+                backgroundColor: '#FFA07A',
+                borderBottomColor: '#FFFFFF',
+                borderRadius: '10px',
+                outline: '1px solid #FFFFFF',
+            },
+            selectedHighlightStyle: {
+                borderColor: '#FFFFFF',
+                borderBottomColor: '#FFFFFF',
+                borderRadius: '10px',
+                outline: '1px solid #FFFFFF',
+            },
+        },
+        pagination: {
+            style: {
+                fontSize: '14px',           
+            },
+        },
+    }       
+
 
     return(
         <>
             <DataTable className='table table-sm'
+                customStyles={customStyles}
                 columns={gridHeading}
                 data={gridData}
-                selectableRows={selectableRows}
+                selectableRows={selectableRows}              
+                fixedHeader
                 selectableRowsSingle
                 pagination       
                 paginationComponentOptions={paginationComponentOptions}         
                 striped
                 noHeader
-                dense
+                dense={ false}
                 noDataComponent="No hay datos para mostrar"
                 highlightOnHover
                 onRowClicked={onRowClicked}
@@ -63,7 +94,6 @@ export const Grid = ({gridHeading, gridData, selectableRows, pending, setFilaSel
                 progressComponent={<><Spinner animation="border" variant="primary" />&nbsp;Cargando...</>}
                 selectableRowSelected={(row) => row[idBuscar] == id}  
                 allowRowEvents
-
             />
         </>
     )
