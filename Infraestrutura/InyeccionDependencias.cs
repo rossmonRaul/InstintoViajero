@@ -21,6 +21,7 @@ namespace Infraestrutura
             services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
             services.AddScoped<IRepositorioLogin, RepositorioLogin>();
             services.AddScoped<IRepositorioReporte, RepositorioReporte>();
+            services.AddScoped<IRepositorioProducto, RepositorioProducto>();
 
 
 
