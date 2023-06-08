@@ -54,7 +54,7 @@
 					END
 					COMMIT TRAN ACTUALIZAR
 					SET @INDICADOR = 0
-					SET @MENSAJE = 'Exito: Persona actualizada exiosamente'
+					SET @MENSAJE = 'Exito: Persona actualizada exitosamente'
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1

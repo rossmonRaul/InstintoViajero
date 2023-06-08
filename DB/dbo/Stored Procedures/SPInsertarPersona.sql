@@ -69,7 +69,7 @@ AS
 
 					COMMIT TRAN INSERTAR
 					SET @INDICADOR = 0
-					SET @MENSAJE = 'Exito: Persona insertada exiosamente'
+					SET @MENSAJE = 'Exito: Persona insertada exitosamente'
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1

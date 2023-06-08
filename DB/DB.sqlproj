@@ -106,6 +106,10 @@
     <Build Include="Security\INSTINTO_VIAJERO.sql" />
     <Build Include="dbo\Tables\Bitacora.sql" />
     <Build Include="dbo\Stored Procedures\SPInsertarBitacora.sql" />
+    <Build Include="dbo\Tables\Vendedores.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarVendedor.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarVendedor.sql" />
+    <Build Include="dbo\Stored Procedures\SPEliminarVendedor.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />
