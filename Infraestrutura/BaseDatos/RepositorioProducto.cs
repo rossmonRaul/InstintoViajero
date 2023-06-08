@@ -17,19 +17,58 @@ namespace Infraestrutura.BaseDatos
         {
             this.contextoBD = contextoBD;
         }
-        public Task<DtoDatosSP> ActualizarProducto(EntityProducto entitiProducto)
+        public async Task<DtoDatosSP> ActualizarProducto(EntityProducto entitiProducto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Dictionary<string, object> data = new Dictionary<string, object>();
+                data.Add("Nombre", entitiProducto.Nombre);
+                data.Add("CodProducto", entitiProducto.CodProducto);
+                data.Add("IdTipo", entitiProducto.IdTipo);
+                data.Add("id", entitiProducto.Id);
+
+                string query = "SPActualizarProducto";
+
+                return await this.contextoBD.EjecutarSP(query, data);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<DtoDatosSP> EliminarProducto(int idProducto)
+        public async Task<DtoDatosSP> EliminarProducto(int idProducto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Dictionary<string, object> data = new Dictionary<string, object>();
+                data.Add("IdProducto", idProducto);
+                string query = "SPEliminarProducto";
+
+                return await this.contextoBD.EjecutarSP(query, data);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<DtoDatosSP> InsertarProducto(EntityProducto entitiProducto)
+        public async Task<DtoDatosSP> InsertarProducto(EntityProducto entitiProducto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Dictionary<string, object> data = new Dictionary<string, object>();
+                data.Add("Nombre", entitiProducto.Nombre);
+                data.Add("CodProducto", entitiProducto.CodProducto);
+                data.Add("IdTipo", entitiProducto.IdTipo);
+                string query = "SPInsertarProducto";
+
+                return await this.contextoBD.EjecutarSP(query, data);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public async Task<DtoProducto> ObtenerDetalleProductoID(int idProducto)
@@ -70,6 +109,21 @@ namespace Infraestrutura.BaseDatos
             {
                 string query = "SPObtenerProductos";
                 var result = await this.contextoBD.ObtenerListaDeDatos<DtoProducto>(query);
+
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<List<EntityTipoProducto>> ObtenerTiposProductos()
+        {
+            try
+            {
+                string query = "SPObtenerTiposProductos";
+                var result = await this.contextoBD.ObtenerListaDeDatos<EntityTipoProducto>(query);
 
                 return result;
             }

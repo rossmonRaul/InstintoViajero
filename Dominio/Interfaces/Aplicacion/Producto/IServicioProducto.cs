@@ -16,5 +16,6 @@ namespace Dominio.Interfaces.Aplicacion.Producto
         Task<DtoProducto> ObtenerDetalleProductoID(int idProducto);
         Task<DtoProducto> ObtenerDetalleProductoNombre(string nombre);
         Task<List<DtoProducto>> ObtenerProductoes();
+        Task<List<EntityTipoProducto>> ObtenerTiposProductos();
     }
 }

@@ -110,6 +110,11 @@
     <Build Include="dbo\Tables\TipoProductos.sql" />
     <Build Include="dbo\Tables\Productos.sql" />
     <Build Include="dbo\Stored Procedures\Productos\SPObtenerProductos.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPEliminarProducto.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPObtenerTiposProductos.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPInsertarProducto.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPActualizarProducto.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPObtenerDetalleProductoID.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />

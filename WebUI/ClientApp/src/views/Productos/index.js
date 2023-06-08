@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { InactivarProducto, ObtenerProductoPorId, ObtenerProductos } from '../../servicios/ServicioProductos';
+import { ActualizarProducto, AgregarProducto, InactivarProducto, ObtenerProductoPorId, ObtenerProductos } from '../../servicios/ServicioProductos';
 import { Button } from 'react-bootstrap';
 import { Grid } from '../../components/grid';
+import FormularioProducto from './FormularioProductos';
+import { FormularioModal } from '../../components/ventanaModal';
 
 const ProductoComponet = () => {
     const [proceso, setProceso] = useState(1);
@@ -21,17 +23,17 @@ const ProductoComponet = () => {
     const [lista, setLista] = useState([]);
     const encabezado = [
         { id: 'CodProducto', name: 'Codigo de Producto', selector: row => row.codProducto, head: "Codigo de Producto" },
-        { id: 'Nombre', name: 'Descripción del Producto', selector: row => row.nombre, head: "Descripción del Producto" },     
-        { id: 'id', name: 'Serie', selector: row => row.id, head: "id", },         
-        { id: 'fechaCreacion', name: 'F. Creación', selector: row => row.fechaCreacion.split('T')[0], head:"F. Creación" },
-        { id: 'estado', name: 'Estado', selector: row => row.estado , head:"Estado" },
+        { id: 'Nombre', name: 'Descripción del Producto', selector: row => row.nombre, head: "Descripción del Producto" },
+        { id: 'id', name: 'Serie', selector: row => row.id, head: "id", },
+        { id: 'fechaCreacion', name: 'F. Creación', selector: row => row.fechaCreacion.split('T')[0], head: "F. Creación" },
+        { id: 'estado', name: 'Estado', selector: row => row.estado, head: "Estado" },
     ]
     useEffect(() => {
-        ObtenerListado();        
+        ObtenerListado();
     }, []);
 
 
-    const ObtenerListado = async() => {
+    const ObtenerListado = async () => {
         setPendiente(true);
         setLista(await ObtenerProductos());
         setListaRespaldo(await ObtenerProductos());
@@ -47,35 +49,56 @@ const ProductoComponet = () => {
 
     const onClickCerrarModal = () => {
         setModal(false);
-        setMensajeFormulario("");   
+        setMensajeFormulario("");
     }
 
     const onClickNuevo = () => {
         setProceso(1);
         setModal(!modal);
         setLabelButton("Registrar");
-        setModalTitulo("Registrar sucursal");
+        setModalTitulo("Registrar Producto");
     }
 
-    const onClickActualizar = async() => {
+    const onClickActualizar = async () => {
+        console.log(filaSeleccionada.id);
         setData(await ObtenerProductoPorId(filaSeleccionada.id));
         setProceso(2);
         setModal(!modal);
         setLabelButton("Actualizar");
-        setModalTitulo("Actualizar sucursal");
+        setModalTitulo("Actualizar Producto");
     }
 
-    const onClickInactivar = async() => {
+    const onClickInactivar = async () => {
         const respuesta = await InactivarProducto(filaSeleccionada.id)
-        if(respuesta.indicador === 0)
-        ObtenerListado();
-        setMensajeRespuesta(respuesta);
-        setTextoBotonInactivar("Activar");
+        if (respuesta.indicador === 0)
+            ObtenerListado();
+        setMensajeRespuesta(respuesta);        
+        setTextoBotonInactivar(textoBotonInactivar == "Activar" ? "Inactivar" : "Activar");
     }
 
 
 
     const ValidarSiFilaFueSeleccionada = (fila) => Object.entries(fila).length === 0 ? false : true;
+
+
+    const onClickProcesar = async(data) => {
+        let respuesta = {};
+        if(proceso === 1)
+            respuesta = await AgregarProducto(data);
+        else{
+            data.id = filaSeleccionada.id;
+            data.estado = true;
+            respuesta = await ActualizarProducto(data);
+        }
+
+        if(respuesta.indicador == 0){
+            setModal(false);
+            ObtenerListado();
+            setMensajeRespuesta(respuesta);
+        }else{     
+            setMensajeFormulario(respuesta.mensaje);  
+        }             
+    }
 
     return (
         <>
@@ -83,8 +106,13 @@ const ProductoComponet = () => {
                 <h1>Catálogo de Productos</h1>
                 <hr />
 
-
-                <Button variant="primary" type="submit" size="sm" onClick={() => onClickNuevo()}>Registrar</Button>{' '}
+                <Button
+                    variant="primary"
+                    type="submit"
+                    size="sm"
+                    onClick={() => onClickNuevo()}>
+                    Registrar
+                </Button>{' '}
 
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizar()} disabled={bloquearBoton}>Actualizar</Button>{' '}
                 <Button
@@ -106,9 +134,20 @@ const ProductoComponet = () => {
                     selectableRows={true}
                     pending={pendiente}
                     setFilaSeleccionada={onClickSeleccionarFila}
-                    idBuscar="idProducto" />
+                    idBuscar="id" />
                 <br />
                 <br />
+                <FormularioModal 
+                show={modal} 
+                handleClose={onClickCerrarModal} 
+                titulo={modalTitulo} tamano="lg" className=''>
+                <FormularioProducto 
+                labelButton={labelButton} 
+                data={data} 
+                proceso={proceso} 
+                onClickProcesar={onClickProcesar} 
+                mensaje={mensajeFormulario}/>
+                </FormularioModal>
 
             </div>
 

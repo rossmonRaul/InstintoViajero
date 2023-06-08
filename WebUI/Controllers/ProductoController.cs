@@ -73,5 +73,11 @@ namespace WebUI.Controllers
         {
             return Json(await this.servicioProducto.ObtenerProductoes());
         }
+        [HttpGet("[action]")]
+        [Authorize]
+        public async Task<JsonResult> ObtenerTiposProductos()
+        {
+            return Json(await this.servicioProducto.ObtenerTiposProductos());
+        }
     }
 }

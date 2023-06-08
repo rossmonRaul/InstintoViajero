@@ -10,6 +10,6 @@ namespace Dominio.Entity
     {
         public int? Id { get; set; }
         public string? CodTipoProducto { get; set; }
-        public string? DescripcionProducto { get; set; }
+        public string? DesTipoProducto { get; set; }
     }
 }

@@ -51,5 +51,9 @@ namespace Aplicacion.Producto
         {
             return await this.repositorioProducto.ObtenerProductoes();
         }
+        public async Task<List<EntityTipoProducto>> ObtenerTiposProductos()
+        {
+            return await this.repositorioProducto.ObtenerTiposProductos();
+        }
     }
 }
