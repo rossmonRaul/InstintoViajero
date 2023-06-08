@@ -34,7 +34,7 @@ namespace Dominio.Dto
 
         public string? usuarioModificacion { get; set; }
 
-        public string? accion { get; set; }
+        //public string? accion { get; set; }
 
         public int idTipoIdentificacion { get; set; }
 
