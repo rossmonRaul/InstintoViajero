@@ -23,12 +23,12 @@ const Personas = () => {
 
     const encabezado = [
         { id: 'id', name: 'id', selector: row => row.id, head: "id", omit: true },
-        { id: 'identificacion', name: 'Identificacion', selector: row => row.identificacion, head: "Identificación" },
-        { id: 'nombre', name: 'Nombre', selector: row => row.nombre, head: "Nombre" },
-        { id: 'apellido1', name: 'P. Apellido', selector: row => row.primerApellido, head: "P. Apellido" },
-        { id: 'apellido2', name: 'S. Apellido', selector: row => row.segundoApellido, head: "S. Apellido" },
-        { id: 'fechaNacimiento', name: 'FechaNacimiento', selector: row => row.descripcion, head: "F. Nacimiento" },
-        { id: 'Estado', name: 'Estado', selector: row => row.estado, head: "Estado" }
+        { id: 'identificacion', name: 'Identificacion', selector: row => row.identificacion, head: "Identificación", sortable: true },
+        { id: 'nombre', name: 'Nombre', selector: row => row.nombre, head: "Nombre", sortable: true },
+        { id: 'apellido1', name: 'P. Apellido', selector: row => row.primerApellido, head: "P. Apellido", sortable: true },
+        { id: 'apellido2', name: 'S. Apellido', selector: row => row.segundoApellido, head: "S. Apellido", sortable: true },
+        { id: 'fechaNacimiento', name: 'FechaNacimiento', selector: row => row.descripcion, head: "F. Nacimiento", sortable: true },
+        { id: 'Estado', name: 'Estado', selector: row => row.estado, head: "Estado" , sortable: true}
     ]
 
     useEffect(() => {

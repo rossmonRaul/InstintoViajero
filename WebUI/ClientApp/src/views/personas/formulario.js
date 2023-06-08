@@ -1,7 +1,6 @@
 ﻿import React, { useEffect, useState } from 'react'
 import { Button, Form, Row } from 'react-bootstrap';
 import { InputSelect, InputText } from '../../components/inputs';
-import { ComboBox } from '../../components/combobox';
 import { ObtenerTiposIdentificacion } from '../../servicios/ServicioPersonas';
 
 const Formulario = ({ labelButton, data, proceso, onClickProcesarPersona, mensaje }) => {
@@ -76,32 +75,31 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarPersona, mensaj
         <>
             <Form noValidate validated={validated} onSubmit={onClickAceptar}>
                 <Row>
-
                     <InputSelect className="form-control custom-select-sm" controlId="sel-tipoIdentificacion" label="Tipo de Identificación" data={listaTiposIdentificacion}
-                        onChange={onChangeTiposIdentificacion} value={idTiposIdentificacion} optionValue="idTipoIdentificacion" optionLabel="descripcion" classGroup="col-md-5" />
+                        onChange={onChangeTiposIdentificacion} value={idTiposIdentificacion} optionValue="idTipoIdentificacion" optionLabel="descripcion" classGroup="col-md-4" />
 
                     <InputText id='txt-identificacion' label='Identificación:' type='text' placeholder='Ingrese la identificación' value={identificacion}
-                        text='Identificación.' onChange={onChangeIdentificacion} mensajeValidacion="La identificación es requerida" className="col-md-4" readOnly={proceso == 2} />
+                        onChange={onChangeIdentificacion} mensajeValidacion="La identificación es requerida" className="col-md-4" readOnly={proceso == 2} />
                 </Row>
                 <Row>
                     <InputText id='txt-nombre' label='Nombre:' type='text' placeholder='Ingrese el nombre' value={nombre}
-                        text='Nombre.' onChange={onChangeNombre} mensajeValidacion="El nombre es requerido" className="col-md-4" />
+                        onChange={onChangeNombre} mensajeValidacion="El nombre es requerido" className="col-md-4" />
                     <InputText id='txt-primerApellido' label='Primer Apellido:' type='text' placeholder='Ingrese el primer apellido' value={primerApellido}
-                        text='Primer Apellido.' onChange={onChangePrimerApellido} mensajeValidacion="El campo es requerido" className="col-md-4" />
+                         onChange={onChangePrimerApellido} mensajeValidacion="El apellido es requerido" className="col-md-4" />
 
                     <InputText id='txt-segundoApellido' label='Segundo Apellido:' type='text' placeholder='Ingrese el segundo apellido' value={segundoApellido}
-                        text='Segundo Apellido.' onChange={onChangeSegundoApellido} mensajeValidacion="El campo es requerido" className="col-md-4" />
+                        onChange={onChangeSegundoApellido} mensajeValidacion="El apellido es requerido" className="col-md-4" />
                 </Row>
                 <Row>
                     <InputText id='txt-fecNacimiento' label='Fecha de Nacimiento:' type='date' placeholder='Ingrese la fecha de nacimiento' value={fechaNacimiento}
-                        text='Fecha de Nacimiento.' onChange={onChangeFechaNacimiento} mensajeValidacion="El campo es requerido" className="col-md-4" />
+                         onChange={onChangeFechaNacimiento} mensajeValidacion="La fecha es requerida" className="col-md-4" />
 
                     <InputText id='txt-telefono' label='Teléfono:' type='tel' placeholder='Ingrese el teléfono' value={telefono}
-                        text='Teléfono.' onChange={onChangeTelefono} mensajeValidacion="El campo es requerido" />
+                        onChange={onChangeTelefono} mensajeValidacion="El teléfono es requerido" className="col-md-4"/>
                 </Row>
                 <Row>
                     <InputText id='txt-direccion' label='Dirección:' type='text' placeholder='Ingrese la dirección' value={direccion}
-                        text='Dirección exacta.' onChange={onChangeDireccion} mensajeValidacion="El campo es requerido" className="col-md-10" />
+                         onChange={onChangeDireccion} mensajeValidacion="La dirección es requerida" className="col-md-12" />
                 </Row>
                 <br />
                 {mensaje !== "" ? <p className="text-info text-center">{mensaje}</p> : ""}
