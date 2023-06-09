@@ -3,6 +3,7 @@
 ( @IdVendedor INT
 , @IdPersona INT
 , @IdSucursal INT
+, @CodVendedor NVARCHAR(16)
 , @FechaContratacion DATE
 , @Estado BIT
 , @INDICADOR INT OUT
@@ -20,7 +21,8 @@ AS
                     BEGIN
                         UPDATE        Vendedores SET
                                       IdPersona = @IdPersona
-                                    , IdSucursal = @IdSucursal                                 
+                                    , IdSucursal = @IdSucursal  
+                                    , CodVendedor =@CodVendedor
                                     , FechaContratacion = @FechaContratacion
 									, Estado = @Estado
                                     , FechaModificacion = @Vfecha
@@ -32,6 +34,7 @@ AS
 						SET @vDetalle = 'IdVendedor: ' + CAST(@IdVendedor AS NVARCHAR(12)) + ', ' + 
 									   'IdPersona: ' + CAST(@IdPersona AS NVARCHAR(12)) + ', ' +
 									   'IdSucursal: ' + CAST(@IdSucursal AS NVARCHAR(12)) + ', ' +
+                                       'CodVendedor: ' + @CodVendedor + ', ' +
 									   'FechaContratacion: ' + CAST(@FechaContratacion AS NVARCHAR(12)) + ', ' +
 									   'Estado: ' + CAST(@Estado AS NVARCHAR(1));
 

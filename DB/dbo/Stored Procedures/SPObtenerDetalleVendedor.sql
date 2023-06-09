@@ -6,6 +6,7 @@ AS
 			BEGIN
 				SELECT		 
 					V.IdVendedor
+					, V.CodVendedor
 					, V.FechaContratacion
 					, CASE WHEN V.Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
 					, V.FechaCreacion

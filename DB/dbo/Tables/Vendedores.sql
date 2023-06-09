@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [dbo].[Vendedores](
     [IdVendedor]           INT            IDENTITY (1, 1) NOT NULL,
     [IdPersona]           INT             NOT NULL,
+    [CodVendedor]         NVARCHAR(16)    NOT NULL,
     [Estado]              BIT             NOT NULL,
     [IdSucursal]          INT             NOT NULL,
     [FechaContratacion]   DATETIME        NULL,

@@ -5,21 +5,19 @@ AS
 			BEGIN
 				SELECT	
 					V.IdVendedor
+					, V.CodVendedor
 					, V.FechaContratacion
-					, CASE WHEN V.Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
 					, V.FechaCreacion
+					, CASE WHEN V.Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
 					, P.IdPersona
 					, P.Identificacion
+					, P.IdTipoIdentificacion
 					, P.Nombre
      				, P.PrimerApellido
 					, P.SegundoApellido
 					, P.FechaNacimiento
-					, P.Direccion
-					, CASE WHEN P.Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS EstadoPersona
 					, S.IdSucursal
 					, S.NombreSucursal
-					, S.Ubicacion
-					, CASE WHEN S.Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS EstadoSucursal
 					FROM Vendedores V WITH (NOLOCK)
 					INNER JOIN	 Personas P
 						ON V.IdPersona = P.IdPersona

@@ -2,6 +2,7 @@
 
 ( 
   @IdPersona INT
+, @CodVendedor NVARCHAR(16)
 , @IdSucursal INT
 , @FechaContratacion DATE
 , @Estado BIT
@@ -21,6 +22,7 @@ AS
                         INSERT INTO Vendedores
                         (
                             IdPersona
+                            , CodVendedor
                             , IdSucursal
 							, FechaContratacion
                             , Estado
@@ -29,6 +31,7 @@ AS
                         ) VALUES 
                         (
                             @IdPersona
+                            , @CodVendedor
                             , @IdSucursal
                             , @FechaContratacion
                             , 1
@@ -39,6 +42,7 @@ AS
 						-- Ejecuta SPInsertarBitacora
 						DECLARE @vDetalle NVARCHAR(600);						
 						SET @vDetalle = 'IdPersona: ' + CAST(@IdPersona AS NVARCHAR(12)) + ', ' +
+                                       'CodVendedor: ' + @CodVendedor + ', ' +
 									   'IdSucursal: ' + CAST(@IdSucursal AS NVARCHAR(12)) + ', ' +
 									   'FechaContratacion: ' + CAST(@FechaContratacion AS NVARCHAR(12)) + ', ' +
 									   'Estado: ' + CAST(@Estado AS NVARCHAR(1));
