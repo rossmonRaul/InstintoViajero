@@ -85,6 +85,10 @@ const submenus = [
       title: "Productos",
       target: "productos",
     },
+    {
+      title: "Formas de Pago",
+      target: "FormasDePago",
+    },
   ],
 ];
 
