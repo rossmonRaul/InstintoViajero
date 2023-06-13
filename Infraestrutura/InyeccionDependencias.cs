@@ -16,14 +16,12 @@ namespace Infraestrutura
             //repositorios de cada CRUD
             services.AddScoped<IRepositorioSucursal, RepositorioSucursal>();
             services.AddScoped<IRepositorioPersona, RepositorioPersona>();
+            services.AddScoped<IRepositorioVendedor, RepositorioVendedor>();
             services.AddScoped<IRepositorioRol, RepositorioRol>();
             services.AddScoped<IRepositorioTiposIdentificacion, RepositorioTiposIdentificacion>();
             services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
             services.AddScoped<IRepositorioLogin, RepositorioLogin>();
             services.AddScoped<IRepositorioReporte, RepositorioReporte>();
-            services.AddScoped<IRepositorioVendedor, RepositorioVendedor>();
-
-
 
             return services;
         }

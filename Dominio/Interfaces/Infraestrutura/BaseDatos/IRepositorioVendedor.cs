@@ -10,9 +10,9 @@ namespace Dominio.Interfaces.Infraestrutura.BaseDatos
 {
     public interface IRepositorioVendedor
     {
-        Task<DtoDatosSP> InsertarVendedor(EntityVendedor entitiVendedor);
+        Task<DtoDatosSP> InsertarVendedor(EntityVendedor entityVendedor);
 
-        Task<DtoDatosSP> ActualizarVendedor(EntityVendedor entitiVendedor);
+        Task<DtoDatosSP> ActualizarVendedor(EntityVendedor entityVendedor);
 
         Task<DtoDatosSP> EliminarVendedor(int idVendedor);
 

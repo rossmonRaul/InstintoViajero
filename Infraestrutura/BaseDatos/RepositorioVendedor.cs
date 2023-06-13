@@ -9,7 +9,7 @@ using Dominio.Interfaces.Infraestrutura.BaseDatos;
 
 namespace Infraestrutura.BaseDatos
 {
-    public class RepositorioVendedor:IRepositorioVendedor
+    public class RepositorioVendedor : IRepositorioVendedor
     {
         private readonly IContextoBD contextoBD;
 

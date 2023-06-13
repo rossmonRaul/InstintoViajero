@@ -15,6 +15,8 @@ using Dominio.Interfaces.Aplicacion.Reporte;
 using Aplicacion.Reporte;
 using Dominio.Interfaces.Aplicacion.Persona;
 using Aplicacion.Persona;
+using Aplicacion.Vendedor;
+using Dominio.Interfaces.Aplicacion.Vendedor;
 
 namespace Aplicacion
 {
@@ -30,6 +32,7 @@ namespace Aplicacion
             services.AddScoped<IServicioLogin, ServicioLogin>();
             services.AddScoped<IServicioReporte, ServicioReporte>();
             services.AddScoped<IServicioPersona, ServicioPersona>();
+            services.AddScoped<IServicioVendedor, ServicioVendedor>();
 
 
             return services;

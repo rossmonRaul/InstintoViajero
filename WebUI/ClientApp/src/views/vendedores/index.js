@@ -23,14 +23,17 @@ const Vendedores = () => {
 
     const encabezado = [
         { id: 'id', name: 'id', selector: row => row.id, head: "id", omit: true },
-        { id: 'codVendedor', name: 'CodVendedor', selector: row => row.codVendedor, head: "Cod. Vendedor", sortable: true },
+        { id: 'codVendedor', name: 'Cod. Vendedor', selector: row => row.codVendedor, head: "Cod. Vendedor", sortable: true },
         { id: 'nombre', name: 'Nombre', selector: row => row.nombre, head: "Nombre", sortable: true },
         { id: 'apellido1', name: 'P. Apellido', selector: row => row.primerApellido, head: "P. Apellido", sortable: true },
         { id: 'apellido2', name: 'S. Apellido', selector: row => row.segundoApellido, head: "S. Apellido", sortable: true },
-        { id: 'nombreSucursal', name: 'NombreSucursal', selector: row => row.nombreSucursal, head: "Sucursal", sortable: true },
-        { id: 'fechaContratacion', name: 'FechaContratacion', selector: row => row.descripcion, head: "F. Contratación", sortable: true },
+        { id: 'nombreSucursal', name: 'Sucursal', selector: row => row.nombreSucursal, head: "Sucursal", sortable: true },
+        { id: 'fechaContratacion', name: 'F. Contratación', selector: row => new Date(row.fechaContratacion).toLocaleDateString('es-ES'), head: "F. Contratación", sortable: true },
         { id: 'Estado', name: 'Estado', selector: row => row.estado, head: "Estado", sortable: true }
     ]
+
+    //Se indica las columnas en las que se aplica el filtro
+    const filterColumns = ['codVendedor', 'nombre', 'primerApellido', 'segundoApellido', 'nombreSucursal'];
 
     useEffect(() => {
         ObtenerListadoDeVendedores();
@@ -116,7 +119,7 @@ const Vendedores = () => {
                     : ''}
                 <span>Listado de todos los vendendedores registrados</span>
                 <Grid gridHeading={encabezado} gridData={listaDeVendedores} selectableRows={true} pending={pendiente}
-                    setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idVendedor" />
+                    setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idVendedor" filterColumns={filterColumns} />
                 <br /><br />
             </div>
             <FormularioModal show={modal} handleClose={onClickCerrarModal} titulo={modalTitulo} className='' tamano="lg">
