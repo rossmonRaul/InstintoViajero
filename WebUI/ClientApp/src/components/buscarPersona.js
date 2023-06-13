@@ -19,7 +19,7 @@ export const BuscarPersona = ({ show, handleClose, className, tamano, handleAcep
         { id: 'apellido1', name: 'P. Apellido', selector: row => row.primerApellido, head: "P. Apellido", sortable: true },
         { id: 'apellido2', name: 'S. Apellido', selector: row => row.segundoApellido, head: "S. Apellido", sortable: true },
         //{ id: 'fechaNacimiento', name: 'FechaNacimiento', selector: row => new Date(row.fechaNacimiento).toLocaleDateString('es-ES'), head: "F. Nacimiento", sortable: true },
-        { id: 'Estado', name: 'Estado', selector: row => row.estado, head: "Estado", sortable: true }
+        //{ id: 'Estado', name: 'Estado', selector: row => row.estado, head: "Estado", sortable: true }
     ]
 
     //Se indica las columnas para aplicar filtro
