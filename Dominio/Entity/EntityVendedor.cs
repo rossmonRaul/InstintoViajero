@@ -6,28 +6,21 @@ using System.Threading.Tasks;
 
 namespace Dominio.Entity
 {
-    public class EntityPersona
+    public class EntityVendedor
     {
-
-        public int idPersona { get; set; }
-
-        public int identificacion { get; set; }
-
-        public int idTipoIdentificacion { get; set; }
-
-        public string nombre { get; set; }
-
-        public string primerApellido { get; set; }
-
-        public string segundoApellido { get; set; }
-
-        public DateTime? fechaNacimiento { get; set; }
-
-        public string direccion { get; set; }
-
-        public string telefono { get; set; }
-
+        public int idVendedor { get; set; }
+        public string codVendedor { get; set; }
+        public DateTime? fechaContratacion { get; set; }
         public bool estado { get; set; }
+        public int idPersona { get; set; }
+        public int identificacion { get; set; }
+        public int idTipoIdentificacion { get; set; }
+        public string nombre { get; set; }
+        public string primerApellido { get; set; }
+        public string segundoApellido { get; set; }
+        public DateTime? fechaNacimiento { get; set; }
+        public int idSucursal { get; set; }
+        public string nombreSucursal { get; set; }
 
     }
 }

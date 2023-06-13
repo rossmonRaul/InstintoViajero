@@ -85,6 +85,10 @@ const submenus = [
       title: "Productos",
       target: "productos",
     },
+      {
+          title: "Vendedores",
+          target: "vendedores",
+      },
   ],
 ];
 

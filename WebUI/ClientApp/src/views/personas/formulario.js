@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react'
 import { Button, Form, Row } from 'react-bootstrap';
 import { InputSelect, InputText } from '../../components/inputs';
+import { ComboBox } from '../../components/combobox';
 import { ObtenerTiposIdentificacion } from '../../servicios/ServicioPersonas';
 
 const Formulario = ({ labelButton, data, proceso, onClickProcesarPersona, mensaje }) => {
@@ -75,8 +76,8 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarPersona, mensaj
         <>
             <Form noValidate validated={validated} onSubmit={onClickAceptar}>
                 <Row>
-                    <InputSelect className="form-control custom-select-sm" controlId="sel-tipoIdentificacion" label="Tipo de Identificación" data={listaTiposIdentificacion}
-                        onChange={onChangeTiposIdentificacion} value={idTiposIdentificacion} optionValue="idTipoIdentificacion" optionLabel="descripcion" classGroup="col-md-4" />
+                    <ComboBox className="form-control custom-select-sm" controlId="sel-tipoIdentificacion" label="Tipo de Identificación" data={listaTiposIdentificacion}
+                        onChange={onChangeTiposIdentificacion} value={idTiposIdentificacion} indicacion="Seleccione el tipo de identificación"  optionValue="idTipoIdentificacion" optionLabel="descripcion" classGroup="col-md-4" />
 
                     <InputText id='txt-identificacion' label='Identificación:' type='text' placeholder='Ingrese la identificación' value={identificacion}
                         onChange={onChangeIdentificacion} mensajeValidacion="La identificación es requerida" className="col-md-4" readOnly={proceso == 2} />

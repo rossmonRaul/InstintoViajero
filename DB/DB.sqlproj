@@ -115,6 +115,12 @@
     <Build Include="dbo\Stored Procedures\Productos\SPInsertarProducto.sql" />
     <Build Include="dbo\Stored Procedures\Productos\SPActualizarProducto.sql" />
     <Build Include="dbo\Stored Procedures\Productos\SPObtenerDetalleProductoID.sql" />
+    <Build Include="dbo\Tables\Vendedores.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarVendedor.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarVendedor.sql" />
+    <Build Include="dbo\Stored Procedures\SPEliminarVendedor.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerVendedores.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleVendedor.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />
