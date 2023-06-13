@@ -6,7 +6,7 @@ import {
   faPaperPlane,
   faQuestion,
   faImage,
-  faCopy,  
+  faCopy,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
@@ -17,11 +17,11 @@ import SubMenu from "./SubMenu";
 const SideBar = ({ isOpen, toggle }) => (
   <div className={classNames("sidebar", { "is-open": isOpen })}>
     <div className="sidebar-header" style={{ backgroundColor: "#005CB8" }}>
-        <h3><img src={logo} className="img-fluid" style={{ width: "150px" }} /><span></span></h3>
+      <h3><img src={logo} className="img-fluid" style={{ width: "150px" }} /><span></span></h3>
     </div>
     <div className="side-menu">
       <Nav vertical className="list-unstyled pb-3">
-        
+
         <SubMenu title="Home" icon={faHome} items={submenus[0]} />
         <NavItem>
           <NavLink tag={Link} to={"/about"}>
@@ -76,10 +76,15 @@ const submenus = [
     {
       title: "Usuarios",
       target: "usuarios",
-      },
+    },
     {
       title: "Personas",
       target: "personas",
+    },
+    {
+      title: "Productos",
+      target: "productos",
+    },
       },
       {
           title: "Vendedores",
