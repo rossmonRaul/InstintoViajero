@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Aplicacion.Vendedor
 {
-    internal class ServicioVendedor : IServicioVendedor
+    public class ServicioVendedor : IServicioVendedor
     {
         private readonly IRepositorioVendedor repositorioVendedor;
 

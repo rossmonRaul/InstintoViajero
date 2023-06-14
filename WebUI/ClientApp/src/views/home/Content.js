@@ -10,6 +10,7 @@ import Personas from "../personas";
 import Vendedores from "../vendedores";
 import Home from ".";
 import ProductoComponet from "../Productos";
+import Clientes from "../clientes/index";
 
 
 
@@ -29,11 +30,11 @@ const Content = ({ sidebarIsOpen, toggleSidebar, rol, CerrarSession }) => (
       { rol=== "Administrador" ? <Route exact path="/sucursal" element={<Sucursal />} component={() => "sucursal"} /> : ""}
       { rol=== "Administrador" ? <Route exact path="/usuarios" element={<Usuarios />} component={() => "usuarios"} /> : ""}
       { rol=== "Administrador" ? <Route exact path="/reportes" element={<Reportes />} component={() => "reportes"} /> : ""}
-      {rol === "Administrador" ? <Route exact path="/personas" element={<Personas />} component={() => "personas"} /> : ""}
+      { rol === "Administrador" ? <Route exact path="/personas" element={<Personas />} component={() => "personas"} /> : ""}
       { rol=== "Administrador" ? <Route exact path="/Productos" element={<ProductoComponet />} component={() => "productos"} /> : ""}
-
-    
       {rol === "Administrador" ? <Route exact path="/vendedores" element={<Vendedores />} component={() => "vendedores"} /> : ""}
+      {rol === "Administrador" ? <Route exact path="/clientes" element={<Clientes />} component={() => "clientes"} /> : ""}
+
       
     </Routes>
   </Container>

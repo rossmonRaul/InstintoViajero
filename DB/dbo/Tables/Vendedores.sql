@@ -10,7 +10,7 @@
     [UsuarioCreacion]     NVARCHAR (MAX)  NULL,
     [UsuarioModificacion] NVARCHAR (MAX)  NULL,
     CONSTRAINT [PK_Vendedores] PRIMARY KEY ([IdVendedor]),
-    CONSTRAINT [FK_Vendedores_Personas] FOREIGN KEY ([IdVendedor])
+    CONSTRAINT [FK_Vendedores_Personas] FOREIGN KEY ([IdPersona])
         REFERENCES [dbo].[Personas]([IdPersona]),
     CONSTRAINT [FK_Vendedores_Sucursales] FOREIGN KEY ([IdSucursal])
         REFERENCES [dbo].[Sucursales]([IdSucursal])

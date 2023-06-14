@@ -3,17 +3,17 @@ import { Button } from 'react-bootstrap';
 import { Grid } from '../../components/grid';
 import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
-import { AgregarVendedor, ActualizarVendedor, InactivarVendedor, ObtenerVendedores, ObtenerVendedor } from '../../servicios/ServicioVendedor'
+import { AgregarCliente, ActualizarCliente, InactivarCliente, ObtenerClientes, ObtenerCliente } from '../../servicios/ServicioClientes'
 
-const Vendedores = () => {
+const Clientes = () => {
     const [proceso, setProceso] = useState(1);
     const [modal, setModal] = useState(false);
-    const [modalTitulo, setModalTitulo] = useState("Registrar vendedor");
+    const [modalTitulo, setModalTitulo] = useState("Registrar cliente");
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
 
-    const [listaDeVendedores, setListaDeVendedores] = useState([]);
+    const [listaDeClientes, setListaDeClientes] = useState([]);
     const [pendiente, setPendiente] = useState(false);
     const [filaSeleccionada, setFilaSeleccionada] = useState({});
     const [data, setData] = useState({});
@@ -23,65 +23,63 @@ const Vendedores = () => {
 
     const encabezado = [
         { id: 'id', name: 'id', selector: row => row.id, head: "id", omit: true },
-        { id: 'codVendedor', name: 'Cod. Vendedor', selector: row => row.codVendedor, head: "Cod. Vendedor", sortable: true },
         { id: 'nombre', name: 'Nombre', selector: row => row.nombre, head: "Nombre", sortable: true },
         { id: 'apellido1', name: 'P. Apellido', selector: row => row.primerApellido, head: "P. Apellido", sortable: true },
         { id: 'apellido2', name: 'S. Apellido', selector: row => row.segundoApellido, head: "S. Apellido", sortable: true },
-        { id: 'nombreSucursal', name: 'Sucursal', selector: row => row.nombreSucursal, head: "Sucursal", sortable: true },
-        { id: 'fechaContratacion', name: 'F. Contratación', selector: row => new Date(row.fechaContratacion).toLocaleDateString('es-ES'), head: "F. Contratación", sortable: true },
         { id: 'Estado', name: 'Estado', selector: row => row.estado, head: "Estado", sortable: true }
     ]
 
     //Se indica las columnas en las que se aplica el filtro
-    const filterColumns = ['codVendedor', 'nombre', 'primerApellido', 'segundoApellido', 'nombreSucursal'];
+    const filterColumns = ['nombre', 'primerApellido', 'segundoApellido'];
 
     useEffect(() => {
-        ObtenerListadoDeVendedores();
+        ObtenerListadoDeClientes();
     }, []);
 
-    const onClickNuevoVendedor = () => {
+    const onClickNuevoCliente = () => {
         setProceso(1);
         setModal(!modal);
         setLabelButton("Registrar");
-        setModalTitulo("Registrar vendedor");
+        setModalTitulo("Registrar cliente");
     }
 
-    const onClickActualizarVendedor = async () => {
-        setData(await ObtenerVendedor(filaSeleccionada.idVendedor));
+    const onClickActualizarCliente = async () => {
+        setData(await ObtenerCliente(filaSeleccionada.idCliente));
         setProceso(2);
         setModal(!modal);
         setLabelButton("Actualizar");
-        setModalTitulo("Actualizar vendedor");
+        setModalTitulo("Actualizar cliente");
     }
 
-    const onClickInactivarVendedor = async () => {
-        const respuesta = await InactivarVendedor(filaSeleccionada.idVendedor)
+    const onClickInactivarCliente = async () => {
+        const respuesta = await InactivarCliente(filaSeleccionada.idCliente)
         if (respuesta.indicador === 0)
-            ObtenerListadoDeVendedores();
+            ObtenerListadoDeClientes();
         setMensajeRespuesta(respuesta);
         setTextoBotonInactivar("Activar");
     }
 
-    const ObtenerListadoDeVendedores = async () => {
+    const ObtenerListadoDeClientes = async () => {
         setPendiente(true);
-        setListaDeVendedores(await ObtenerVendedores());
+        setListaDeClientes(await ObtenerClientes());
         setPendiente(false);
     }
 
-    const onClickProcesarVendedor = async (data) => {
+    const onClickProcesarCliente = async (data) => {
+    
         setMensajeFormulario("");
         let respuesta = {};
         if (proceso === 1)
-            respuesta = await AgregarVendedor(data);
+            respuesta = await AgregarCliente(data);
         else {
-            data.idVendedor = filaSeleccionada.idVendedor;
+            data.idCliente = filaSeleccionada.idCliente;
             data.estado = true;
-            respuesta = await ActualizarVendedor(data);
+            respuesta = await ActualizarCliente(data);
         }
 
         if (respuesta.indicador == 0) {
             setModal(false);
-            ObtenerListadoDeVendedores();
+            ObtenerListadoDeClientes();
             setMensajeRespuesta(respuesta);
         } else {
             setMensajeFormulario(respuesta.mensaje);
@@ -105,11 +103,11 @@ const Vendedores = () => {
     return (
         <>
             <div className="container-fluid">
-                <h1>Mantenimiento de vendedores</h1>
+                <h1>Mantenimiento de clientes</h1>
                 <hr />
-                <Button variant="primary" type="submit" size="sm" onClick={() => onClickNuevoVendedor()}>Registrar</Button>{' '}
-                <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarVendedor()} disabled={bloquearBoton}>Actualizar</Button>{' '}
-                <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarVendedor()} disabled={bloquearBoton}>{textoBotonInactivar}</Button>
+                <Button variant="primary" type="submit" size="sm" onClick={() => onClickNuevoCliente()}>Registrar</Button>{' '}
+                <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarCliente()} disabled={bloquearBoton}>Actualizar</Button>{' '}
+                <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarCliente()} disabled={bloquearBoton}>{textoBotonInactivar}</Button>
                 <br /><br />
                 {mensajeRespuesta.mensaje !== "" ?
                     <>
@@ -117,16 +115,16 @@ const Vendedores = () => {
                         <br />
                     </>
                     : ''}
-                <span>Listado de todos los vendedores registrados</span>
-                <Grid gridHeading={encabezado} gridData={listaDeVendedores} selectableRows={true} pending={pendiente}
-                    setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idVendedor" filterColumns={filterColumns} />
+                <span>Listado de todos los clientes registrados</span>
+                <Grid gridHeading={encabezado} gridData={listaDeClientes} selectableRows={true} pending={pendiente}
+                    setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idCliente" filterColumns={filterColumns} />
                 <br /><br />
             </div>
             <FormularioModal show={modal} handleClose={onClickCerrarModal} titulo={modalTitulo} className='' tamano="lg">
-                <Formulario labelButton={labelButton} data={data} proceso={proceso} onClickProcesarVendedor={onClickProcesarVendedor} mensaje={mensajeFormulario} />
+                <Formulario labelButton={labelButton} data={data} proceso={proceso} onClickProcesarCliente={onClickProcesarCliente} mensaje={mensajeFormulario} />
             </FormularioModal>
         </>
     )
 }
 
-export default Vendedores;
+export default Clientes;
