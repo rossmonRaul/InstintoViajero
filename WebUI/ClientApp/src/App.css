@@ -160,3 +160,8 @@ li a.dropdown-toggle::after {
 #logout {
   background-color: #dc3545 !important
 }
+
+.input-form-hook {
+  width: 3500px !important;
+}
+

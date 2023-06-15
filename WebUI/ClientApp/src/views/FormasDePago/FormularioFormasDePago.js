@@ -1,74 +1,66 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import { Button, Form, Row } from 'react-bootstrap';
-import { InputText } from '../../components/inputs';
+import { useForm } from 'react-hook-form'
+import { InputsFormsReactHook } from '../../components/Forms/InputsFormsReactHook';
 
-const FormularioFormasDePago = ({ labelButton, data, proceso, onClickProcesar, mensaje }) => {
-
-    //campos de form
-    const [CodFormaDePago, setCodFormaDePago] = useState(proceso == 2 ? data.codFormaDePago : '');
-    const [Descripcion, setDescripcion] = useState(proceso == 2 ? data.descripcion : '');
-
-    const [validated, setValidated] = useState(false);
-
-
- 
-    //envio de datos
-    const onClickAceptar = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        } else {
-            const data = {
-                
-                CodFormaDePago: CodFormaDePago,
-                Descripcion: Descripcion,
-                
-            }
-            onClickProcesar(data);
-        }
-        setValidated(true);
-        event.preventDefault();
+const FormularioFormasDePago = ({ labelButton, data, proceso, onClickProcesar }) => {
+    if(proceso === 1) {
+        data = {}
     }
+    const { register, handleSubmit, formState: { errors }, trigger } = useForm({
+        defaultValues: {
+            CodFormaDePago: data?.codFormaDePago,
+            Descripcion: data?.descripcion
+        }
+    });
+    const [isSummit, setIsSummit] = useState(false);
 
-    const onChangeCodFormaDePago = (e) => setCodFormaDePago(e.target.value);
-    const onChangeDescripcion = (e) => setDescripcion(e.target.value);
-    
+    const onClickAceptar = (event) => {
+       onClickProcesar({ ...event });     
+    }
+    const handleManualValidation = async () => {
+        const isValid = await trigger();
+        if (!isValid) {
+            setIsSummit(true)
+        }
+    };
 
     return (
         <>
-       
-            <Form noValidate validated={validated} onSubmit={onClickAceptar}>
+            <Form  onSubmit={handleSubmit(onClickAceptar)}>
                 <Row>
-                    <InputText 
-                        id='txt-CodFormaDePago' 
-                        label='Codigo Forma de Pago:' 
-                        type='text' 
-                        placeholder='Codigo Forma de Pago' 
-                        value={CodFormaDePago}
-                        onChange={onChangeCodFormaDePago} 
-                        mensajeValidacion="El Codigo es requerido" 
-                        className="col-md-4" 
-                        />
-                    <InputText 
-                        id='txt-nombre' 
-                        label='Descripción:' 
-                        type='text' 
-                        placeholder='Descripción' 
-                        value={Descripcion}
-                        onChange={onChangeDescripcion} 
-                        mensajeValidacion="La descripción es requerida" 
-                        className="col-md-4" 
-                        />
-                    
-                </Row>
-              
-                <br />
-                {mensaje !== "" ? <p className="text-info text-center">{mensaje}</p> : ""}
+                    <InputsFormsReactHook
+                        className="input-form-hook"                        
+                        label='Codigo Forma de Pago:'
+                        placeholder='Codigo Forma de Pago'
+                        mensajeValidacion="El Codigo es requerido"                        
+                        errors={errors?.CodFormaDePago?.type}
+                        isSummit={isSummit}
+                        register={{ ...register('CodFormaDePago', { 
+                            required: true,
+                            maxLength: 50,
+                            minLength: 3
+                            }) 
+                        }}
+                    />
+                    <InputsFormsReactHook
+                        className="input-form-hook"
+                        id='txt-CodFormaDePago'
+                        label='Descripción:'
+                        placeholder='Descripción Forma de Pago'
+                        errors={errors?.Descripcion?.type}                        
+                        mensajeValidacion="La descripción es requerida"
+                        isSummit={isSummit}
+                        register={{ ...register('Descripcion', { 
+                            required: true,
+                            maxLength: 100
+                            })
+                        }}
+                    />
+                </Row>                
                 <div className='text-right'>
-                    <Button variant="primary" type="submit" size="sm">{labelButton}</Button>
+                    <Button variant="primary" type="submit" onClick={handleManualValidation} size="sm">{labelButton}</Button>
                 </div>
-
             </Form>
         </>
     )

@@ -84,6 +84,7 @@ const FormasDePagoComponet = () => {
 
 
     const onClickProcesar = async(data) => {
+        console.log({...data});
         let respuesta = {};
         if(proceso === 1)
             respuesta = await AgregarFormasDePago(data);
