@@ -160,3 +160,8 @@
   #logout {
     background-color: #dc3545 !important
   }
+
+  .input-form-hook {    
+    width: 45rem !important;
+  }
+  

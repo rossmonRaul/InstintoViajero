@@ -89,6 +89,10 @@ const submenus = [
           title: "Vendedores",
           target: "vendedores",
       },
+    {
+      title: "Formas de Pago",
+      target: "FormasDePago",
+    },
   ],
 ];
 
