@@ -2,7 +2,7 @@
 (
     @Tabla NVARCHAR(50),
     @Accion NVARCHAR(50),
-    @Detalle NVARCHAR(600),
+    @Detalle NVARCHAR(max),
     @Fecha DATETIME,
     @Usuario NVARCHAR(50)
 )

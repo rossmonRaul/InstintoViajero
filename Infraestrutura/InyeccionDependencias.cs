@@ -16,6 +16,7 @@ namespace Infraestrutura
             //repositorios de cada CRUD
             services.AddScoped<IRepositorioSucursal, RepositorioSucursal>();
             services.AddScoped<IRepositorioPersona, RepositorioPersona>();
+            services.AddScoped<IRepositorioVendedor, RepositorioVendedor>();
             services.AddScoped<IRepositorioRol, RepositorioRol>();
             services.AddScoped<IRepositorioTiposIdentificacion, RepositorioTiposIdentificacion>();
             services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
@@ -23,8 +24,6 @@ namespace Infraestrutura
             services.AddScoped<IRepositorioReporte, RepositorioReporte>();
             services.AddScoped<IRepositorioProducto, RepositorioProducto>();
             services.AddScoped<IRepositorioFormasDePago, RepositorioFormasDePago>();
-
-
 
             return services;
         }

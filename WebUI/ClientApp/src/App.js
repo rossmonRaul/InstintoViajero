@@ -8,6 +8,8 @@ import Usuarios from './views/usuarios';
 import Contrasena from './views/actualizarcontrasena';
 import Reportes from './views/reportes';
 import Personas from './views/personas';
+
+
 import { ObtenerTokenUsuario } from './utils/utilidades';
 import { ObtenerDatosDeUsuario } from './utils/utilidades';
 
