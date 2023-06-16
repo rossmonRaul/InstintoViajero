@@ -82,7 +82,7 @@ const ProductoComponet = () => {
 
 
     const onClickProcesar = async(data) => {
-        let respuesta = {};
+        let respuesta = {};        
         if(proceso === 1)
             respuesta = await AgregarProducto(data);
         else{
