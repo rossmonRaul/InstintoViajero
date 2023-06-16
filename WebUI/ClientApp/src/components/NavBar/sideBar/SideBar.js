@@ -72,7 +72,11 @@ const submenus = [
     {
       title: "Sucursal",
       target: "sucursal",
-    },
+      },
+      {
+          title: "Roles",
+          target: "roles",
+      },
     {
       title: "Usuarios",
       target: "usuarios",
