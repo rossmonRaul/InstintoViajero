@@ -64,6 +64,7 @@
     <Folder Include="Security\" />
     <Folder Include="dbo\InitialData" />
     <Folder Include="dbo\Stored Procedures\Productos" />
+    <Folder Include="dbo\Stored Procedures\FormasDePago" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Sucursales.sql" />
@@ -121,6 +122,12 @@
     <Build Include="dbo\Stored Procedures\SPEliminarVendedor.sql" />
     <Build Include="dbo\Stored Procedures\SPObtenerVendedores.sql" />
     <Build Include="dbo\Stored Procedures\SPObtenerDetalleVendedor.sql" />
+    <Build Include="dbo\Tables\FormasDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FormasDePago\SPActualizarFormasDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FormasDePago\SPEliminarFormasDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FormasDePago\SPInsertarFormasDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FormasDePago\SPObtenerDetalleFormasDePagoID.sql" />
+    <Build Include="dbo\Stored Procedures\FormasDePago\SPObtenerFormasDePagos.sql" />
     <Build Include="dbo\Tables\Clientes.sql" />
     <Build Include="dbo\Stored Procedures\SPInsertarCliente.sql" />
     <Build Include="dbo\Stored Procedures\SPActualizarCliente.sql" />

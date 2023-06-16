@@ -89,6 +89,14 @@ const submenus = [
       title: "Productos",
       target: "productos",
     },
+      {
+          title: "Vendedores",
+          target: "vendedores",
+      },
+    {
+      title: "Formas de Pago",
+      target: "FormasDePago",
+    },
     {
       title: "Vendedores",
       target: "vendedores",
