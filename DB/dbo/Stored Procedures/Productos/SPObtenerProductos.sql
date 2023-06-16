@@ -15,7 +15,7 @@ BEGIN
 					, CONVERT(date, COALESCE(P.FechaModificacion, GETDATE())) As FechaModificacion
 				FROM Productos AS P WITH (NOLOCK)
 				INNER JOIN dbo.TiposProductos AS TP 
-					ON TP.id = P.id
+					ON TP.id = P.IdTipo
 
 			END
 
