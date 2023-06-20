@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { Grid } from '../../components/grid';
 import FormularioProducto from './FormularioProductos';
 import { FormularioModal } from '../../components/ventanaModal';
+import { AlertDismissible } from '../../components/alerts';
 
 const ProductoComponet = () => {
     const [proceso, setProceso] = useState(1);
@@ -14,6 +15,7 @@ const ProductoComponet = () => {
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [idBuscar, setidBuscar] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
 
     const [listaRespaldo, setListaRespaldo] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -97,7 +99,8 @@ const ProductoComponet = () => {
             setMensajeRespuesta(respuesta);
         }else{     
             setMensajeFormulario(respuesta.mensaje);  
-        }             
+        } 
+        setShowAlert(true);
     }
 
     return (
@@ -125,7 +128,13 @@ const ProductoComponet = () => {
                     {textoBotonInactivar}
                 </Button>
                 <br />
-
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )} 
                 <span>Listado de todas los productos registradas</span>
                 <br />
                 <Grid

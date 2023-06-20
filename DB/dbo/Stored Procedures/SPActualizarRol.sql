@@ -35,11 +35,11 @@ AS
 
 				COMMIT TRAN ACTUALIZAR
 				SET @INDICADOR = 0
-				SET @MENSAJE = 'Exito: Rol actualizado exiosamente'
+				SET @MENSAJE = 'Rol actualizado'
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al actualizar el rol.' -- + ERROR_MESSAGE()
 				ROLLBACK TRANSACTION ACTUALIZAR
 			END CATCH
 	END

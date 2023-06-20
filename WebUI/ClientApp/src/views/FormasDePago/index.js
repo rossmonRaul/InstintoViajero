@@ -6,6 +6,7 @@ import { Grid } from '../../components/grid';
 import { FormularioModal } from '../../components/ventanaModal';
 import { ActualizarFormasDePago, AgregarFormasDePago, InactivarFormasDePago, ObtenerFormasDePagoPorId, ObtenerFormasDePagos } from '../../servicios/ServicioFormasDePago';
 import FormularioFormasDePago from './FormularioFormasDePago';
+import { AlertDismissible } from '../../components/alerts';
 
 const FormasDePagoComponet = () => {
     const [proceso, setProceso] = useState(1);
@@ -16,6 +17,7 @@ const FormasDePagoComponet = () => {
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [idBuscar, setidBuscar] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
 
     const [listaRespaldo, setListaRespaldo] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -100,7 +102,9 @@ const FormasDePagoComponet = () => {
             setMensajeRespuesta(respuesta);
         }else{     
             setMensajeFormulario(respuesta.mensaje);  
-        }             
+        }  
+        setShowAlert(true);
+
     }
 
     return (
@@ -128,7 +132,13 @@ const FormasDePagoComponet = () => {
                     {textoBotonInactivar}
                 </Button>
                 <br />
-
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )} 
                 <span>Listado de Todas los Formas de Pago Registradas</span>
                 <br />
                 <Grid

@@ -4,6 +4,8 @@ import { Grid } from '../../components/grid';
 import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarPersona, ActualizarPersona, InactivarPersona, ObtenerPersonas, ObtenerPersona } from '../../servicios/ServicioPersonas'
+import { AlertDismissible } from '../../components/alerts';
+
 
 const Personas = () => {
     const [proceso, setProceso] = useState(1);
@@ -12,6 +14,7 @@ const Personas = () => {
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
 
     const [listaDePersonas, setListaDePersonas] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -85,6 +88,8 @@ const Personas = () => {
         } else {
             setMensajeFormulario(respuesta.mensaje);
         }
+        setShowAlert(true);
+
     }
 
     const onClickSeleccionarFila = (fila) => {
@@ -110,12 +115,13 @@ const Personas = () => {
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarPersona()} disabled={bloquearBoton}>Actualizar</Button>{' '}
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarPersona()} disabled={bloquearBoton}>{textoBotonInactivar}</Button>
                 <br /><br />
-                {mensajeRespuesta.mensaje !== "" ?
-                    <>
-                        <span className={mensajeRespuesta.indicador === 0 ? "text-success" : "text-danger"}>{mensajeRespuesta.mensaje}</span>
-                        <br />
-                    </>
-                    : ''}
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )} 
                 <span>Listado de todas las personas registradas</span>
                 <Grid gridHeading={encabezado} gridData={listaDePersonas} selectableRows={true} pending={pendiente}
                     setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idPersona" filterColumns={filterColumns} />

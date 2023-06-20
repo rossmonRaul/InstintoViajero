@@ -3,6 +3,8 @@ import { Button } from 'react-bootstrap';
 import { Grid } from '../../components/grid';
 import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
+import { AlertDismissible } from '../../components/alerts';
+
 import { AgregarVendedor, ActualizarVendedor, InactivarVendedor, ObtenerVendedores, ObtenerVendedor } from '../../servicios/ServicioVendedor'
 
 const Vendedores = () => {
@@ -12,6 +14,8 @@ const Vendedores = () => {
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
+
 
     const [listaDeVendedores, setListaDeVendedores] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -59,7 +63,9 @@ const Vendedores = () => {
         if (respuesta.indicador === 0)
             ObtenerListadoDeVendedores();
         setMensajeRespuesta(respuesta);
+
         setTextoBotonInactivar("Activar");
+       
     }
 
     const ObtenerListadoDeVendedores = async () => {
@@ -83,9 +89,15 @@ const Vendedores = () => {
             setModal(false);
             ObtenerListadoDeVendedores();
             setMensajeRespuesta(respuesta);
+
         } else {
-            setMensajeFormulario(respuesta.mensaje);
+            setMensajeRespuesta(respuesta);
+            ObtenerListadoDeVendedores();
+            setModal(false);
+        //    setMensajeFormulario(respuesta.mensaje);
         }
+        setShowAlert(true);
+
     }
 
     const onClickSeleccionarFila = (fila) => {
@@ -100,6 +112,7 @@ const Vendedores = () => {
         setMensajeFormulario("");
     }
 
+
     const ValidarSiFilaFueSeleccionada = (fila) => Object.entries(fila).length === 0 ? false : true;
 
     return (
@@ -111,12 +124,13 @@ const Vendedores = () => {
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarVendedor()} disabled={bloquearBoton}>Actualizar</Button>{' '}
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarVendedor()} disabled={bloquearBoton}>{textoBotonInactivar}</Button>
                 <br /><br />
-                {mensajeRespuesta.mensaje !== "" ?
-                    <>
-                        <span className={mensajeRespuesta.indicador === 0 ? "text-success" : "text-danger"}>{mensajeRespuesta.mensaje}</span>
-                        <br />
-                    </>
-                    : ''}
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )}
                 <span>Listado de todos los vendedores registrados</span>
                 <Grid gridHeading={encabezado} gridData={listaDeVendedores} selectableRows={true} pending={pendiente}
                     setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idVendedor" filterColumns={filterColumns} />

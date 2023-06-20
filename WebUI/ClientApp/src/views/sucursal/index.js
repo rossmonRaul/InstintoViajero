@@ -4,6 +4,8 @@ import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { Grid } from '../../components/grid';
 import { AgregarSucursal, ActualizarSucursal, InactivarSucursal, ObtenerSucursales, ObtenerSucursalPorId } from '../../servicios/ServicioSucursal';
+import { AlertDismissible } from '../../components/alerts';
+
 
 const Sucursal = () => {
     const [proceso, setProceso] = useState(1);
@@ -13,6 +15,7 @@ const Sucursal = () => {
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [idBuscar, setidBuscar] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
 
     const [listaSucursales, setListaSucursales] = useState([]);
     const [listaRespaldo, setListaRespaldo] = useState([]);
@@ -50,7 +53,9 @@ const Sucursal = () => {
             setMensajeRespuesta(respuesta);
         }else{     
             setMensajeFormulario(respuesta.mensaje);  
-        }             
+        } 
+        setShowAlert(true);
+
     }
 
     const ObtenerListadoDeSucursals = async() => {
@@ -111,12 +116,13 @@ const Sucursal = () => {
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarSucursal()} disabled={bloquearBoton}>{textoBotonInactivar}
                         </Button>
                 <br />
-                {/*{mensajeRespuesta.mensaje !== "" ? */}
-                {/*<>                   */}
-                {/*    <span className={mensajeRespuesta.indicador === 0 ? "text-success" : "text-danger"}>{mensajeRespuesta.mensaje}</span>*/}
-                {/*    <br/>  */}
-                {/*</>                */}
-                {/*: ''}    */}
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )} 
                 <span>Listado de todas las sucursales registradas</span>
                 <br />
                     <Grid gridHeading={encabezado} gridData={listaRespaldo} selectableRows={true} pending={pendiente}

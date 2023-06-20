@@ -26,11 +26,11 @@ AS
 						END
 				COMMIT TRAN INSERTAR
 						SET @INDICADOR = 0
-					SET @MENSAJE = 'Exito: Rol registrado exiosamente'
+					SET @MENSAJE = 'Rol registrado exitosamente'
 				END TRY
 				BEGIN CATCH
 					SET @INDICADOR = 1
-					SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+					SET @MENSAJE = 'Error al registrar el rol.' --+ ERROR_MESSAGE()
 					ROLLBACK TRANSACTION INSERTAR
 				END CATCH
 	END

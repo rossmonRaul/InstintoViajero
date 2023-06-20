@@ -1,0 +1,16 @@
+﻿.alert-container {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: 1;
+}
+
+.alert-modal {
+    margin-bottom: 0px;
+}
+
+.alert-message {
+    max-height: 100px;
+    overflow: auto;
+    word-wrap: break-word;
+}

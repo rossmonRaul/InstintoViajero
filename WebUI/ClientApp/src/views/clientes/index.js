@@ -4,6 +4,7 @@ import { Grid } from '../../components/grid';
 import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarCliente, ActualizarCliente, InactivarCliente, ObtenerClientes, ObtenerCliente } from '../../servicios/ServicioClientes'
+import { AlertDismissible } from '../../components/alerts';
 
 const Clientes = () => {
     const [proceso, setProceso] = useState(1);
@@ -12,6 +13,7 @@ const Clientes = () => {
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
 
     const [listaDeClientes, setListaDeClientes] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -84,6 +86,7 @@ const Clientes = () => {
         } else {
             setMensajeFormulario(respuesta.mensaje);
         }
+        setShowAlert(true);
     }
 
     const onClickSeleccionarFila = (fila) => {
@@ -98,6 +101,8 @@ const Clientes = () => {
         setMensajeFormulario("");
     }
 
+
+
     const ValidarSiFilaFueSeleccionada = (fila) => Object.entries(fila).length === 0 ? false : true;
 
     return (
@@ -109,12 +114,13 @@ const Clientes = () => {
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarCliente()} disabled={bloquearBoton}>Actualizar</Button>{' '}
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarCliente()} disabled={bloquearBoton}>{textoBotonInactivar}</Button>
                 <br /><br />
-                {mensajeRespuesta.mensaje !== "" ?
-                    <>
-                        <span className={mensajeRespuesta.indicador === 0 ? "text-success" : "text-danger"}>{mensajeRespuesta.mensaje}</span>
-                        <br />
-                    </>
-                    : ''}
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )}             
                 <span>Listado de todos los clientes registrados</span>
                 <Grid gridHeading={encabezado} gridData={listaDeClientes} selectableRows={true} pending={pendiente}
                     setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idCliente" filterColumns={filterColumns} />

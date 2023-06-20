@@ -46,7 +46,7 @@ AS
             END TRY
             BEGIN CATCH
                 SET @INDICADOR = 1
-                SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+                SET @MENSAJE = 'Error al registrar el cliente ' --+ ERROR_MESSAGE()
                 ROLLBACK TRANSACTION INSERTAR
             END CATCH
     END

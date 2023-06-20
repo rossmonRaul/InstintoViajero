@@ -5,6 +5,7 @@ import Formulario from './formulario';
 import FormularioContrasenha from './formularioContrasenha';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarUsuario, ActualizarUsuario, InactivarUsuario, ObtenerUsuarios, ObtenerUsuarioPorId, ActualizarContrasenhaTemporal } from '../../servicios/ServicioUsuarios'
+import { AlertDismissible } from '../../components/alerts';
 
 const Usuarios = () => {
     const [proceso, setProceso] = useState(1);
@@ -13,6 +14,7 @@ const Usuarios = () => {
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
 
     const [listaDeUsuarios, setListaDeUsuarios] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -87,6 +89,7 @@ const Usuarios = () => {
         } else {
             setMensajeFormulario(respuesta.mensaje);
         }
+        setShowAlert(true);
     }
 
     const onClickSeleccionarFila = (fila) => {
@@ -131,12 +134,13 @@ const Usuarios = () => {
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarContrasenha()} disabled={bloquearBoton}>Contraseña</Button>{' '}
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarUsuario()} disabled={bloquearBoton}>{textoBotonInactivar}</Button>
                 <br /><br />
-                {mensajeRespuesta.mensaje !== "" ?
-                    <>
-                        <span className={mensajeRespuesta.indicador === 0 ? "text-success" : "text-danger"}>{mensajeRespuesta.mensaje}</span>
-                        <br />
-                    </>
-                    : ''}
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )} 
                 <span>Listado de todas los usuarios registrados</span>
                 <Grid gridHeading={encabezado} gridData={listaDeUsuarios} selectableRows={true} pending={pendiente}
                     setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idUsuario" />

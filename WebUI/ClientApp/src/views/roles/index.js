@@ -4,6 +4,8 @@ import { Grid } from '../../components/grid';
 import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarRol, ActualizarRol, InactivarRol, ObtenerRoles, ObtenerRol } from '../../servicios/ServicioRoles'
+import { AlertDismissible } from '../../components/alerts';
+
 
 const Roles = () => {
     const [proceso, setProceso] = useState(1);
@@ -12,6 +14,7 @@ const Roles = () => {
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
 
     const [listaDeRoles, setListaDeRoles] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -82,6 +85,7 @@ const Roles = () => {
         } else {
             setMensajeFormulario(respuesta.mensaje);
         }
+        setShowAlert(true);
     }
 
     const onClickSeleccionarFila = (fila) => {
@@ -107,12 +111,13 @@ const Roles = () => {
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarRol()} disabled={bloquearBoton}>Actualizar</Button>{' '}
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarRol()} disabled={bloquearBoton}>{textoBotonInactivar}</Button>
                 <br /><br />
-                {mensajeRespuesta.mensaje !== "" ?
-                    <>
-                        <span className={mensajeRespuesta.indicador === 0 ? "text-success" : "text-danger"}>{mensajeRespuesta.mensaje}</span>
-                        <br />
-                    </>
-                    : ''}
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )} 
                 <span>Listado de todos los roles registrados</span>
                 <Grid gridHeading={encabezado} gridData={listaDeRoles} selectableRows={true} pending={pendiente}
                     setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idRol" filterColumns={filterColumns} />
