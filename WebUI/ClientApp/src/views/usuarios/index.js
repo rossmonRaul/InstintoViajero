@@ -6,7 +6,7 @@ import FormularioContrasenha from './formularioContrasenha';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarUsuario, ActualizarUsuario, InactivarUsuario, ObtenerUsuarios, ObtenerUsuarioPorId, ActualizarContrasenhaTemporal } from '../../servicios/ServicioUsuarios'
 import { AlertDismissible } from '../../components/alerts';
-import { ConfirmModal } from '../../components/confirmModal';
+import { ConfirmModal } from '../../components/ConfirmModal';
 
 const Usuarios = () => {
     const [proceso, setProceso] = useState(1);

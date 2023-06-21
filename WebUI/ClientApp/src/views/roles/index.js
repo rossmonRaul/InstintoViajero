@@ -5,7 +5,7 @@ import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarRol, ActualizarRol, InactivarRol, ObtenerRoles, ObtenerRol } from '../../servicios/ServicioRoles'
 import { AlertDismissible } from '../../components/alerts';
-import { ConfirmModal } from '../../components/confirmModal';
+import { ConfirmModal } from '../../components/ConfirmModal';
 
 
 const Roles = () => {

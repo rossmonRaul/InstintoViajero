@@ -5,7 +5,7 @@ import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarPersona, ActualizarPersona, InactivarPersona, ObtenerPersonas, ObtenerPersona } from '../../servicios/ServicioPersonas'
 import { AlertDismissible } from '../../components/alerts';
-import { ConfirmModal } from '../../components/confirmModal';
+import { ConfirmModal } from '../../components/ConfirmModal';
 
 
 const Personas = () => {

@@ -5,7 +5,7 @@ import { FormularioModal } from '../../components/ventanaModal';
 import { Grid } from '../../components/grid';
 import { AgregarSucursal, ActualizarSucursal, InactivarSucursal, ObtenerSucursales, ObtenerSucursalPorId } from '../../servicios/ServicioSucursal';
 import { AlertDismissible } from '../../components/alerts';
-import { ConfirmModal } from '../../components/confirmModal';
+import { ConfirmModal } from '../../components/ConfirmModal';
 
 
 const Sucursal = () => {

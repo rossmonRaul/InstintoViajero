@@ -4,7 +4,7 @@ import { Grid } from '../../components/grid';
 import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AlertDismissible } from '../../components/alerts';
-import { ConfirmModal } from '../../components/confirmModal';
+import { ConfirmModal } from '../../components/ConfirmModal';
 
 import { AgregarVendedor, ActualizarVendedor, InactivarVendedor, ObtenerVendedores, ObtenerVendedor } from '../../servicios/ServicioVendedor'
 

@@ -5,7 +5,7 @@ import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarCliente, ActualizarCliente, InactivarCliente, ObtenerClientes, ObtenerCliente } from '../../servicios/ServicioClientes'
 import { AlertDismissible } from '../../components/alerts';
-import { ConfirmModal } from '../../components/confirmModal';
+import { ConfirmModal } from '../../components/ConfirmModal';
 
 
 const Clientes = () => {

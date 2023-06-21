@@ -7,7 +7,7 @@ import { FormularioModal } from '../../components/ventanaModal';
 import { ActualizarFormasDePago, AgregarFormasDePago, InactivarFormasDePago, ObtenerFormasDePagoPorId, ObtenerFormasDePagos } from '../../servicios/ServicioFormasDePago';
 import FormularioFormasDePago from './FormularioFormasDePago';
 import { AlertDismissible } from '../../components/alerts';
-import { ConfirmModal } from '../../components/confirmModal';
+import { ConfirmModal } from '../../components/ConfirmModal';
 
 const FormasDePagoComponet = () => {
     const [proceso, setProceso] = useState(1);

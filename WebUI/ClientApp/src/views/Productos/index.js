@@ -5,7 +5,7 @@ import { Grid } from '../../components/grid';
 import FormularioProducto from './FormularioProductos';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AlertDismissible } from '../../components/alerts';
-import { ConfirmModal } from '../../components/confirmModal';
+import { ConfirmModal } from '../../components/ConfirmModal';
 
 const ProductoComponet = () => {
     const [proceso, setProceso] = useState(1);
