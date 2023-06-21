@@ -6,6 +6,7 @@ import FormularioContrasenha from './formularioContrasenha';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarUsuario, ActualizarUsuario, InactivarUsuario, ObtenerUsuarios, ObtenerUsuarioPorId, ActualizarContrasenhaTemporal } from '../../servicios/ServicioUsuarios'
 import { AlertDismissible } from '../../components/alerts';
+import { ConfirmModal } from '../../components/confirmModal';
 
 const Usuarios = () => {
     const [proceso, setProceso] = useState(1);
@@ -15,6 +16,7 @@ const Usuarios = () => {
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [showAlert, setShowAlert] = useState(false);
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     const [listaDeUsuarios, setListaDeUsuarios] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -56,12 +58,18 @@ const Usuarios = () => {
         setModalTitulo("Actualizar usuario");
     }
 
+
     const onClickInactivarUsuario = async () => {
+        setConfirmModalOpen(true);
+    }
+    const onConfirmCambioEstado = async () => {
         const respuesta = await InactivarUsuario(filaSeleccionada.idUsuario)
         if (respuesta.indicador === 0)
             ObtenerListadoDeUsuarios();
         setMensajeRespuesta(respuesta);
-        setTextoBotonInactivar("Activar");
+        setTextoBotonInactivar(textoBotonInactivar === "Activar" ? "Inactivar" : "Activar");
+        setConfirmModalOpen(false);
+        setShowAlert(true);
     }
 
     const ObtenerListadoDeUsuarios = async () => {
@@ -117,8 +125,9 @@ const Usuarios = () => {
         data.idUsuario = filaSeleccionada.idUsuario;
         const respuesta = await ActualizarContrasenhaTemporal(data);
         if (respuesta.indicador == 0) {
-            setModalContrasenha(false);
+            setModalContrasenha(false);       
             setMensajeRespuesta(respuesta);
+            setShowAlert(true);
         } else {
             setMensajeFormularioContrasenha(respuesta.mensaje);
         }
@@ -152,7 +161,15 @@ const Usuarios = () => {
             <FormularioModal show={modalContrasenha} handleClose={onClickCerrarModalContrasenha} titulo={"Actualizar Contrase;a temporal"} className='' >
                 <FormularioContrasenha data={data} onClickProcesarContrasenha={onClickProcesarContrasenha} mensaje={mensajeFormularioContrasenha} />
             </FormularioModal>
-
+            {confirmModalOpen && (
+                <ConfirmModal
+                    isOpen={confirmModalOpen}
+                    toggle={() => setConfirmModalOpen(!confirmModalOpen)}
+                    message={`¿Desea cambiar el estado del usuario a ${textoBotonInactivar === "Activar" ? "activo" : "inactivo"
+                        }?`}
+                    onConfirm={onConfirmCambioEstado}
+                />
+            )}
         </>
     )
 }

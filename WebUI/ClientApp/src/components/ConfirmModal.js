@@ -1,21 +1,24 @@
-﻿import React from "react";
+﻿import React, { useRef } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-const ConfirmModal = ({ isOpen, toggle, message, onConfirm }) => {
+
+export const ConfirmModal = ({ isOpen, toggle, message, onConfirm }) => {
+    const ref = useRef(null);
+
+
     return (
-        <Modal isOpen={isOpen} toggle={toggle}>
+        <Modal ref={ref} isOpen={isOpen} toggle={toggle}>
             <ModalHeader toggle={toggle}>Confirmación</ModalHeader>
             <ModalBody>{message}</ModalBody>
-            <ModalFooter>
-                <Button color="secondary" onClick={toggle}>
-                    Cancelar
-                </Button>
+            <ModalFooter>            
                 <Button color="primary" onClick={onConfirm}>
                     Confirmar
+                </Button>
+                <Button color="secondary" onClick={toggle}>
+                    Cancelar
                 </Button>
             </ModalFooter>
         </Modal>
     );
 };
 
-export default ConfirmModal;

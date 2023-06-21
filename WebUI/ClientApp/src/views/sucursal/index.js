@@ -5,6 +5,7 @@ import { FormularioModal } from '../../components/ventanaModal';
 import { Grid } from '../../components/grid';
 import { AgregarSucursal, ActualizarSucursal, InactivarSucursal, ObtenerSucursales, ObtenerSucursalPorId } from '../../servicios/ServicioSucursal';
 import { AlertDismissible } from '../../components/alerts';
+import { ConfirmModal } from '../../components/confirmModal';
 
 
 const Sucursal = () => {
@@ -16,6 +17,7 @@ const Sucursal = () => {
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [idBuscar, setidBuscar] = useState("");
     const [showAlert, setShowAlert] = useState(false);
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     const [listaSucursales, setListaSucursales] = useState([]);
     const [listaRespaldo, setListaRespaldo] = useState([]);
@@ -80,12 +82,18 @@ const Sucursal = () => {
         setModalTitulo("Actualizar sucursal");
     }
 
-    const onClickInactivarSucursal = async() => {
+
+    const onClickInactivarSucursal = async () => {
+        setConfirmModalOpen(true);
+    }
+    const onConfirmCambioEstado = async() => {
         const respuesta = await InactivarSucursal(filaSeleccionada.idSucursal)
         if(respuesta.indicador === 0)
             ObtenerListadoDeSucursals();
         setMensajeRespuesta(respuesta);
-        setTextoBotonInactivar("Activar");
+        setTextoBotonInactivar(textoBotonInactivar === "Activar" ? "Inactivar" : "Activar");
+        setConfirmModalOpen(false);
+        setShowAlert(true);
     }
 
     const onClickSeleccionarFila = (fila) => {
@@ -133,6 +141,15 @@ const Sucursal = () => {
             <FormularioModal show={modal} handleClose={onClickCerrarModal} titulo={modalTitulo} className=''>
                 <Formulario labelButton={labelButton} data={data} proceso={proceso} onClickProcesarSucursal={onClickProcesarSucursal} mensaje={mensajeFormulario}/>
             </FormularioModal>
+            {confirmModalOpen && (
+                <ConfirmModal
+                    isOpen={confirmModalOpen}
+                    toggle={() => setConfirmModalOpen(!confirmModalOpen)}
+                    message={`¿Desea cambiar el estado de la sucursal a ${textoBotonInactivar === "Activar" ? "activo" : "inactivo"
+                        }?`}
+                    onConfirm={onConfirmCambioEstado}
+                />
+            )}
         </>
         )
 }

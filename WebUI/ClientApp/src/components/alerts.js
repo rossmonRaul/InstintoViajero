@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { Alert } from "reactstrap";
 import { CSSTransition } from "react-transition-group";
 import '../styles/alerts.css';
 
 export const AlertDismissible = ({ indicador, encabezado, mensaje, setShow }) => {
+    const ref = useRef(null);
     useEffect(() => {
         const timer = setTimeout(() => {
             setShow(false);
@@ -38,12 +39,12 @@ export const AlertDismissible = ({ indicador, encabezado, mensaje, setShow }) =>
     };
 
     return (
-        <CSSTransition in={setShow} timeout={1000} classNames="alert-transition" unmountOnExit>
+        <CSSTransition ref={ref} in={true} classNames="fade" timeout={1000} unmountOnExit>
             <div className="alert-container">
                 <div className="alert-modal">
                     <Alert color={getVariant()} isOpen={true} toggle={() => setShow(false)}>
                         <h5 className="alert-heading">{getTitle()}</h5>
-                        <div className="alert-message">{mensaje}</div>
+                        <p className="alert-message">{mensaje}</p>
                     </Alert>
                 </div>
             </div>

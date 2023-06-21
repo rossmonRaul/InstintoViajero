@@ -5,6 +5,7 @@ import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarPersona, ActualizarPersona, InactivarPersona, ObtenerPersonas, ObtenerPersona } from '../../servicios/ServicioPersonas'
 import { AlertDismissible } from '../../components/alerts';
+import { ConfirmModal } from '../../components/confirmModal';
 
 
 const Personas = () => {
@@ -15,6 +16,7 @@ const Personas = () => {
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [showAlert, setShowAlert] = useState(false);
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     const [listaDePersonas, setListaDePersonas] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -57,11 +59,16 @@ const Personas = () => {
     }
 
     const onClickInactivarPersona = async () => {
+        setConfirmModalOpen(true);
+    }
+    const onConfirmCambioEstado = async () => {
         const respuesta = await InactivarPersona(filaSeleccionada.idPersona)
         if (respuesta.indicador === 0)
             ObtenerListadoDePersonas();
         setMensajeRespuesta(respuesta);
-        setTextoBotonInactivar("Activar");
+        setTextoBotonInactivar(textoBotonInactivar == "Activar" ? "Inactivar" : "Activar");
+        setConfirmModalOpen(false);
+        setShowAlert(true);
     }
 
     const ObtenerListadoDePersonas = async () => {
@@ -130,6 +137,15 @@ const Personas = () => {
             <FormularioModal show={modal} handleClose={onClickCerrarModal} titulo={modalTitulo} className='' tamano="lg">
                 <Formulario labelButton={labelButton} data={data} proceso={proceso} onClickProcesarPersona={onClickProcesarPersona} mensaje={mensajeFormulario} />
             </FormularioModal>
+            {confirmModalOpen && (
+                <ConfirmModal
+                    isOpen={confirmModalOpen}
+                    toggle={() => setConfirmModalOpen(!confirmModalOpen)}
+                    message={`¿Desea cambiar el estado de la persona a ${textoBotonInactivar === "Activar" ? "activo" : "inactivo"
+                        }?`}
+                    onConfirm={onConfirmCambioEstado}
+                />
+            )}
         </>
     )
 }

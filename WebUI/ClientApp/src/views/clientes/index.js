@@ -5,6 +5,8 @@ import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarCliente, ActualizarCliente, InactivarCliente, ObtenerClientes, ObtenerCliente } from '../../servicios/ServicioClientes'
 import { AlertDismissible } from '../../components/alerts';
+import { ConfirmModal } from '../../components/confirmModal';
+
 
 const Clientes = () => {
     const [proceso, setProceso] = useState(1);
@@ -14,6 +16,7 @@ const Clientes = () => {
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [showAlert, setShowAlert] = useState(false);
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     const [listaDeClientes, setListaDeClientes] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -54,12 +57,19 @@ const Clientes = () => {
     }
 
     const onClickInactivarCliente = async () => {
+        setConfirmModalOpen(true);         
+    }
+
+    const onConfirmCambioEstado = async () => {
         const respuesta = await InactivarCliente(filaSeleccionada.idCliente)
         if (respuesta.indicador === 0)
             ObtenerListadoDeClientes();
         setMensajeRespuesta(respuesta);
-        setTextoBotonInactivar("Activar");
+        setTextoBotonInactivar(textoBotonInactivar === "Activar" ? "Inactivar" : "Activar");
+        setConfirmModalOpen(false);
+        setShowAlert(true);
     }
+
 
     const ObtenerListadoDeClientes = async () => {
         setPendiente(true);
@@ -102,7 +112,6 @@ const Clientes = () => {
     }
 
 
-
     const ValidarSiFilaFueSeleccionada = (fila) => Object.entries(fila).length === 0 ? false : true;
 
     return (
@@ -129,6 +138,16 @@ const Clientes = () => {
             <FormularioModal show={modal} handleClose={onClickCerrarModal} titulo={modalTitulo} className='' tamano="lg">
                 <Formulario labelButton={labelButton} data={data} proceso={proceso} onClickProcesarCliente={onClickProcesarCliente} mensaje={mensajeFormulario} />
             </FormularioModal>
+
+            {confirmModalOpen && (
+                <ConfirmModal
+                    isOpen={confirmModalOpen}
+                    toggle={() => setConfirmModalOpen(!confirmModalOpen)}
+                    message={`¿Desea cambiar el estado del cliente a ${textoBotonInactivar === "Activar" ? "activo" : "inactivo"
+                        }?`}
+                    onConfirm={onConfirmCambioEstado}
+                />
+            )}
         </>
     )
 }

@@ -1,8 +1,8 @@
 ﻿.alert-container {
     position: fixed;
     bottom: 0px;
-    right: 0px;
-    z-index: 1;
+    right: 0px; 
+    z-index: 1000;
 }
 
 .alert-modal {
@@ -14,3 +14,21 @@
     overflow: auto;
     word-wrap: break-word;
 }
+/*.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-out;
+}
+*/

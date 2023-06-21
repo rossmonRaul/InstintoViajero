@@ -4,6 +4,7 @@ import { Grid } from '../../components/grid';
 import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AlertDismissible } from '../../components/alerts';
+import { ConfirmModal } from '../../components/confirmModal';
 
 import { AgregarVendedor, ActualizarVendedor, InactivarVendedor, ObtenerVendedores, ObtenerVendedor } from '../../servicios/ServicioVendedor'
 
@@ -15,6 +16,7 @@ const Vendedores = () => {
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [showAlert, setShowAlert] = useState(false);
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
 
     const [listaDeVendedores, setListaDeVendedores] = useState([]);
@@ -59,14 +61,23 @@ const Vendedores = () => {
     }
 
     const onClickInactivarVendedor = async () => {
+        setConfirmModalOpen(true);         
+    }
+
+
+    const onConfirmCambioEstado = async () => {
         const respuesta = await InactivarVendedor(filaSeleccionada.idVendedor)
         if (respuesta.indicador === 0)
             ObtenerListadoDeVendedores();
         setMensajeRespuesta(respuesta);
+        setTextoBotonInactivar(textoBotonInactivar === "Activar" ? "Inactivar" : "Activar");
 
-        setTextoBotonInactivar("Activar");
-       
+        setConfirmModalOpen(false);
+        setShowAlert(true);
+
     }
+
+
 
     const ObtenerListadoDeVendedores = async () => {
         setPendiente(true);
@@ -139,6 +150,16 @@ const Vendedores = () => {
             <FormularioModal show={modal} handleClose={onClickCerrarModal} titulo={modalTitulo} className='' tamano="lg">
                 <Formulario labelButton={labelButton} data={data} proceso={proceso} onClickProcesarVendedor={onClickProcesarVendedor} mensaje={mensajeFormulario} />
             </FormularioModal>
+            
+            {confirmModalOpen && (
+                <ConfirmModal
+                    isOpen={confirmModalOpen}
+                    toggle={() => setConfirmModalOpen(!confirmModalOpen)}
+                    message={`¿Desea cambiar el estado del vendedor a ${textoBotonInactivar === "Activar" ? "activo" : "inactivo"
+                        }?` }
+                    onConfirm={onConfirmCambioEstado}
+                />
+            )}
         </>
     )
 }

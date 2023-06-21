@@ -5,6 +5,7 @@ import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarRol, ActualizarRol, InactivarRol, ObtenerRoles, ObtenerRol } from '../../servicios/ServicioRoles'
 import { AlertDismissible } from '../../components/alerts';
+import { ConfirmModal } from '../../components/confirmModal';
 
 
 const Roles = () => {
@@ -15,6 +16,7 @@ const Roles = () => {
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [showAlert, setShowAlert] = useState(false);
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     const [listaDeRoles, setListaDeRoles] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -53,11 +55,18 @@ const Roles = () => {
     }
 
     const onClickInactivarRol = async () => {
+        setConfirmModalOpen(true);
+    }
+
+    const onConfirmCambioEstado = async () => {
         const respuesta = await InactivarRol(filaSeleccionada.idRol)
         if (respuesta.indicador === 0)
             ObtenerListadoDeRoles();
         setMensajeRespuesta(respuesta);
-        setTextoBotonInactivar("Activar");
+
+        setTextoBotonInactivar(textoBotonInactivar === "Activar" ? "Inactivar" : "Activar");
+        setConfirmModalOpen(false);
+        setShowAlert(true);
     }
 
     const ObtenerListadoDeRoles = async () => {
@@ -126,6 +135,15 @@ const Roles = () => {
             <FormularioModal show={modal} handleClose={onClickCerrarModal} titulo={modalTitulo} className='' tamano="lg">
                 <Formulario labelButton={labelButton} data={data} proceso={proceso} onClickProcesarRol={onClickProcesarRol} mensaje={mensajeFormulario} />
             </FormularioModal>
+            {confirmModalOpen && (
+                <ConfirmModal
+                    isOpen={confirmModalOpen}
+                    toggle={() => setConfirmModalOpen(!confirmModalOpen)}
+                    message={`¿Desea cambiar el estado del rol a ${textoBotonInactivar === "Activar" ? "activo" : "inactivo"
+                        }?`}
+                    onConfirm={onConfirmCambioEstado}
+                />
+            )}
         </>
     )
 }

@@ -32,7 +32,7 @@ AS
 					COMMIT TRAN DESACTIVAR
 					SET @INDICADOR = 0
 					SET @MENSAJE =(
-									CASE WHEN @ESTADO_ACTUAL = 1 THEN 'El cliente fue eliminado exitosamente.'
+									CASE WHEN @ESTADO_ACTUAL = 1 THEN 'El cliente fue desactivado exitosamente.'
 										 ELSE 'El cliente fue reactivado exitosamente.'
 									END
 									)
