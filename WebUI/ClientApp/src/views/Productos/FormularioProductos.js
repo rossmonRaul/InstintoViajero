@@ -5,6 +5,7 @@ import { InputSelect, InputText } from '../../components/inputs';
 import { useForm } from 'react-hook-form'
 import { ObtenerTiposProductos } from '../../servicios/ServicioProductos';
 import { InputSelectHookForm, InputsFormsReactHook } from '../../components/Forms/InputsFormsReactHook';
+import { InputSelectDirecciones } from '../../components/Direcciones/direcciones';
 
 const FormularioProducto = ({ labelButton, data, proceso, onClickProcesar, mensaje }) => {
     
@@ -49,6 +50,7 @@ const FormularioProducto = ({ labelButton, data, proceso, onClickProcesar, mensa
     }
 
     const onClickAceptar = (event) => {
+        console.log(event);
         onClickProcesar(event);        
     }
 
@@ -97,6 +99,23 @@ const FormularioProducto = ({ labelButton, data, proceso, onClickProcesar, mensa
                         register={{ ...register('CodProducto', { required: true }) }}
                     />
                 </Row>
+
+               {/*  <Row>
+                    <InputSelectDirecciones 
+                        className="form-control custom-select" 
+                        valueProvincia={2}
+                        valueCanton={1}
+                        valueDistrito={1}
+                        registerProvincias={{ ...register('IdProvincia', { required: true }) }}
+                        registerCantones={{ ...register('IdCanton', { required: true }) }}
+                        registerDistritos={{ ...register('IdDistrito', { required: true }) }}
+                        errorsProvincias={errors?.IdProvincia?.type}
+                        errorsCantones={errors?.IdCanton?.type}
+                        errorsDistritos={errors?.IdDistrito?.type}
+                        isSummit={isSummit}                       
+                        classGroup="col-md-4" />
+
+                </Row> */}
 
                 <br />
                 {mensaje !== "" ? <p className="text-info text-center">{mensaje}</p> : ""}

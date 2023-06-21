@@ -108,6 +108,8 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarPersona, mensaj
                     <Button variant="primary" type="submit" size="sm">{labelButton}</Button>
                 </div>
 
+                
+
             </Form>
         </>
     )

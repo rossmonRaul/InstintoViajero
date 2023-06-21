@@ -42,6 +42,7 @@ namespace Aplicacion
             services.AddScoped<IServicioVendedor, ServicioVendedor>();
 
             services.AddScoped<IServicioFormasDePago, ServicioFormasDePago>();
+            services.AddScoped<IServicioDirecciones, ServicioDirecciones>();
             services.AddScoped<IServicioCliente, ServicioCliente>();
 
             return services;
