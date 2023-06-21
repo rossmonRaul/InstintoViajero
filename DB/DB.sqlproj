@@ -65,6 +65,7 @@
     <Folder Include="dbo\InitialData" />
     <Folder Include="dbo\Stored Procedures\Productos" />
     <Folder Include="dbo\Stored Procedures\FormasDePago" />
+    <Folder Include="dbo\Stored Procedures\Direcciones" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Sucursales.sql" />
@@ -128,6 +129,12 @@
     <Build Include="dbo\Stored Procedures\FormasDePago\SPInsertarFormasDePago.sql" />
     <Build Include="dbo\Stored Procedures\FormasDePago\SPObtenerDetalleFormasDePagoID.sql" />
     <Build Include="dbo\Stored Procedures\FormasDePago\SPObtenerFormasDePagos.sql" />
+    <Build Include="dbo\Tables\Provincias.sql" />
+    <Build Include="dbo\Tables\Cantones.sql" />
+    <Build Include="dbo\Tables\Distritos.sql" />
+    <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerProvincias.sql" />
+    <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerCantones.sql" />
+    <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerDistritos.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />
