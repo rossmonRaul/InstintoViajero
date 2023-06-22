@@ -9,9 +9,9 @@ import {ObtenerCantonesService, ObtenerDistritosService, ObtenerProvinciasServic
 export const InputSelectDirecciones =  ({ 
     className,          
     isSummit, 
-    valueProvincia = 0, 
-    valueCanton = 0, 
-    valueDistrito = 0, 
+    valueProvincia, 
+    valueCanton, 
+    valueDistrito, 
     errorsProvincias,
     errorsCantones,
     errorsDistritos,
@@ -32,16 +32,16 @@ export const InputSelectDirecciones =  ({
         const dataProvincias = await ObtenerProvinciasService();
         setProvincias([...dataProvincias])    
       
-        /* if (provincia != null && provincia != "") {            
+        if (provincia != null && provincia != "") {            
             console.log(provincia);
             const dataCantones = await ObtenerCantonesService(provincia);
             setCantones([...dataCantones])
-        } */
-        /* if (canton != null && canton != "") {            
+        }
+        if (canton != null && canton != "") {            
             console.log(canton);
             const dataDistritos = await ObtenerDistritosService(canton);
             setDistritos([...dataDistritos])
-        } */
+        }
     }
 
    
@@ -49,7 +49,6 @@ export const InputSelectDirecciones =  ({
 
     useEffect(() => {
         ConsultaDataDirecciones();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 

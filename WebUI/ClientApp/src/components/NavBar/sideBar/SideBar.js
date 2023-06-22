@@ -93,6 +93,10 @@ const submenus = [
       title: "Formas de Pago",
       target: "FormasDePago",
     },
+    {
+      title: "Paquetes de Viajes",
+      target: "PaquetesDeViajes",
+    },
   ],
 ];
 

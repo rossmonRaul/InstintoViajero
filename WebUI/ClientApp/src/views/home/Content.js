@@ -11,6 +11,7 @@ import Vendedores from "../vendedores";
 import Home from ".";
 import ProductoComponet from "../Productos";
 import FormasDePagoComponet from "../FormasDePago";
+import PaquetesDeViajesComponet from "../PaquetesDeViajes";
 
 
 
@@ -36,6 +37,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar, rol, CerrarSession }) => (
 
     
       {rol === "Administrador" ? <Route exact path="/vendedores" element={<Vendedores />} component={() => "vendedores"} /> : ""}
+      {rol === "Administrador" ? <Route exact path="/PaquetesDeViajes" element={<PaquetesDeViajesComponet/>} component={() => "PaquetesDeViajes"} /> : ""}
       
     </Routes>
   </Container>

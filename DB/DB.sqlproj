@@ -66,6 +66,7 @@
     <Folder Include="dbo\Stored Procedures\Productos" />
     <Folder Include="dbo\Stored Procedures\FormasDePago" />
     <Folder Include="dbo\Stored Procedures\Direcciones" />
+    <Folder Include="dbo\Stored Procedures\PaquetesDeViajes" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Sucursales.sql" />
@@ -135,6 +136,12 @@
     <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerProvincias.sql" />
     <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerCantones.sql" />
     <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerDistritos.sql" />
+    <Build Include="dbo\Tables\PaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPActualizarPaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPEliminarPaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPInsertarPaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPObtenerDetallePaquetesDeViajesID.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPObtenerPaquetesDeViajes.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />

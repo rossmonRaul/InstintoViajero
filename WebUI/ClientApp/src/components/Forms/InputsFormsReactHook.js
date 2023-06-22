@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap"
 export const InputsFormsReactHook = ({        
     label,
     type,
+    id,
     register,
     placeholder,    
     mensajeValidacion,
@@ -17,7 +18,8 @@ export const InputsFormsReactHook = ({
                 <label htmlFor="txtname" className="form-label ml-1">
                   {label}
                 </label>             
-                <input                    
+                <input   
+                    id={id}                 
                     className={`form-control ${errors != undefined ? 'is-invalid' : '' } ${errors  == undefined && isSummit ? 'is-valid' : '' }  ` + className}
                     readOnly={readOnly}                    
                     placeholder={placeholder}
