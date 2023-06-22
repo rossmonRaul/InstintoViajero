@@ -26,6 +26,7 @@ namespace Infraestrutura
             services.AddScoped<IRepositorioFormasDePago, RepositorioFormasDePago>();
             services.AddScoped<IRepositorioCliente, RepositorioCliente>();
             services.AddScoped<IRepositorioDirecciones, RepositorioDirecciones>();
+            services.AddScoped<IRepositorioEstadoPlan, RepositorioEstadoPlan>();
 
             return services;
         }

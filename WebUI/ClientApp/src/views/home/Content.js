@@ -8,6 +8,7 @@ import Reportes from "../reportes";
 import Usuarios from "../usuarios";
 import Personas from "../personas";
 import Vendedores from "../vendedores";
+import EstadosPlan from "../EstadosPlan";
 import Home from ".";
 import ProductoComponet from "../Productos";
 import FormasDePagoComponet from "../FormasDePago";
@@ -35,6 +36,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar, rol, CerrarSession }) => (
       { rol === "Administrador" ? <Route exact path="/personas" element={<Personas />} component={() => "personas"} /> : ""}
       { rol=== "Administrador" ? <Route exact path="/Productos" element={<ProductoComponet />} component={() => "productos"} /> : ""}
       { rol=== "Administrador" ? <Route exact path="/FormasDePago" element={<FormasDePagoComponet />} component={() => "FormasDePago"} /> : ""}
+      {rol === "Administrador" ? <Route exact path="/EstadosPlan" element={<EstadosPlan />} component={() => "EstadosPlan"} /> : ""}
 
     
       {rol === "Administrador" ? <Route exact path="/vendedores" element={<Vendedores />} component={() => "vendedores"} /> : ""}

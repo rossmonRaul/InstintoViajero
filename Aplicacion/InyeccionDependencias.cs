@@ -23,6 +23,8 @@ using Dominio.Interfaces.Aplicacion.FormasDePago;
 using Aplicacion.FormasDePago;
 using Dominio.Interfaces.Aplicacion.Cliente;
 using Aplicacion.Cliente;
+using Dominio.Interfaces.Aplicacion.EstadoPlan;
+using Aplicacion.EstadoPlan;
 
 namespace Aplicacion
 {
@@ -44,7 +46,9 @@ namespace Aplicacion
             services.AddScoped<IServicioFormasDePago, ServicioFormasDePago>();
             services.AddScoped<IServicioDirecciones, ServicioDirecciones>();
             services.AddScoped<IServicioCliente, ServicioCliente>();
+            services.AddScoped<IServicioEstadoPlan, ServicioEstadoPlan>();
 
+            
             return services;
         }
     }

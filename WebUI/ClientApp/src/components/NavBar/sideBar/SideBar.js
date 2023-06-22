@@ -90,8 +90,8 @@ const submenus = [
       target: "productos",
     },
       {
-          title: "Vendedores",
-          target: "vendedores",
+      title: "Vendedores",
+      target: "vendedores",
       },
     {
       title: "Formas de Pago",
@@ -99,7 +99,11 @@ const submenus = [
     },
     {
       title: "Clientes",
-        target: "clientes",
+      target: "clientes",
+      },
+    {
+      title: "Estados de Plan",
+      target: "estadosPlan",
     },
   ],
 ];

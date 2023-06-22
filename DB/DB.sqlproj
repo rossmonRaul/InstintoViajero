@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{1ed0f909-9d78-47bd-bcab-35f17ef2a16d}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -66,6 +66,7 @@
     <Folder Include="dbo\Stored Procedures\Productos" />
     <Folder Include="dbo\Stored Procedures\FormasDePago" />
     <Folder Include="dbo\Stored Procedures\Direcciones" />
+    <Folder Include="dbo\Stored Procedures\EstadosPlan" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Sucursales.sql" />
@@ -141,6 +142,12 @@
     <Build Include="dbo\Stored Procedures\SPEliminarCliente.sql" />
     <Build Include="dbo\Stored Procedures\SPObtenerClientes.sql" />
     <Build Include="dbo\Stored Procedures\SPObtenerDetalleCliente.sql" />
+    <Build Include="dbo\Tables\EstadosPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPInsertarEstadoPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPActualizarEstadoPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPEliminarEstadoPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPObtenerEstadosPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPObtenerDetalleEstadoPlan.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />
