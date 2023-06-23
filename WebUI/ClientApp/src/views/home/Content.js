@@ -12,6 +12,7 @@ import Home from ".";
 import ProductoComponet from "../Productos";
 import FormasDePagoComponet from "../FormasDePago";
 import PaquetesDeViajesComponet from "../PaquetesDeViajes";
+import TourDeViajeComponet from "../TourDeViaje";
 
 
 
@@ -38,6 +39,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar, rol, CerrarSession }) => (
     
       {rol === "Administrador" ? <Route exact path="/vendedores" element={<Vendedores />} component={() => "vendedores"} /> : ""}
       {rol === "Administrador" ? <Route exact path="/PaquetesDeViajes" element={<PaquetesDeViajesComponet/>} component={() => "PaquetesDeViajes"} /> : ""}
+      {rol === "Administrador" ? <Route exact path="/TourDeViaje" element={<TourDeViajeComponet/>} component={() => "TourDeViaje"} /> : ""}
       
     </Routes>
   </Container>

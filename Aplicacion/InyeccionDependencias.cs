@@ -23,6 +23,8 @@ using Dominio.Interfaces.Aplicacion.FormasDePago;
 using Aplicacion.FormasDePago;
 using Dominio.Interfaces.Aplicacion.PaquetesDeViajes;
 using Aplicacion.PaquetesDeViajes;
+using Aplicacion.TourDeViaje;
+using Dominio.Interfaces.Aplicacion.TourDeViaje;
 
 namespace Aplicacion
 {
@@ -44,6 +46,7 @@ namespace Aplicacion
             services.AddScoped<IServicioFormasDePago, ServicioFormasDePago>();
             services.AddScoped<IServicioDirecciones, ServicioDirecciones>();
             services.AddScoped<IServicioPaquetesDeViajes, ServicioPaquetesDeViajes>();
+            services.AddScoped<IServicioTourDeViaje, ServicioTourDeViaje>();
 
             return services;
         }

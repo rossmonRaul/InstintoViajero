@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form } from "react-bootstrap"
+
 export const InputsFormsReactHook = ({        
     label,
     type,
@@ -70,5 +71,46 @@ export const InputSelectHookForm = ({ className,
                 {errors === 'minLength' && <small>No cumple con el mínimo de caracteres</small>}
             </div>
         </Form.Group>
+    )
+}
+
+
+export const TexAreaFormsReactHook = ({        
+    label,
+    type,
+    id,
+    rows,
+    register,
+    placeholder,    
+    mensajeValidacion,
+    className,
+    readOnly = false,    
+    isSummit = false,
+    classDiv,
+    errors }) => {
+    return (
+        <>
+            <div className={"mb-3 " + classDiv}>
+                <label htmlFor="txtname" className="form-label ml-1">
+                  {label}
+                </label>             
+                <textarea
+                    rows={rows}   
+                    id={id}                 
+                    className={`form-control ${errors != undefined ? 'is-invalid' : '' } ${errors  == undefined && isSummit ? 'is-valid' : '' }  ` + className}
+                    readOnly={readOnly}                    
+                    placeholder={placeholder}
+                    type={type}                    
+                    {...register}
+                    
+                />
+                <div className="invalid-feedback">
+                
+                {errors === 'required' && <small>{mensajeValidacion}</small>}
+                {errors === 'maxLength' && <small>No cumple con el máximo de caracteres</small>}
+                {errors === 'minLength' && <small>No cumple con el mínimo de caracteres</small>}
+                </div>
+            </div>    
+        </>
     )
 }

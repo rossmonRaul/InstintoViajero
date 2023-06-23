@@ -97,6 +97,10 @@ const submenus = [
       title: "Paquetes de Viajes",
       target: "PaquetesDeViajes",
     },
+    {
+      title: "Tours de Viajes",
+      target: "TourDeViaje",
+    },
   ],
 ];
 
