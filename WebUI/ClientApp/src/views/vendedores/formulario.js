@@ -97,10 +97,10 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarVendedor, mensa
             <Form noValidate validated={validated} onSubmit={onClickAceptar}>
                 <Row>
                     <InputText id='txt-codVendedor' label='Código de Vendedor:' type='text' placeholder='Ingrese el código de vendedor' value={codVendedor}
-                        onChange={onChangeCodVendedor} mensajeValidacion="El código de vendedor es requerido" className="col-md-4" readOnly={proceso == 2} />
+                        onChange={onChangeCodVendedor} mensajeValidacion="El código de vendedor es requerido" className="col-md-4"  />
 
                         <InputText id='txt-nombre' label='Nombre:' type='text' value={nombre}
-                            onChange={onChangeNombre}    mensajeValidacion="El nombre del vendedor es requerido" placeholder='Nombre del vendedor' className="col-md-4" onClick={onClickBuscarPersona} readOnly={proceso == 2} />
+                            onChange={onChangeNombre}    mensajeValidacion="El nombre del vendedor es requerido" placeholder='Nombre del vendedor' className="col-md-4" onClick={onClickBuscarPersona} />
 
                         <InputText id='txt-identificacion' label='Identificación:' type='text' value={identificacion}
                             onChange={onChangeIdentificacion} mensajeValidacion="La identificación es requerida" className="col-md-4" readOnly />

@@ -67,6 +67,7 @@
     <Folder Include="dbo\Stored Procedures\FormasDePago" />
     <Folder Include="dbo\Stored Procedures\Direcciones" />
     <Folder Include="dbo\Stored Procedures\EstadosPlan" />
+    <Folder Include="dbo\Stored Procedures\Comisiones" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Sucursales.sql" />
@@ -148,6 +149,12 @@
     <Build Include="dbo\Stored Procedures\EstadosPlan\SPEliminarEstadoPlan.sql" />
     <Build Include="dbo\Stored Procedures\EstadosPlan\SPObtenerEstadosPlan.sql" />
     <Build Include="dbo\Stored Procedures\EstadosPlan\SPObtenerDetalleEstadoPlan.sql" />
+    <Build Include="dbo\Tables\Comisiones.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPInsertarComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPActualizarComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPEliminarComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPObtenerDetalleComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPObtenerComisiones.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />

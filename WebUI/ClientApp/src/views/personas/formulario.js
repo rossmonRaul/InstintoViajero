@@ -80,7 +80,7 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarPersona, mensaj
                         onChange={onChangeTiposIdentificacion} value={idTiposIdentificacion} indicacion="Seleccione el tipo de identificación"  optionValue="idTipoIdentificacion" optionLabel="descripcion" classGroup="col-md-4" />
 
                     <InputText id='txt-identificacion' label='Identificación:' type='text' placeholder='Ingrese la identificación' value={identificacion}
-                        onChange={onChangeIdentificacion} mensajeValidacion="La identificación es requerida" className="col-md-4" readOnly={proceso == 2} />
+                        onChange={onChangeIdentificacion} mensajeValidacion="La identificación es requerida" className="col-md-4"  />
                 </Row>
                 <Row>
                     <InputText id='txt-nombre' label='Nombre:' type='text' placeholder='Ingrese el nombre' value={nombre}

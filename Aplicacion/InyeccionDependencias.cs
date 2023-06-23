@@ -25,6 +25,8 @@ using Dominio.Interfaces.Aplicacion.Cliente;
 using Aplicacion.Cliente;
 using Dominio.Interfaces.Aplicacion.EstadoPlan;
 using Aplicacion.EstadoPlan;
+using Dominio.Interfaces.Aplicacion.Comision;
+using Aplicacion.Comision;
 
 namespace Aplicacion
 {
@@ -47,8 +49,9 @@ namespace Aplicacion
             services.AddScoped<IServicioDirecciones, ServicioDirecciones>();
             services.AddScoped<IServicioCliente, ServicioCliente>();
             services.AddScoped<IServicioEstadoPlan, ServicioEstadoPlan>();
+            services.AddScoped<IServicioComision, ServicioComision>();
 
-            
+
             return services;
         }
     }

@@ -104,6 +104,10 @@ const submenus = [
     {
       title: "Estados de Plan",
       target: "estadosPlan",
+      },
+    {
+      title: "Comisiones",
+      target: "comisiones",
     },
   ],
 ];
