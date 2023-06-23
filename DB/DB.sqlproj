@@ -68,6 +68,7 @@
     <Folder Include="dbo\Stored Procedures\Direcciones" />
     <Folder Include="dbo\Stored Procedures\EstadosPlan" />
     <Folder Include="dbo\Stored Procedures\Comisiones" />
+    <Folder Include="dbo\Stored Procedures\Plazos" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Sucursales.sql" />
@@ -155,6 +156,12 @@
     <Build Include="dbo\Stored Procedures\Comisiones\SPEliminarComision.sql" />
     <Build Include="dbo\Stored Procedures\Comisiones\SPObtenerDetalleComision.sql" />
     <Build Include="dbo\Stored Procedures\Comisiones\SPObtenerComisiones.sql" />
+    <Build Include="dbo\Tables\Plazos.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPInsertarPlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPActualizarPlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPEliminarPlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPObtenerDetallePlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPObtenerPlazos.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />

@@ -42,10 +42,10 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarEstadoPlan, men
                 <Form noValidate validated={validated} onSubmit={onClickAceptar}>
                     <Row>
                         <InputText id='txt-codEstadoPlan' label='Código de estado:' type='text' placeholder='Ingrese el código' value={codEstadoPlan}
-                            onChange={onChangeCodEstadoPlan} mensajeValidacion="El código de estado" className="col-md-4" />
+                            onChange={onChangeCodEstadoPlan} mensajeValidacion="El código de estado requerido" className="col-md-4" />
 
                         <InputText id='txt-descEstadoPlan' label='Descripción de estado:' type='text' placeholder='Ingrese la descripción' value={descEstadoPlan}
-                            onChange={onChangeDescEstadoPlan} mensajeValidacion="El código de estado de plan es requerido" className="col-md-8"  />
+                            onChange={onChangeDescEstadoPlan} mensajeValidacion="Descripción requerida" className="col-md-8"  />
                     </Row>                  
                     <br />
                     {mensaje !== "" ? <p className="text-info text-center">{mensaje}</p> : ""}

@@ -28,6 +28,7 @@ namespace Infraestrutura
             services.AddScoped<IRepositorioDirecciones, RepositorioDirecciones>();
             services.AddScoped<IRepositorioEstadoPlan, RepositorioEstadoPlan>();
             services.AddScoped<IRepositorioComision, RepositorioComision>();
+            services.AddScoped<IRepositorioPlazo, RepositorioPlazo>();
 
             return services;
         }

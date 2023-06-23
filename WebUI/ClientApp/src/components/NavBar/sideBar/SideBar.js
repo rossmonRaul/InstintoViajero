@@ -108,6 +108,10 @@ const submenus = [
     {
       title: "Comisiones",
       target: "comisiones",
+      },
+    {
+      title: "Plazos",
+      target: "plazos",
     },
   ],
 ];
