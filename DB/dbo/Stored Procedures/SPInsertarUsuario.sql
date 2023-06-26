@@ -79,11 +79,11 @@ AS
 
                     COMMIT TRAN INSERTAR
                     SET @INDICADOR = 0
-                    SET @MENSAJE = 'Exito: Usuario registrado exiosamente'
+                    SET @MENSAJE = 'Usuario registrado exitosamente.'
             END TRY
             BEGIN CATCH
                 SET @INDICADOR = 1
-                SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+                SET @MENSAJE = 'Error al registrar el usuario.'
                 ROLLBACK TRANSACTION INSERTAR
             END CATCH
     END

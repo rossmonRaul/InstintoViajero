@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{1ed0f909-9d78-47bd-bcab-35f17ef2a16d}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -66,6 +66,9 @@
     <Folder Include="dbo\Stored Procedures\Productos" />
     <Folder Include="dbo\Stored Procedures\FormasDePago" />
     <Folder Include="dbo\Stored Procedures\Direcciones" />
+    <Folder Include="dbo\Stored Procedures\EstadosPlan" />
+    <Folder Include="dbo\Stored Procedures\Comisiones" />
+    <Folder Include="dbo\Stored Procedures\Plazos" />
     <Folder Include="dbo\Stored Procedures\PaquetesDeViajes" />
     <Folder Include="dbo\Stored Procedures\TourDeViaje" />
   </ItemGroup>
@@ -137,6 +140,30 @@
     <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerProvincias.sql" />
     <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerCantones.sql" />
     <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerDistritos.sql" />
+    <Build Include="dbo\Tables\Clientes.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarCliente.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarCliente.sql" />
+    <Build Include="dbo\Stored Procedures\SPEliminarCliente.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerClientes.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleCliente.sql" />
+    <Build Include="dbo\Tables\EstadosPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPInsertarEstadoPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPActualizarEstadoPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPEliminarEstadoPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPObtenerEstadosPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPObtenerDetalleEstadoPlan.sql" />
+    <Build Include="dbo\Tables\Comisiones.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPInsertarComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPActualizarComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPEliminarComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPObtenerDetalleComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPObtenerComisiones.sql" />
+    <Build Include="dbo\Tables\Plazos.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPInsertarPlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPActualizarPlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPEliminarPlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPObtenerDetallePlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPObtenerPlazos.sql" />
     <Build Include="dbo\Tables\PaquetesDeViajes.sql" />
     <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPActualizarPaquetesDeViajes.sql" />
     <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPEliminarPaquetesDeViajes.sql" />

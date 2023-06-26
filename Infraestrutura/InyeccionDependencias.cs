@@ -24,7 +24,11 @@ namespace Infraestrutura
             services.AddScoped<IRepositorioReporte, RepositorioReporte>();
             services.AddScoped<IRepositorioProducto, RepositorioProducto>();
             services.AddScoped<IRepositorioFormasDePago, RepositorioFormasDePago>();
+            services.AddScoped<IRepositorioCliente, RepositorioCliente>();
             services.AddScoped<IRepositorioDirecciones, RepositorioDirecciones>();
+            services.AddScoped<IRepositorioEstadoPlan, RepositorioEstadoPlan>();
+            services.AddScoped<IRepositorioComision, RepositorioComision>();
+            services.AddScoped<IRepositorioPlazo, RepositorioPlazo>();
             services.AddScoped<IRepositorioPaquetesDeViajes, RepositorioPaquetesDeViajes>();
             services.AddScoped<IRepositorioTourDeViaje, RepositorioTourDeViaje>();
 

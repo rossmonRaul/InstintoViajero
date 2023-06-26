@@ -35,12 +35,12 @@ END
 
 			COMMIT TRAN INSERTAR
 			SET @INDICADOR = 0
-			SET @MENSAJE = 'Exito: Forma de Pago registrada exiosamente'
+			SET @MENSAJE = 'Forma de Pago registrada exitosamente'
 			--SELECT @INDICADOR, 'EXITO' AS MENSAJE
 		END TRY
 		BEGIN CATCH
 			SET @INDICADOR = 1
-			SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+			SET @MENSAJE = 'Error al registrar la forma de pago.'
 			--SELECT @INDICADOR, ERROR_MESSAGE() AS MENSAJE;
 			ROLLBACK TRANSACTION INSERTAR
 		END CATCH

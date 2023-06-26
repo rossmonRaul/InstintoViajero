@@ -6,6 +6,8 @@ import { Grid } from '../../components/grid';
 import { FormularioModal } from '../../components/ventanaModal';
 import { ActualizarFormasDePago, AgregarFormasDePago, InactivarFormasDePago, ObtenerFormasDePagoPorId, ObtenerFormasDePagos } from '../../servicios/ServicioFormasDePago';
 import FormularioFormasDePago from './FormularioFormasDePago';
+import { AlertDismissible } from '../../components/alerts';
+import { ConfirmModal } from '../../components/ConfirmModal';
 
 const FormasDePagoComponet = () => {
     const [proceso, setProceso] = useState(1);
@@ -16,6 +18,8 @@ const FormasDePagoComponet = () => {
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [idBuscar, setidBuscar] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     const [listaRespaldo, setListaRespaldo] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -71,11 +75,16 @@ const FormasDePagoComponet = () => {
     }
 
     const onClickInactivar = async () => {
+        setConfirmModalOpen(true);
+    }
+    const onConfirmCambioEstado = async () => {
         const respuesta = await InactivarFormasDePago(filaSeleccionada.id)
         if (respuesta.indicador === 0)
             ObtenerListado();
         setMensajeRespuesta(respuesta);        
-        setTextoBotonInactivar(textoBotonInactivar == "Activar" ? "Inactivar" : "Activar");
+        setTextoBotonInactivar(textoBotonInactivar === "Activar" ? "Inactivar" : "Activar");
+        setConfirmModalOpen(false);
+        setShowAlert(true);
     }
 
 
@@ -100,7 +109,9 @@ const FormasDePagoComponet = () => {
             setMensajeRespuesta(respuesta);
         }else{     
             setMensajeFormulario(respuesta.mensaje);  
-        }             
+        }  
+        setShowAlert(true);
+
     }
 
     return (
@@ -128,7 +139,13 @@ const FormasDePagoComponet = () => {
                     {textoBotonInactivar}
                 </Button>
                 <br />
-
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )} 
                 <span>Listado de Todas los Formas de Pago Registradas</span>
                 <br />
                 <Grid
@@ -151,7 +168,15 @@ const FormasDePagoComponet = () => {
                     onClickProcesar={onClickProcesar} 
                     mensaje={mensajeFormulario}/>
                 </FormularioModal>
-
+                {confirmModalOpen && (
+                    <ConfirmModal
+                        isOpen={confirmModalOpen}
+                        toggle={() => setConfirmModalOpen(!confirmModalOpen)}
+                        message={`¿Desea cambiar el estado de la forma de pago a ${textoBotonInactivar === "Activar" ? "activo" : "inactivo"
+                            }?`}
+                        onConfirm={onConfirmCambioEstado}
+                    />
+                )}
             </div>
 
         </>
