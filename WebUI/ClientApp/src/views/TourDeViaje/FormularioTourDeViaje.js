@@ -35,7 +35,6 @@ const FormularioTourDeViaje = ({ labelButton, data, proceso, onClickProcesar }) 
             <Form  className='flex-row justify-content-center' onSubmit={handleSubmit(onClickAceptar)}>
                 <Row className='m-2'>
                     <InputsFormsReactHook
-                        //className="input-form-hook"
                         id='txt-Descripcion'
                         label='Descripción:'
                         classDiv={"col-md-6"}
@@ -50,7 +49,6 @@ const FormularioTourDeViaje = ({ labelButton, data, proceso, onClickProcesar }) 
                         }}
                     />
                     <InputsFormsReactHook
-                        //className="input-form-hook"
                         id='txt-Precio'
                         type={"number"}
                         label='Precio Total:'
@@ -67,7 +65,6 @@ const FormularioTourDeViaje = ({ labelButton, data, proceso, onClickProcesar }) 
                 </Row>  
                 <Row className='m-2'>
                     <InputsFormsReactHook
-                        //className="input-form-hook"
                         type={"Date"}
                         classDiv={"col-md-6"}
                         id='txt-FechaSalida'
@@ -82,7 +79,6 @@ const FormularioTourDeViaje = ({ labelButton, data, proceso, onClickProcesar }) 
                         }}
                     />
                     <InputsFormsReactHook
-                        //className="input-form-hook"
                         id='txt-FechaLlegada'
                         classDiv={"col-md-6"}
                         type={"Date"}
@@ -100,7 +96,6 @@ const FormularioTourDeViaje = ({ labelButton, data, proceso, onClickProcesar }) 
                 <Row className='m-2'>
                     
                     <TexAreaFormsReactHook
-                        //className="input-form-hook"
                         type={""}
                         rows={3}
                         classDiv={"col-md-12"}

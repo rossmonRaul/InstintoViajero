@@ -6,7 +6,9 @@ export const InputsFormsReactHook = ({
     type,
     id,
     register,
-    placeholder,    
+    placeholder, 
+    onInput,   
+    step = "any",
     mensajeValidacion,
     className,
     readOnly = false,    
@@ -21,6 +23,8 @@ export const InputsFormsReactHook = ({
                 </label>             
                 <input   
                     id={id}                 
+                    //onInput={onInput}
+                    step={step}
                     className={`form-control ${errors != undefined ? 'is-invalid' : '' } ${errors  == undefined && isSummit ? 'is-valid' : '' }  ` + className}
                     readOnly={readOnly}                    
                     placeholder={placeholder}
