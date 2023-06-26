@@ -38,7 +38,7 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarPlazo, mensaje 
             {
                 <Form noValidate validated={validated} onSubmit={onClickAceptar}>
                     <Row>
-                        <InputText id='txt-Descripcion' label='Descripción del plazo:' type='text' placeholder='Ingrese la descripción' value={descripcion}
+                        <InputText id='txt-Descripcion' label='Descripción del plazo:' type='text' placeholder='Ingrese la descripción' maxLength={100} value={descripcion}
                             onChange={onChangeDescripcion} mensajeValidacion="Descripción requerida" className="col-md-6" />
                     </Row>
                     <br />
