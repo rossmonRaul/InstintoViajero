@@ -54,11 +54,11 @@
 					END
 					COMMIT TRAN ACTUALIZAR
 					SET @INDICADOR = 0
-					SET @MENSAJE = 'Exito: Persona actualizada exitosamente'
+					SET @MENSAJE = 'Persona actualizada exitosamente'
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al actualizar persona.' --+ ERROR_MESSAGE()
 				ROLLBACK TRANSACTION ACTUALIZAR
 			END CATCH
 END

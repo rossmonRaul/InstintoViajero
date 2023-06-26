@@ -4,6 +4,9 @@ import { Grid } from '../../components/grid';
 import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { AgregarPersona, ActualizarPersona, InactivarPersona, ObtenerPersonas, ObtenerPersona } from '../../servicios/ServicioPersonas'
+import { AlertDismissible } from '../../components/alerts';
+import { ConfirmModal } from '../../components/ConfirmModal';
+
 
 const Personas = () => {
     const [proceso, setProceso] = useState(1);
@@ -12,6 +15,8 @@ const Personas = () => {
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     const [listaDePersonas, setListaDePersonas] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -54,11 +59,16 @@ const Personas = () => {
     }
 
     const onClickInactivarPersona = async () => {
+        setConfirmModalOpen(true);
+    }
+    const onConfirmCambioEstado = async () => {
         const respuesta = await InactivarPersona(filaSeleccionada.idPersona)
         if (respuesta.indicador === 0)
             ObtenerListadoDePersonas();
         setMensajeRespuesta(respuesta);
-        setTextoBotonInactivar("Activar");
+        setTextoBotonInactivar(textoBotonInactivar == "Activar" ? "Inactivar" : "Activar");
+        setConfirmModalOpen(false);
+        setShowAlert(true);
     }
 
     const ObtenerListadoDePersonas = async () => {
@@ -85,6 +95,8 @@ const Personas = () => {
         } else {
             setMensajeFormulario(respuesta.mensaje);
         }
+        setShowAlert(true);
+
     }
 
     const onClickSeleccionarFila = (fila) => {
@@ -110,12 +122,13 @@ const Personas = () => {
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarPersona()} disabled={bloquearBoton}>Actualizar</Button>{' '}
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarPersona()} disabled={bloquearBoton}>{textoBotonInactivar}</Button>
                 <br /><br />
-                {mensajeRespuesta.mensaje !== "" ?
-                    <>
-                        <span className={mensajeRespuesta.indicador === 0 ? "text-success" : "text-danger"}>{mensajeRespuesta.mensaje}</span>
-                        <br />
-                    </>
-                    : ''}
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )} 
                 <span>Listado de todas las personas registradas</span>
                 <Grid gridHeading={encabezado} gridData={listaDePersonas} selectableRows={true} pending={pendiente}
                     setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idPersona" filterColumns={filterColumns} />
@@ -124,6 +137,15 @@ const Personas = () => {
             <FormularioModal show={modal} handleClose={onClickCerrarModal} titulo={modalTitulo} className='' tamano="lg">
                 <Formulario labelButton={labelButton} data={data} proceso={proceso} onClickProcesarPersona={onClickProcesarPersona} mensaje={mensajeFormulario} />
             </FormularioModal>
+            {confirmModalOpen && (
+                <ConfirmModal
+                    isOpen={confirmModalOpen}
+                    toggle={() => setConfirmModalOpen(!confirmModalOpen)}
+                    message={`¿Desea cambiar el estado de la persona a ${textoBotonInactivar === "Activar" ? "activo" : "inactivo"
+                        }?`}
+                    onConfirm={onConfirmCambioEstado}
+                />
+            )}
         </>
     )
 }

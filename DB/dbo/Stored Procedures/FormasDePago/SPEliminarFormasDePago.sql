@@ -43,7 +43,7 @@ AS
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al cambiar estado de la forma de pago.'
 				ROLLBACK TRANSACTION DESACTIVAR
 			END CATCH
 	END

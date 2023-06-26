@@ -65,7 +65,7 @@ export const BuscarPersona = ({ show, handleClose, className, tamano, handleAcep
                     <div className='text-right'>
                         <br />
                         <Button variant="primary" size="sm" disabled={bloquearBoton} onClick={handleAceptarClick}>Aceptar</Button>{' '} 
-                        <Button variant="primary" size="sm" onClick={handleClose}>Cancelar</Button>{' '}                 
+                        <Button variant="secondary" size="sm" onClick={handleClose}>Cancelar</Button>{' '}                 
                     </div>
                 </Modal.Body>
             </Modal>

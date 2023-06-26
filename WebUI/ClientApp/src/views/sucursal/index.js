@@ -4,6 +4,9 @@ import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
 import { Grid } from '../../components/grid';
 import { AgregarSucursal, ActualizarSucursal, InactivarSucursal, ObtenerSucursales, ObtenerSucursalPorId } from '../../servicios/ServicioSucursal';
+import { AlertDismissible } from '../../components/alerts';
+import { ConfirmModal } from '../../components/ConfirmModal';
+
 
 const Sucursal = () => {
     const [proceso, setProceso] = useState(1);
@@ -13,6 +16,8 @@ const Sucursal = () => {
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
     const [idBuscar, setidBuscar] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     const [listaSucursales, setListaSucursales] = useState([]);
     const [listaRespaldo, setListaRespaldo] = useState([]);
@@ -50,7 +55,9 @@ const Sucursal = () => {
             setMensajeRespuesta(respuesta);
         }else{     
             setMensajeFormulario(respuesta.mensaje);  
-        }             
+        } 
+        setShowAlert(true);
+
     }
 
     const ObtenerListadoDeSucursals = async() => {
@@ -75,12 +82,18 @@ const Sucursal = () => {
         setModalTitulo("Actualizar sucursal");
     }
 
-    const onClickInactivarSucursal = async() => {
+
+    const onClickInactivarSucursal = async () => {
+        setConfirmModalOpen(true);
+    }
+    const onConfirmCambioEstado = async() => {
         const respuesta = await InactivarSucursal(filaSeleccionada.idSucursal)
         if(respuesta.indicador === 0)
             ObtenerListadoDeSucursals();
         setMensajeRespuesta(respuesta);
-        setTextoBotonInactivar("Activar");
+        setTextoBotonInactivar(textoBotonInactivar === "Activar" ? "Inactivar" : "Activar");
+        setConfirmModalOpen(false);
+        setShowAlert(true);
     }
 
     const onClickSeleccionarFila = (fila) => {
@@ -111,12 +124,13 @@ const Sucursal = () => {
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarSucursal()} disabled={bloquearBoton}>{textoBotonInactivar}
                         </Button>
                 <br />
-                {/*{mensajeRespuesta.mensaje !== "" ? */}
-                {/*<>                   */}
-                {/*    <span className={mensajeRespuesta.indicador === 0 ? "text-success" : "text-danger"}>{mensajeRespuesta.mensaje}</span>*/}
-                {/*    <br/>  */}
-                {/*</>                */}
-                {/*: ''}    */}
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )} 
                 <span>Listado de todas las sucursales registradas</span>
                 <br />
                     <Grid gridHeading={encabezado} gridData={listaRespaldo} selectableRows={true} pending={pendiente}
@@ -127,6 +141,15 @@ const Sucursal = () => {
             <FormularioModal show={modal} handleClose={onClickCerrarModal} titulo={modalTitulo} className=''>
                 <Formulario labelButton={labelButton} data={data} proceso={proceso} onClickProcesarSucursal={onClickProcesarSucursal} mensaje={mensajeFormulario}/>
             </FormularioModal>
+            {confirmModalOpen && (
+                <ConfirmModal
+                    isOpen={confirmModalOpen}
+                    toggle={() => setConfirmModalOpen(!confirmModalOpen)}
+                    message={`¿Desea cambiar el estado de la sucursal a ${textoBotonInactivar === "Activar" ? "activo" : "inactivo"
+                        }?`}
+                    onConfirm={onConfirmCambioEstado}
+                />
+            )}
         </>
         )
 }

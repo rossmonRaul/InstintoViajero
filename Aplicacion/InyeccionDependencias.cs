@@ -21,6 +21,14 @@ using Aplicacion.Vendedor;
 using Dominio.Interfaces.Aplicacion.Vendedor;
 using Dominio.Interfaces.Aplicacion.FormasDePago;
 using Aplicacion.FormasDePago;
+using Dominio.Interfaces.Aplicacion.Cliente;
+using Aplicacion.Cliente;
+using Dominio.Interfaces.Aplicacion.EstadoPlan;
+using Aplicacion.EstadoPlan;
+using Dominio.Interfaces.Aplicacion.Comision;
+using Aplicacion.Comision;
+using Dominio.Interfaces.Aplicacion.Plazo;
+using Aplicacion.Plazo;
 
 namespace Aplicacion
 {
@@ -41,6 +49,11 @@ namespace Aplicacion
 
             services.AddScoped<IServicioFormasDePago, ServicioFormasDePago>();
             services.AddScoped<IServicioDirecciones, ServicioDirecciones>();
+            services.AddScoped<IServicioCliente, ServicioCliente>();
+            services.AddScoped<IServicioEstadoPlan, ServicioEstadoPlan>();
+            services.AddScoped<IServicioComision, ServicioComision>();
+            services.AddScoped<IServicioPlazo, ServicioPlazo>();
+
 
             return services;
         }

@@ -72,7 +72,11 @@ const submenus = [
     {
       title: "Sucursal",
       target: "sucursal",
-    },
+      },
+      {
+          title: "Roles",
+          target: "roles",
+      },
     {
       title: "Usuarios",
       target: "usuarios",
@@ -86,12 +90,28 @@ const submenus = [
       target: "productos",
     },
       {
-          title: "Vendedores",
-          target: "vendedores",
+      title: "Vendedores",
+      target: "vendedores",
       },
     {
       title: "Formas de Pago",
       target: "FormasDePago",
+    },
+    {
+      title: "Clientes",
+      target: "clientes",
+      },
+    {
+      title: "Estados de Plan",
+      target: "estadosPlan",
+      },
+    {
+      title: "Comisiones",
+      target: "comisiones",
+      },
+    {
+      title: "Plazos",
+      target: "plazos",
     },
   ],
 ];

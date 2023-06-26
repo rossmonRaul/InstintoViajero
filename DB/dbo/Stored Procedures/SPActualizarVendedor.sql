@@ -48,7 +48,7 @@ AS
             END TRY
             BEGIN CATCH
                 SET @INDICADOR = 1
-                SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+                SET @MENSAJE = 'Error al actualizar vendedor ' --+ ERROR_MESSAGE()
                 ROLLBACK TRANSACTION ACTUALIZAR
             END CATCH
     END

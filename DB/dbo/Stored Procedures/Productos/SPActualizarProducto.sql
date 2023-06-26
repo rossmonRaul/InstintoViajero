@@ -26,11 +26,11 @@ AS
 
 				COMMIT TRAN ACTUALIZAR
 					SET @INDICADOR = 0
-					SET @MENSAJE = 'Exito: Sucursal actualizada exitosamente'
+					SET @MENSAJE = 'Producto actualizado exitosamente.'
 		END TRY
 		BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al actualizar producto.'
 				ROLLBACK TRANSACTION ACTUALIZAR
 			END CATCH
 	END

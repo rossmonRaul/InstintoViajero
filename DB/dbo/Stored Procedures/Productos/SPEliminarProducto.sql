@@ -20,14 +20,14 @@ AS
 		COMMIT TRAN DESACTIVAR
 					SET @INDICADOR = 0
 					SET @MENSAJE = (
-									CASE WHEN @ESTADO_ACTUAL = 1 THEN 'La planta fue desactivada exitosamente.'
-										 ELSE 'La Sucursal fue reactivada exitosamente.'
+									CASE WHEN @ESTADO_ACTUAL = 1 THEN 'El producto fue desactivado exitosamente.'
+										 ELSE 'El producto fue reactivado exitosamente.'
 									END
 									)
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al cambiar estado del producto.'
 				ROLLBACK TRANSACTION DESACTIVAR
 			END CATCH
 	END

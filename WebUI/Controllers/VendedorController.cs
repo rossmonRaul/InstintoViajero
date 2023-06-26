@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Dominio.Entity;
-using Dominio.Interfaces.Aplicacion.Persona;
 using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 using Dominio.Interfaces.Aplicacion.Vendedor;

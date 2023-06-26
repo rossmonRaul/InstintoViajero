@@ -3,6 +3,9 @@ import { Button } from 'react-bootstrap';
 import { Grid } from '../../components/grid';
 import Formulario from './formulario';
 import { FormularioModal } from '../../components/ventanaModal';
+import { AlertDismissible } from '../../components/alerts';
+import { ConfirmModal } from '../../components/ConfirmModal';
+
 import { AgregarVendedor, ActualizarVendedor, InactivarVendedor, ObtenerVendedores, ObtenerVendedor } from '../../servicios/ServicioVendedor'
 
 const Vendedores = () => {
@@ -12,6 +15,9 @@ const Vendedores = () => {
     const [labelButton, setLabelButton] = useState("Registrar");
     const [mensajeFormulario, setMensajeFormulario] = useState("");
     const [mensajeRespuesta, setMensajeRespuesta] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+
 
     const [listaDeVendedores, setListaDeVendedores] = useState([]);
     const [pendiente, setPendiente] = useState(false);
@@ -55,12 +61,23 @@ const Vendedores = () => {
     }
 
     const onClickInactivarVendedor = async () => {
+        setConfirmModalOpen(true);         
+    }
+
+
+    const onConfirmCambioEstado = async () => {
         const respuesta = await InactivarVendedor(filaSeleccionada.idVendedor)
         if (respuesta.indicador === 0)
             ObtenerListadoDeVendedores();
         setMensajeRespuesta(respuesta);
-        setTextoBotonInactivar("Activar");
+        setTextoBotonInactivar(textoBotonInactivar === "Activar" ? "Inactivar" : "Activar");
+
+        setConfirmModalOpen(false);
+        setShowAlert(true);
+
     }
+
+
 
     const ObtenerListadoDeVendedores = async () => {
         setPendiente(true);
@@ -83,9 +100,15 @@ const Vendedores = () => {
             setModal(false);
             ObtenerListadoDeVendedores();
             setMensajeRespuesta(respuesta);
+
         } else {
-            setMensajeFormulario(respuesta.mensaje);
+            setMensajeRespuesta(respuesta);
+            ObtenerListadoDeVendedores();
+            setModal(false);
+        //    setMensajeFormulario(respuesta.mensaje);
         }
+        setShowAlert(true);
+
     }
 
     const onClickSeleccionarFila = (fila) => {
@@ -100,6 +123,7 @@ const Vendedores = () => {
         setMensajeFormulario("");
     }
 
+
     const ValidarSiFilaFueSeleccionada = (fila) => Object.entries(fila).length === 0 ? false : true;
 
     return (
@@ -111,13 +135,14 @@ const Vendedores = () => {
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickActualizarVendedor()} disabled={bloquearBoton}>Actualizar</Button>{' '}
                 <Button variant="primary" type="submit" size="sm" onClick={() => onClickInactivarVendedor()} disabled={bloquearBoton}>{textoBotonInactivar}</Button>
                 <br /><br />
-                {mensajeRespuesta.mensaje !== "" ?
-                    <>
-                        <span className={mensajeRespuesta.indicador === 0 ? "text-success" : "text-danger"}>{mensajeRespuesta.mensaje}</span>
-                        <br />
-                    </>
-                    : ''}
-                <span>Listado de todos los vendendedores registrados</span>
+                {showAlert && (
+                    <AlertDismissible
+                        indicador={mensajeRespuesta.indicador}
+                        mensaje={mensajeRespuesta.mensaje}
+                        setShow={setShowAlert}
+                    />
+                )}
+                <span>Listado de todos los vendedores registrados</span>
                 <Grid gridHeading={encabezado} gridData={listaDeVendedores} selectableRows={true} pending={pendiente}
                     setFilaSeleccionada={onClickSeleccionarFila} idBuscar="idVendedor" filterColumns={filterColumns} />
                 <br /><br />
@@ -125,6 +150,16 @@ const Vendedores = () => {
             <FormularioModal show={modal} handleClose={onClickCerrarModal} titulo={modalTitulo} className='' tamano="lg">
                 <Formulario labelButton={labelButton} data={data} proceso={proceso} onClickProcesarVendedor={onClickProcesarVendedor} mensaje={mensajeFormulario} />
             </FormularioModal>
+            
+            {confirmModalOpen && (
+                <ConfirmModal
+                    isOpen={confirmModalOpen}
+                    toggle={() => setConfirmModalOpen(!confirmModalOpen)}
+                    message={`¿Desea cambiar el estado del vendedor a ${textoBotonInactivar === "Activar" ? "activo" : "inactivo"
+                        }?` }
+                    onConfirm={onConfirmCambioEstado}
+                />
+            )}
         </>
     )
 }
