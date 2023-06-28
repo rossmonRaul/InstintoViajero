@@ -11,6 +11,7 @@ AS
 					, E.FechaCreacion
 					, CASE WHEN E.Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
 				FROM EstadosPlan E WITH (NOLOCK)
+				WHERE E.IdEstadoPlan = @IdEstadoPlan
 			END
 			END TRY
 			BEGIN CATCH
