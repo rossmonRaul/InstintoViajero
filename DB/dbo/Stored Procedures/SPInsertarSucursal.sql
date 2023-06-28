@@ -18,18 +18,18 @@ BEGIN
 
 
 
-INSERT INTO Sucursales (NombreSucursal, Estado,Ubicacion,FechaCreacion,UsuarioCreacion,Accion)
-VALUES (@NombreSucursal,1,@Ubicacion,GETDATE(),'1','I');
+INSERT INTO Sucursales (NombreSucursal, Estado,Ubicacion,FechaCreacion,UsuarioCreacion)
+VALUES (@NombreSucursal,1,@Ubicacion,GETDATE(),'1');
 END
 
 COMMIT TRAN INSERTAR
 SET @INDICADOR = 0
-SET @MENSAJE = 'Exito: Sucursal registrada exiosamente'
+SET @MENSAJE = 'Sucursal registrada exitosamente'
 --SELECT @INDICADOR, 'EXITO' AS MENSAJE
 END TRY
 BEGIN CATCH
 SET @INDICADOR = 1
-SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+SET @MENSAJE = 'Error al registrar la sucursal.'
 --SELECT @INDICADOR, ERROR_MESSAGE() AS MENSAJE;
 ROLLBACK TRANSACTION INSERTAR
 END CATCH

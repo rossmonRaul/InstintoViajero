@@ -20,17 +20,16 @@ AS
 					, Ubicacion = @Ubicacion
 					, FechaModificacion = GETDATE()
 					, UsuarioModificacion = '1'
-					, Accion = 'A'
 					WHERE	IdSucursal = @IdSucursal
 					END
 
 				COMMIT TRAN ACTUALIZAR
 					SET @INDICADOR = 0
-					SET @MENSAJE = 'Exito: Sucursal actualizada exitosamente'
+					SET @MENSAJE = 'Sucursal actualizada exitosamente'
 		END TRY
 		BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al actualizar sucursal.'-- + ERROR_MESSAGE()
 				ROLLBACK TRANSACTION ACTUALIZAR
 			END CATCH
 	END

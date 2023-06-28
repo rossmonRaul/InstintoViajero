@@ -35,8 +35,7 @@ AS
                             , Telefono
                             , Estado
                             , FechaCreacion
-                            , UsuarioCreacion
-                            , Accion
+                            , UsuarioCreacion                            
                         ) VALUES 
                         (
                             @Identificacion
@@ -50,7 +49,6 @@ AS
                             , 1
                             , GETDATE()
                             , '1'
-                            , 'I'
                         )
                         DECLARE @IdPersona int;
                         SET @IdPersona = (SELECT TOP 1 IdPersona FROM Personas where  Estado = 1 ORDER BY FechaCreacion DESC );
@@ -64,8 +62,7 @@ AS
                             , Estado
                             , IdSucursal
                             , FechaCreacion
-                            , UsuarioCreacion
-                            , Accion )
+                            , UsuarioCreacion )
 
                             VALUES 
 
@@ -76,18 +73,17 @@ AS
                             , 1
                             , @IdSucursal
                             , GETDATE()
-                            , '1'
-                            , 'I' )
+                            , '1' )
 
                     END
 
                     COMMIT TRAN INSERTAR
                     SET @INDICADOR = 0
-                    SET @MENSAJE = 'Exito: Usuario registrado exiosamente'
+                    SET @MENSAJE = 'Usuario registrado exitosamente.'
             END TRY
             BEGIN CATCH
                 SET @INDICADOR = 1
-                SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+                SET @MENSAJE = 'Error al registrar el usuario.'
                 ROLLBACK TRANSACTION INSERTAR
             END CATCH
     END

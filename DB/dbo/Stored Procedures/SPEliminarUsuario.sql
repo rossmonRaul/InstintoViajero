@@ -17,7 +17,6 @@ AS
 									 Estado = CASE WHEN @ESTADO_ACTUAL = 1 THEN 0 ELSE 1 END
 									 , FechaModificacion = GETDATE()
 									 , UsuarioModificacion = '1'
-									 , Accion = CASE WHEN @ESTADO_ACTUAL = 1 THEN 'E' ELSE 'A' END
 						WHERE		 IdUsuario = @IdUsuario
 					END
 		
@@ -31,7 +30,7 @@ AS
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al cambiar estado del usuario.'
 				ROLLBACK TRANSACTION DESACTIVAR
 			END CATCH
 

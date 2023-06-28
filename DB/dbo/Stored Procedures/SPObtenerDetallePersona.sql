@@ -1,5 +1,5 @@
 ﻿CREATE   PROCEDURE [dbo].[SPObtenerDetallePersona]
-( @Identificacion INT )
+( @IdPersona INT )
 AS
 	BEGIN
 		BEGIN TRY
@@ -18,13 +18,12 @@ AS
 				P.FechaModificacion,
 				P.UsuarioCreacion,
 				P.UsuarioModificacion,
-				P.Accion,
 				T.IdTipoIdentificacion,
 				T.Descripcion
 				FROM		 Personas P WITH (NOLOCK) 
 				INNER JOIN	 TiposIdentificacion T
 				ON			 P.IdTipoIdentificacion = T.IdTipoIdentificacion
-				WHERE		 P.Identificacion = @Identificacion
+				WHERE		 P.IdPersona = @IdPersona
 			END
 			END TRY
 			BEGIN CATCH

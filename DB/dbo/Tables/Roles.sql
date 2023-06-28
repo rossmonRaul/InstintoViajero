@@ -6,6 +6,6 @@
     [FechaModificacion]   DATETIME       NULL,
     [UsuarioCreacion]     NVARCHAR (MAX) NULL,
     [UsuarioModificacion] NVARCHAR (MAX) NULL,
-    [Accion]              VARCHAR (1)    NULL
+    CONSTRAINT [PK_Roles] PRIMARY KEY ([IdRol])
 );
 

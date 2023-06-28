@@ -1,0 +1,38 @@
+﻿create   PROCEDURE [dbo].[SPInsertarProducto]
+
+
+
+( 
+@Nombre NVARCHAR (100)
+,@CodProducto VARCHAR (100)
+,@IdTipo int
+,@INDICADOR INT OUT
+,@MENSAJE VARCHAR(50) OUT
+)
+
+
+
+AS
+BEGIN
+BEGIN TRY
+BEGIN TRAN INSERTAR
+BEGIN
+
+
+
+INSERT INTO Productos(Nombre, CodProducto,IdTipo,Estado, FechaCreacion,UsuarioCreacion)
+VALUES (@Nombre,@CodProducto,@IdTipo,1,GETDATE(),'1');
+END
+
+COMMIT TRAN INSERTAR
+SET @INDICADOR = 0
+SET @MENSAJE = 'Producto registrado exiosamente'
+--SELECT @INDICADOR, 'EXITO' AS MENSAJE
+END TRY
+BEGIN CATCH
+SET @INDICADOR = 1
+SET @MENSAJE = 'Error al insertar el producto.'
+--SELECT @INDICADOR, ERROR_MESSAGE() AS MENSAJE;
+ROLLBACK TRANSACTION INSERTAR
+END CATCH
+END

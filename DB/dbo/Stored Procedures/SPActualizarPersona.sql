@@ -14,9 +14,13 @@
 	)
 	AS
 	BEGIN
+			DECLARE @Vfecha DATETIME;
+			SET @Vfecha = GETDATE();
+
 			BEGIN TRY
 				BEGIN TRAN ACTUALIZAR
 					BEGIN
+					
 						UPDATE Personas SET
 						Identificacion = @Identificacion
 						, IdTipoIdentificacion = @IdTipoIdentificacion
@@ -27,18 +31,34 @@
 						, Direccion = @Direccion
 						, Telefono = @Telefono
 						, Estado = @Estado
-						, FechaModificacion = GETDATE()
+						, FechaModificacion = @Vfecha
 						, UsuarioModificacion = '1'
-						, Accion = 'A'
 						WHERE IdPersona = @IdPersona
+
+						-- Ejecuta SPInsertarBitacora
+						DECLARE @vDetalle NVARCHAR(MAX);						
+						SET @vDetalle = 'IdPersona: ' + CAST(@IdPersona AS NVARCHAR(12)) + ', ' +
+									   'Identificacion: ' + CAST(@Identificacion AS NVARCHAR(20)) + ', ' +
+									   'IdTipoIdentificacion: ' + CAST(@IdTipoIdentificacion AS NVARCHAR(2)) + ', ' +
+									   'Nombre: ' + @Nombre + ', ' +
+									   'PrimerApellido: ' + @PrimerApellido + ', ' +
+									   'SegundoApellido: ' + @SegundoApellido + ', ' +
+									   'FechaNacimiento: ' + CAST(@FechaNacimiento AS NVARCHAR(12)) + ', ' +
+									   'Direccion: ' + @Direccion + ', ' +
+									   'Telefono: ' + @Telefono + ', ' +
+									   'Estado: ' + CAST(@Estado AS NVARCHAR(1));
+
+						EXEC [dbo].[SPInsertarBitacora] 'Personas', 'A', @vDetalle, @Vfecha, '1';
+						--
+
 					END
 					COMMIT TRAN ACTUALIZAR
 					SET @INDICADOR = 0
-					SET @MENSAJE = 'Exito: Persona actualizada exiosamente'
+					SET @MENSAJE = 'Persona actualizada exitosamente'
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al actualizar persona.' --+ ERROR_MESSAGE()
 				ROLLBACK TRANSACTION ACTUALIZAR
 			END CATCH
 END

@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{1ed0f909-9d78-47bd-bcab-35f17ef2a16d}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -63,6 +63,16 @@
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="Security\" />
     <Folder Include="dbo\InitialData" />
+    <Folder Include="dbo\Stored Procedures\Productos" />
+    <Folder Include="dbo\Stored Procedures\FormasDePago" />
+    <Folder Include="dbo\Stored Procedures\Direcciones" />
+    <Folder Include="dbo\Stored Procedures\EstadosPlan" />
+    <Folder Include="dbo\Stored Procedures\Comisiones" />
+    <Folder Include="dbo\Stored Procedures\Plazos" />
+    <Folder Include="dbo\Stored Procedures\Regalias" />
+    <Folder Include="dbo\Stored Procedures\Cuotas" />
+    <Folder Include="dbo\Stored Procedures\PaquetesDeViajes" />
+    <Folder Include="dbo\Stored Procedures\TourDeViaje" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Sucursales.sql" />
@@ -104,6 +114,83 @@
     <Build Include="dbo\Stored Procedures\SPObtenerDetalleUsuarioNombre.sql" />
     <Build Include="dbo\Stored Procedures\SPObtenerPersonas.sql" />
     <Build Include="Security\INSTINTO_VIAJERO.sql" />
+    <Build Include="dbo\Tables\Bitacora.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarBitacora.sql" />
+    <Build Include="dbo\Tables\TipoProductos.sql" />
+    <Build Include="dbo\Tables\Productos.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPObtenerProductos.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPEliminarProducto.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPObtenerTiposProductos.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPInsertarProducto.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPActualizarProducto.sql" />
+    <Build Include="dbo\Stored Procedures\Productos\SPObtenerDetalleProductoID.sql" />
+    <Build Include="dbo\Tables\Vendedores.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarVendedor.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarVendedor.sql" />
+    <Build Include="dbo\Stored Procedures\SPEliminarVendedor.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerVendedores.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleVendedor.sql" />
+    <Build Include="dbo\Tables\FormasDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FormasDePago\SPActualizarFormasDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FormasDePago\SPEliminarFormasDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FormasDePago\SPInsertarFormasDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FormasDePago\SPObtenerDetalleFormasDePagoID.sql" />
+    <Build Include="dbo\Stored Procedures\FormasDePago\SPObtenerFormasDePagos.sql" />
+    <Build Include="dbo\Tables\Provincias.sql" />
+    <Build Include="dbo\Tables\Cantones.sql" />
+    <Build Include="dbo\Tables\Distritos.sql" />
+    <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerProvincias.sql" />
+    <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerCantones.sql" />
+    <Build Include="dbo\Stored Procedures\Direcciones\SPObtenerDistritos.sql" />
+    <Build Include="dbo\Tables\Clientes.sql" />
+    <Build Include="dbo\Stored Procedures\SPInsertarCliente.sql" />
+    <Build Include="dbo\Stored Procedures\SPActualizarCliente.sql" />
+    <Build Include="dbo\Stored Procedures\SPEliminarCliente.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerClientes.sql" />
+    <Build Include="dbo\Stored Procedures\SPObtenerDetalleCliente.sql" />
+    <Build Include="dbo\Tables\EstadosPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPInsertarEstadoPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPActualizarEstadoPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPEliminarEstadoPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPObtenerEstadosPlan.sql" />
+    <Build Include="dbo\Stored Procedures\EstadosPlan\SPObtenerDetalleEstadoPlan.sql" />
+    <Build Include="dbo\Tables\Comisiones.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPInsertarComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPActualizarComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPEliminarComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPObtenerDetalleComision.sql" />
+    <Build Include="dbo\Stored Procedures\Comisiones\SPObtenerComisiones.sql" />
+    <Build Include="dbo\Tables\Plazos.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPInsertarPlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPActualizarPlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPEliminarPlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPObtenerDetallePlazo.sql" />
+    <Build Include="dbo\Stored Procedures\Plazos\SPObtenerPlazos.sql" />
+    <Build Include="dbo\Tables\Regalias.sql" />
+    <Build Include="dbo\Stored Procedures\Regalias\SPActualizarRegalia.sql" />
+    <Build Include="dbo\Stored Procedures\Regalias\SPEliminarRegalia.sql" />
+    <Build Include="dbo\Stored Procedures\Regalias\SPInsertarRegalia.sql" />
+    <Build Include="dbo\Stored Procedures\Regalias\SPObtenerDetalleRegalia.sql" />
+    <Build Include="dbo\Stored Procedures\Regalias\SPObtenerRegalias.sql" />
+    <Build Include="dbo\Stored Procedures\Cuotas\SPActualizarCuota.sql" />
+    <Build Include="dbo\Stored Procedures\Cuotas\SPEliminarCuota.sql" />
+    <Build Include="dbo\Stored Procedures\Cuotas\SPInsertarCuota.sql" />
+    <Build Include="dbo\Stored Procedures\Cuotas\SPObtenerDetalleCuota.sql" />
+    <Build Include="dbo\Stored Procedures\Cuotas\SPObtenerCuotas.sql" />
+    <Build Include="dbo\Tables\Cuotas.sql" />
+    <Build Include="dbo\Tables\PaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPActualizarPaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPEliminarPaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPInsertarPaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPObtenerDetallePaquetesDeViajesID.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPObtenerPaquetesDeViajes.sql" />
+    <Build Include="dbo\Tables\TourDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\TourDeViaje\SPActualizarTourDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\TourDeViaje\SPEliminarTourDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\TourDeViaje\SPInsertarTourDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\TourDeViaje\SPObtenerDetalleTourDeViajeID.sql" />
+    <Build Include="dbo\Stored Procedures\TourDeViaje\SPObtenerTourDeViaje.sql" />
+    <Build Include="dbo\Tables\ClubDeViaje.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />

@@ -1,34 +1,46 @@
 ﻿CREATE   PROCEDURE [dbo].[SPEliminarPersona]
 
-( @Identificacion INT
+( @IdPersona INT
 ,@INDICADOR INT OUT
 ,@MENSAJE VARCHAR(50) OUT)
 
 AS
 	BEGIN
 		DECLARE @ESTADO_ACTUAL BIT;
+		DECLARE @Vfecha DATETIME;
+		SET @Vfecha = GETDATE();
+
 			BEGIN TRY
 				BEGIN TRAN DESACTIVAR
-				SET @ESTADO_ACTUAL = (SELECT TOP 1 Estado FROM Personas WHERE Identificacion = @Identificacion)
+				SET @ESTADO_ACTUAL = (SELECT TOP 1 Estado FROM Personas WHERE IdPersona = @IdPersona)
 					BEGIN
 						UPDATE Personas SET
 						Estado = CASE WHEN @ESTADO_ACTUAL = 1 THEN 0 ELSE 1 END
-					  , FechaModificacion = GETDATE()
+					  , FechaModificacion = @Vfecha
 					  , UsuarioModificacion = '1'
-					  , Accion = CASE WHEN @ESTADO_ACTUAL = 1 THEN 'E' ELSE 'A' END
-					  WHERE Identificacion = @Identificacion
+					  WHERE IdPersona = @IdPersona
+
+					  -- Ejecuta SPInsertarBitacora
+						DECLARE @vDetalle NVARCHAR(MAX);
+						DECLARE @vAccion NVARCHAR(1);
+
+						SET @vDetalle = 'IdPersona: ' + CAST(@IdPersona AS NVARCHAR(12));
+						SET @vAccion = CASE WHEN @ESTADO_ACTUAL = 1 THEN 'E' ELSE 'A' END
+
+						EXEC [dbo].[SPInsertarBitacora] 'Personas', @vAccion, @vDetalle, @Vfecha, '1';
+
 					END
 					COMMIT TRAN DESACTIVAR
 					SET @INDICADOR = 0
 					SET @MENSAJE =(
-									CASE WHEN @ESTADO_ACTUAL = 1 THEN 'La persona fue eliminada exitosamente.'
+									CASE WHEN @ESTADO_ACTUAL = 1 THEN 'La persona fue desactivada exitosamente.'
 										 ELSE 'La persona fue reactivada exitosamente.'
 									END
 									)
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al cambiar estado.' -- + ERROR_MESSAGE()
 				ROLLBACK TRANSACTION DESACTIVAR
 			END CATCH
 	END

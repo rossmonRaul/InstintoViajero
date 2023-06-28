@@ -111,8 +111,8 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarUsuario, mensaj
             <Form noValidate validated={validated} onSubmit={onClickAceptar}>
                 <Row>
                    
-                    <InputSelect className="form-control custom-select-sm"  controlId="sel-tipoIdentificacion" label="Tipo de Identificación"  data={listaTiposIdentificacion}
-                        onChange={onChangeTiposIdentificacion} value={idTiposIdentificacion} optionValue="idTipoIdentificacion" optionLabel="descripcion" classGroup="col-md-5" />
+                    <ComboBox className="form-control custom-select-sm"  controlId="sel-tipoIdentificacion" label="Tipo de Identificación"  data={listaTiposIdentificacion}
+                        onChange={onChangeTiposIdentificacion} value={idTiposIdentificacion} indicacion="Seleccione el tipo de identificación" optionValue="idTipoIdentificacion" optionLabel="descripcion" classGroup="col-md-5" />
 
                     <InputText id='txt-identificacion' label='Identificación:' type='text'  placeholder='Ingrese la identificación' value={identificacion}
                         text='Identificación.' onChange={onChangeIdentificacion} mensajeValidacion="La identificación es requerida" className="col-md-4" readOnly={proceso == 2}  />
@@ -139,7 +139,7 @@ const Formulario = ({ labelButton, data, proceso, onClickProcesarUsuario, mensaj
                 </Row>
                 <Row>
                     <ComboBox data={listaSucursales} label="Sucursales" controlId="sel-idSucursal" onChange={onChangeSucursal} value={idSucursal} optionValue="idSucursal" optionLabel="nombreSucursal" indicacion="Seleccione la Sucursal" classGroup="col-md-5" />
-                    <ComboBox data={listaRoles} label="Rol" controlId="sel-rol" onChange={onChangeRol} value={idRol} optionValue="idRol" optionLabel="descripcion" optionValue="idRol" optionLabel="descripcion" indicacion="Seleccione el rol" classGroup="col-md-5" />
+                    <ComboBox data={listaRoles} label="Rol" controlId="sel-rol" onChange={onChangeRol} value={idRol} optionValue="idRol" optionLabel="descripcion" indicacion="Seleccione el rol" classGroup="col-md-5" />
                 </Row>
                 <br />
                 <Row>

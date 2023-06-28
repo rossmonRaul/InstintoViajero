@@ -21,7 +21,7 @@ namespace Dominio.Entity
 
         public string segundoApellido { get; set; }
 
-        public DateTime fechaNacimiento { get; set; }
+        public DateTime? fechaNacimiento { get; set; }
 
         public string direccion { get; set; }
 

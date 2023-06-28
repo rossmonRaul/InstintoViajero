@@ -1,11 +1,11 @@
 import React from 'react';
 import { Form } from "react-bootstrap"
 
-export const InputText = ({ id, label, type, placeholder, value, text, onChange, mensajeValidacion, className, readOnly, disabled, required = true, max }) => {
+export const InputText = ({ id, label, type, placeholder, value, text, onChange, mensajeValidacion, className, onClick, readOnly, disabled, required = true, max, maxLength }) => {
     return (
         <Form.Group className={"mb-3 " + className} controlId={id}>
             <Form.Label>{label}</Form.Label>
-            <Form.Control type={type} placeholder={placeholder} size="sm" value={value} onChange={onChange} required={required} readOnly={readOnly} disabled={disabled} max={max}/>
+            <Form.Control type={type} placeholder={placeholder} size="sm" value={value} onChange={onChange} onClick={onClick} required={required} readOnly={readOnly} disabled={disabled} max={max} maxLength={maxLength} />
             <Form.Text className="text-muted">{text}</Form.Text>
             <Form.Control.Feedback type="invalid">{mensajeValidacion}</Form.Control.Feedback>
         </Form.Group>
@@ -30,3 +30,26 @@ export const InputSelect = ({ className, controlId, label, data, onChange, value
         </Form.Group>
     )
 }
+
+export const InputNumber = ({ id, label, placeholder, value, onChange, mensajeValidacion, className, onClick, readOnly, disabled, required = true, max, min, step }) => {
+    return (
+        <Form.Group className={"mb-3 " + className} controlId={id}>
+            <Form.Label>{label}</Form.Label>
+            <Form.Control
+                type="number"
+                placeholder={placeholder}
+                size="sm"
+                value={value}
+                onChange={onChange}
+                onClick={onClick}
+                required={required}
+                readOnly={readOnly}
+                disabled={disabled}
+                max={max}
+                min={min}
+                step={step}
+            />
+            <Form.Control.Feedback type="invalid">{mensajeValidacion}</Form.Control.Feedback>
+        </Form.Group>
+    );
+};

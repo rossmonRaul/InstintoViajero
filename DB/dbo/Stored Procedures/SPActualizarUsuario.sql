@@ -29,7 +29,6 @@ AS
                                     , IdSucursal = @IdSucursal
                                     , FechaModificacion = GETDATE()
                                     , UsuarioModificacion = '1'
-                                    , Accion = 'A'
                                     WHERE IdUsuario = @IdUsuario
                     END
                     BEGIN
@@ -44,16 +43,15 @@ AS
                         , Telefono = @Telefono
                         , FechaModificacion = GETDATE()
                         , UsuarioModificacion = '1'
-                        , Accion = 'A'
                         WHERE IdPersona = @IdPersona
                     END
             COMMIT TRAN ACTUALIZAR
                     SET @INDICADOR = 0
-                    SET @MENSAJE = 'El Usuario ha sido actualizado exitosamente'
+                    SET @MENSAJE = 'El usuario ha sido actualizado exitosamente.'
             END TRY
             BEGIN CATCH
                 SET @INDICADOR = 1
-                SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+                SET @MENSAJE = 'Error al actualizar el usuario.' 
                 ROLLBACK TRANSACTION ACTUALIZAR
             END CATCH
     END

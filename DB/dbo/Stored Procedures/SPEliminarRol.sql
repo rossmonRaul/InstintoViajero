@@ -1,6 +1,7 @@
 ﻿CREATE   PROCEDURE [dbo].[SPEliminarRol]
 
 ( @IdRol INT
+, @Usuario NVARCHAR(MAX)
 ,@INDICADOR INT OUT
 ,@MENSAJE VARCHAR(50) OUT
 )
@@ -8,6 +9,9 @@
 AS
 	BEGIN
 		DECLARE @ESTADO_ACTUAL BIT;
+		DECLARE @Vfecha DATETIME;
+		SET @Vfecha = GETDATE();
+
 			BEGIN TRY
 				BEGIN TRAN DESACTIVAR
 					BEGIN
@@ -15,10 +19,18 @@ AS
 						UPDATE  
 						Roles SET
 						Estado = CASE WHEN @ESTADO_ACTUAL = 1 THEN 0 ELSE 1 END
-					  , FechaModificacion = GETDATE()
-					  , UsuarioModificacion = '1'
-					  , Accion = CASE WHEN @ESTADO_ACTUAL = 1 THEN 'E' ELSE 'A' END
+					  , FechaModificacion = @Vfecha
+					  , UsuarioModificacion = @Usuario
 					  WHERE IdRol = @IdRol
+
+					  -- Ejecuta SPInsertarBitacora
+						DECLARE @vDetalle NVARCHAR(MAX);
+						DECLARE @vAccion NVARCHAR(1);
+						SET @vDetalle = 'IdRol: ' + CAST(@IdRol AS NVARCHAR(12)) ;
+						SET @vAccion = CASE WHEN @ESTADO_ACTUAL = 1 THEN 'E' ELSE 'A' END
+
+						EXEC [dbo].[SPInsertarBitacora] 'Roles', @vAccion, @vDetalle, @Vfecha, @Usuario;
+
 					END
 						
 				COMMIT TRAN DESACTIVAR
@@ -31,7 +43,7 @@ AS
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error: ' + ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al cambiar estado del rol.' --+ ERROR_MESSAGE()
 				ROLLBACK TRANSACTION DESACTIVAR
 			END CATCH
 	END
