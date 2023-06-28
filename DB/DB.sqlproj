@@ -69,6 +69,8 @@
     <Folder Include="dbo\Stored Procedures\EstadosPlan" />
     <Folder Include="dbo\Stored Procedures\Comisiones" />
     <Folder Include="dbo\Stored Procedures\Plazos" />
+    <Folder Include="dbo\Stored Procedures\Regalias" />
+    <Folder Include="dbo\Stored Procedures\Cuotas" />
     <Folder Include="dbo\Stored Procedures\PaquetesDeViajes" />
     <Folder Include="dbo\Stored Procedures\TourDeViaje" />
   </ItemGroup>
@@ -164,6 +166,18 @@
     <Build Include="dbo\Stored Procedures\Plazos\SPEliminarPlazo.sql" />
     <Build Include="dbo\Stored Procedures\Plazos\SPObtenerDetallePlazo.sql" />
     <Build Include="dbo\Stored Procedures\Plazos\SPObtenerPlazos.sql" />
+    <Build Include="dbo\Tables\Regalias.sql" />
+    <Build Include="dbo\Stored Procedures\Regalias\SPActualizarRegalia.sql" />
+    <Build Include="dbo\Stored Procedures\Regalias\SPEliminarRegalia.sql" />
+    <Build Include="dbo\Stored Procedures\Regalias\SPInsertarRegalia.sql" />
+    <Build Include="dbo\Stored Procedures\Regalias\SPObtenerDetalleRegalia.sql" />
+    <Build Include="dbo\Stored Procedures\Regalias\SPObtenerRegalias.sql" />
+    <Build Include="dbo\Stored Procedures\Cuotas\SPActualizarCuota.sql" />
+    <Build Include="dbo\Stored Procedures\Cuotas\SPEliminarCuota.sql" />
+    <Build Include="dbo\Stored Procedures\Cuotas\SPInsertarCuota.sql" />
+    <Build Include="dbo\Stored Procedures\Cuotas\SPObtenerDetalleCuota.sql" />
+    <Build Include="dbo\Stored Procedures\Cuotas\SPObtenerCuotas.sql" />
+    <Build Include="dbo\Tables\Cuotas.sql" />
     <Build Include="dbo\Tables\PaquetesDeViajes.sql" />
     <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPActualizarPaquetesDeViajes.sql" />
     <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPEliminarPaquetesDeViajes.sql" />

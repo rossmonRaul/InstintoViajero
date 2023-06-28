@@ -29,6 +29,9 @@ namespace Infraestrutura
             services.AddScoped<IRepositorioEstadoPlan, RepositorioEstadoPlan>();
             services.AddScoped<IRepositorioComision, RepositorioComision>();
             services.AddScoped<IRepositorioPlazo, RepositorioPlazo>();
+            services.AddScoped<IRepositorioRegalia, RepositorioRegalia>();
+            services.AddScoped<IRepositorioCuota, RepositorioCuota>();
+
             services.AddScoped<IRepositorioPaquetesDeViajes, RepositorioPaquetesDeViajes>();
             services.AddScoped<IRepositorioTourDeViaje, RepositorioTourDeViaje>();
 

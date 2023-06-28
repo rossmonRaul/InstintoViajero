@@ -29,6 +29,10 @@ using Dominio.Interfaces.Aplicacion.Comision;
 using Aplicacion.Comision;
 using Dominio.Interfaces.Aplicacion.Plazo;
 using Aplicacion.Plazo;
+using Dominio.Interfaces.Aplicacion.Regalia;
+using Aplicacion.Regalia;
+using Dominio.Interfaces.Aplicacion.Cuota;
+using Aplicacion.Cuota;
 using Dominio.Interfaces.Aplicacion.PaquetesDeViajes;
 using Aplicacion.PaquetesDeViajes;
 using Aplicacion.TourDeViaje;
@@ -57,6 +61,8 @@ namespace Aplicacion
             services.AddScoped<IServicioEstadoPlan, ServicioEstadoPlan>();
             services.AddScoped<IServicioComision, ServicioComision>();
             services.AddScoped<IServicioPlazo, ServicioPlazo>();
+            services.AddScoped<IServicioRegalia, ServicioRegalia>();
+            services.AddScoped<IServicioCuota, ServicioCuota>();
 
             services.AddScoped<IServicioPaquetesDeViajes, ServicioPaquetesDeViajes>();
             services.AddScoped<IServicioTourDeViaje, ServicioTourDeViaje>();

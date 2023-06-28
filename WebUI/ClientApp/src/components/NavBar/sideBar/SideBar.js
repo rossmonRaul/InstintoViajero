@@ -113,6 +113,15 @@ const submenus = [
     {
       title: "Plazos",
       target: "plazos",
+      },
+      {
+          title: "Regalias",
+          target: "regalias",
+      },
+      {
+          title: "Cuotas",
+          target: "cuotas",
+      },
     },
     {
       title: "Paquetes de Viajes",
