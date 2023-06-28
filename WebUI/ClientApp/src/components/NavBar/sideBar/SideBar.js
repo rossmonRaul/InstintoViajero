@@ -121,16 +121,15 @@ const submenus = [
       {
           title: "Cuotas",
           target: "cuotas",
+      },    
+      {
+        title: "Paquetes de Viajes",
+        target: "PaquetesDeViajes",
       },
-    },
-    {
-      title: "Paquetes de Viajes",
-      target: "PaquetesDeViajes",
-    },
-    {
-      title: "Tours de Viajes",
-      target: "TourDeViaje",
-    },
+      {
+        title: "Tours de Viajes",
+        target: "TourDeViaje",
+      },
   ],
 ];
 
