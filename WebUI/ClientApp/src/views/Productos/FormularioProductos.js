@@ -103,9 +103,9 @@ const FormularioProducto = ({ labelButton, data, proceso, onClickProcesar, mensa
                {/*  <Row>
                     <InputSelectDirecciones 
                         className="form-control custom-select" 
-                        valueProvincia={2}
+                        valueProvincia={1}
                         valueCanton={1}
-                        valueDistrito={1}
+                        valueDistrito={486}
                         registerProvincias={{ ...register('IdProvincia', { required: true }) }}
                         registerCantones={{ ...register('IdCanton', { required: true }) }}
                         registerDistritos={{ ...register('IdDistrito', { required: true }) }}

@@ -32,6 +32,8 @@ namespace Infraestrutura
             services.AddScoped<IRepositorioRegalia, RepositorioRegalia>();
             services.AddScoped<IRepositorioCuota, RepositorioCuota>();
 
+            services.AddScoped<IRepositorioPaquetesDeViajes, RepositorioPaquetesDeViajes>();
+            services.AddScoped<IRepositorioTourDeViaje, RepositorioTourDeViaje>();
 
             return services;
         }

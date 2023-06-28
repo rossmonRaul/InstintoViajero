@@ -71,6 +71,8 @@
     <Folder Include="dbo\Stored Procedures\Plazos" />
     <Folder Include="dbo\Stored Procedures\Regalias" />
     <Folder Include="dbo\Stored Procedures\Cuotas" />
+    <Folder Include="dbo\Stored Procedures\PaquetesDeViajes" />
+    <Folder Include="dbo\Stored Procedures\TourDeViaje" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Sucursales.sql" />
@@ -176,6 +178,19 @@
     <Build Include="dbo\Stored Procedures\Cuotas\SPObtenerDetalleCuota.sql" />
     <Build Include="dbo\Stored Procedures\Cuotas\SPObtenerCuotas.sql" />
     <Build Include="dbo\Tables\Cuotas.sql" />
+    <Build Include="dbo\Tables\PaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPActualizarPaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPEliminarPaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPInsertarPaquetesDeViajes.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPObtenerDetallePaquetesDeViajesID.sql" />
+    <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPObtenerPaquetesDeViajes.sql" />
+    <Build Include="dbo\Tables\TourDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\TourDeViaje\SPActualizarTourDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\TourDeViaje\SPEliminarTourDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\TourDeViaje\SPInsertarTourDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\TourDeViaje\SPObtenerDetalleTourDeViajeID.sql" />
+    <Build Include="dbo\Stored Procedures\TourDeViaje\SPObtenerTourDeViaje.sql" />
+    <Build Include="dbo\Tables\ClubDeViaje.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />

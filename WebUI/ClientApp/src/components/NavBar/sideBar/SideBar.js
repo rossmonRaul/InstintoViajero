@@ -7,6 +7,7 @@ import {
   faQuestion,
   faImage,
   faCopy,
+  faPlaneDeparture
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
@@ -37,9 +38,9 @@ const SideBar = ({ isOpen, toggle }) => (
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink tag={Link} to={"/"}>
-            <FontAwesomeIcon icon={faQuestion} className="mr-2" />
-            FAQ
+          <NavLink tag={Link} to={"/Viajes"}>
+            <FontAwesomeIcon icon={faPlaneDeparture} className="mr-2" />
+            Viajes
           </NavLink>
         </NavItem>
         <NavItem>
@@ -120,6 +121,14 @@ const submenus = [
       {
           title: "Cuotas",
           target: "cuotas",
+      },    
+      {
+        title: "Paquetes de Viajes",
+        target: "PaquetesDeViajes",
+      },
+      {
+        title: "Tours de Viajes",
+        target: "TourDeViaje",
       },
   ],
 ];

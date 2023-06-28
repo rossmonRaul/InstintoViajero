@@ -19,6 +19,11 @@ import ProductoComponet from "../Productos";
 import FormasDePagoComponet from "../FormasDePago";
 import Clientes from "../clientes/index";
 import Roles from "../roles/index";
+import PaquetesDeViajesComponet from "../PaquetesDeViajes";
+import TourDeViajeComponet from "../TourDeViaje";
+import ViajesComponet from "../Viajes";
+import ClubDeViajesComponet from "../Viajes/clubDeViajes";
+import PaqueteDeViajeComponet from "../Viajes/paqueteDeViaje";
 
 
 
@@ -51,6 +56,11 @@ const Content = ({ sidebarIsOpen, toggleSidebar, rol, CerrarSession }) => (
       {rol === "Administrador" ? <Route exact path="/vendedores" element={<Vendedores />} component={() => "vendedores"} /> : ""}
       { rol === "Administrador" ? <Route exact path="/clientes" element={<Clientes />} component={() => "clientes"} /> : ""}
 
+      {rol === "Administrador" ? <Route exact path="/PaquetesDeViajes" element={<PaquetesDeViajesComponet/>} component={() => "PaquetesDeViajes"} /> : ""}
+      {rol === "Administrador" ? <Route exact path="/TourDeViaje" element={<TourDeViajeComponet/>} component={() => "TourDeViaje"} /> : ""}
+      {rol === "Administrador" ? <Route exact path="/Viajes" element={<ViajesComponet/>} component={() => "Viajes"} /> : ""}
+      {rol === "Administrador" ? <Route exact path="/ClubDeViajes" element={<ClubDeViajesComponet/>} component={() => "ClubDeViajes"} /> : ""}
+      {rol === "Administrador" ? <Route exact path="/PaqueteDeViaje" element={<PaqueteDeViajeComponet/>} component={() => "PaqueteDeViaje"} /> : ""}
       
     </Routes>
   </Container>
