@@ -176,6 +176,7 @@
     <Build Include="dbo\Stored Procedures\TourDeViaje\SPInsertarTourDeViaje.sql" />
     <Build Include="dbo\Stored Procedures\TourDeViaje\SPObtenerDetalleTourDeViajeID.sql" />
     <Build Include="dbo\Stored Procedures\TourDeViaje\SPObtenerTourDeViaje.sql" />
+    <Build Include="dbo\Tables\ClubDeViaje.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />
