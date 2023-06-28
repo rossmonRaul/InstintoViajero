@@ -10,6 +10,7 @@ AS
 					, E.FechaCreacion
 					, CASE WHEN E.Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
 				FROM Plazos E WITH (NOLOCK)
+				WHERE E.IdPlazo = @IdPlazo
 			END
 			END TRY
 			BEGIN CATCH
