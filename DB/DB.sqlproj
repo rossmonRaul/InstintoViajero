@@ -71,6 +71,8 @@
     <Folder Include="dbo\Stored Procedures\Plazos" />
     <Folder Include="dbo\Stored Procedures\Regalias" />
     <Folder Include="dbo\Stored Procedures\Cuotas" />
+    <Folder Include="dbo\Stored Procedures\TiposDeTelefono" />
+    <Folder Include="dbo\Stored Procedures\Telefonos" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Sucursales.sql" />
@@ -176,6 +178,18 @@
     <Build Include="dbo\Stored Procedures\Cuotas\SPObtenerDetalleCuota.sql" />
     <Build Include="dbo\Stored Procedures\Cuotas\SPObtenerCuotas.sql" />
     <Build Include="dbo\Tables\Cuotas.sql" />
+    <Build Include="dbo\Tables\TiposDeTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\TiposDeTelefono\SPInsertarTipoDeTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\TiposDeTelefono\SPActualizarTipoDeTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\TiposDeTelefono\SPObtenerDetalleTipoDeTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\TiposDeTelefono\SPObtenerTiposDeTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\TiposDeTelefono\SPEliminarTipoDeTelefono.sql" />
+    <Build Include="dbo\Tables\Telefonos.sql" />
+    <Build Include="dbo\Stored Procedures\Telefonos\SPInsertarTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\Telefonos\SPActualizarTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\Telefonos\SPEliminarTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\Telefonos\SPObtenerTelefonosPersona.sql" />
+    <Build Include="dbo\Stored Procedures\Telefonos\SPObtenerDetalleTelefonoID.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />

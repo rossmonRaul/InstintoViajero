@@ -121,6 +121,10 @@ const submenus = [
           title: "Cuotas",
           target: "cuotas",
       },
+      {
+          title: "Tipos de Telefonos",
+          target: "tiposDeTelefono",
+      },
   ],
 ];
 

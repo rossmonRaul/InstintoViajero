@@ -33,6 +33,8 @@ using Dominio.Interfaces.Aplicacion.Regalia;
 using Aplicacion.Regalia;
 using Dominio.Interfaces.Aplicacion.Cuota;
 using Aplicacion.Cuota;
+using Dominio.Interfaces.Aplicacion.TipoDeTelefono;
+using Aplicacion.TipoDeTelefono;
 
 namespace Aplicacion
 {
@@ -59,6 +61,7 @@ namespace Aplicacion
             services.AddScoped<IServicioPlazo, ServicioPlazo>();
             services.AddScoped<IServicioRegalia, ServicioRegalia>();
             services.AddScoped<IServicioCuota, ServicioCuota>();
+            services.AddScoped<IServicioTipoDeTelefono, ServicioTipoDeTelefono>();
 
 
             return services;

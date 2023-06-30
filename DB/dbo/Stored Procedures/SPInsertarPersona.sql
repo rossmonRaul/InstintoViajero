@@ -5,9 +5,12 @@
 , @Nombre NVARCHAR (50)
 , @PrimerApellido NVARCHAR (50)
 , @SegundoApellido NVARCHAR (50)
+, @Profesion  NVARCHAR(100)
+, @IdProvincia	INT			
+, @IdCanton		INT
+, @IdDistrito	INT			
 , @FechaNacimiento DATE
 , @Direccion NVARCHAR (100)
-, @Telefono NVARCHAR (10)
 , @Estado BIT
 ,@INDICADOR INT OUT
 ,@MENSAJE VARCHAR(50) OUT
@@ -30,9 +33,12 @@ AS
 							, Nombre
 							, PrimerApellido
 							, SegundoApellido
+							, Profesion
+							, IdProvincia
+							, IdCanton
+							, IdDistrito
 							, FechaNacimiento
-							, Direccion
-							, Telefono
+							, DireccionHabitacion
 							, Estado
 							, FechaCreacion
 							, UsuarioCreacion
@@ -43,9 +49,12 @@ AS
 							, @Nombre
 							, @PrimerApellido
 							, @SegundoApellido
+							, @Profesion
+							, @IdProvincia
+							, @IdCanton
+							, @IdDistrito
 							, @FechaNacimiento
 							, @Direccion
-							, @Telefono
 							, @Estado
 							, @Vfecha
 							, '1'
@@ -58,9 +67,12 @@ AS
 									   'Nombre: ' + @Nombre + ', ' +
 									   'PrimerApellido: ' + @PrimerApellido + ', ' +
 									   'SegundoApellido: ' + @SegundoApellido + ', ' +
+									   'Profesion: ' + @Profesion + ', ' +
+									   'IdProvincia: ' + CAST(@IdProvincia AS NVARCHAR(2)) + ', ' +
+									   'IdCanton: ' + CAST(@IdCanton AS NVARCHAR(2)) + ', ' +
+									   'IdDistrito: ' + CAST(@IdDistrito AS NVARCHAR(2)) + ', ' +
 									   'FechaNacimiento: ' + CAST(@FechaNacimiento AS NVARCHAR(12)) + ', ' +
-									   'Direccion: ' + @Direccion + ', ' +
-									   'Telefono: ' + @Telefono + ', ' +
+									   'DireccionHabitacion: ' + @Direccion + ', ' +
 									   'Estado: ' + CAST(@Estado AS NVARCHAR(1));
 
 						EXEC [dbo].[SPInsertarBitacora] 'Personas', 'I', @vDetalle, @Vfecha, '1';
