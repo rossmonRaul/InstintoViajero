@@ -130,6 +130,10 @@ const submenus = [
         title: "Tours de Viajes",
         target: "TourDeViaje",
       },
+      {
+          title: "Tipos de Telefonos",
+          target: "tiposDeTelefono",
+      },
   ],
 ];
 

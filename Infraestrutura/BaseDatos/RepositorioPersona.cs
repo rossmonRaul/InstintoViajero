@@ -28,9 +28,12 @@ namespace Infraestrutura.BaseDatos
                 data.Add("Nombre", entityPersona.nombre);
                 data.Add("PrimerApellido", entityPersona.primerApellido);
                 data.Add("SegundoApellido", entityPersona.segundoApellido);
+                data.Add("IdProvincia", entityPersona.IdProvincia);
+                data.Add("IdCanton", entityPersona.IdCanton);
+                data.Add("IdDistrito", entityPersona.IdDistrito);
+                data.Add("Profesion", entityPersona.Profesion);
                 data.Add("FechaNacimiento", entityPersona.fechaNacimiento);
                 data.Add("Direccion", entityPersona.direccion);
-                data.Add("Telefono", entityPersona.telefono);
                 data.Add("Estado", entityPersona.estado);
                 string query = "SPInsertarPersona";
 
@@ -55,9 +58,12 @@ namespace Infraestrutura.BaseDatos
                 data.Add("Nombre", entityPersona.nombre);
                 data.Add("PrimerApellido", entityPersona.primerApellido);
                 data.Add("SegundoApellido", entityPersona.segundoApellido);
+                data.Add("IdProvincia", entityPersona.IdProvincia);
+                data.Add("IdCanton", entityPersona.IdCanton);
+                data.Add("IdDistrito", entityPersona.IdDistrito);
+                data.Add("Profesion", entityPersona.Profesion);
                 data.Add("FechaNacimiento", entityPersona.fechaNacimiento);
                 data.Add("Direccion", entityPersona.direccion);
-                data.Add("Telefono", entityPersona.telefono);
                 data.Add("Estado", entityPersona.estado);
                 string query = "SPActualizarPersona";
 

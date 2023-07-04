@@ -13,6 +13,8 @@ import Comisiones from "../Comisiones";
 import Plazos from "../plazos";
 import Regalias from "../regalias";
 import Cuotas from "../cuotas";
+import TiposDeTelefono from "../TiposDeTelefono";
+
 
 import Home from ".";
 import ProductoComponet from "../Productos";
@@ -51,6 +53,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar, rol, CerrarSession }) => (
       {rol === "Administrador" ? <Route exact path="/Plazos" element={<Plazos />} component={() => "Plazos"} /> : ""}
       {rol === "Administrador" ? <Route exact path="/Regalias" element={<Regalias />} component={() => "Regalias"} /> : ""}
       {rol === "Administrador" ? <Route exact path="/Cuotas" element={<Cuotas />} component={() => "Cuotas"} /> : ""}
+      {rol === "Administrador" ? <Route exact path="/TiposDeTelefono" element={<TiposDeTelefono />} component={() => "TiposDeTelefono"} /> : ""}
 
     
       {rol === "Administrador" ? <Route exact path="/vendedores" element={<Vendedores />} component={() => "vendedores"} /> : ""}
