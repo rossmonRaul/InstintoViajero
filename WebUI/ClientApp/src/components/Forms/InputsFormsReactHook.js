@@ -19,7 +19,7 @@ export const InputsFormsReactHook = ({
         <>
             <div className={"mb-3 " + classDiv}>
                 <label htmlFor="txtname" className="form-label ml-1">
-                  {label}
+                  <b>{label}</b>
                 </label>             
                 <input   
                     id={id}                 
