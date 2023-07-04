@@ -73,6 +73,13 @@
     <Folder Include="dbo\Stored Procedures\Cuotas" />
     <Folder Include="dbo\Stored Procedures\PaquetesDeViajes" />
     <Folder Include="dbo\Stored Procedures\TourDeViaje" />
+    <Folder Include="dbo\Stored Procedures\TiposDeTelefono" />
+    <Folder Include="dbo\Stored Procedures\Telefonos" />
+    <Folder Include="dbo\Stored Procedures\CorreosElectronicos" />
+    <Folder Include="dbo\Stored Procedures\FechasEspecificasDePago" />
+    <Folder Include="dbo\Stored Procedures\Comentarios" />
+    <Folder Include="dbo\Stored Procedures\CuentasBancarias" />
+    <Folder Include="dbo\Stored Procedures\BeneficiarioPaquetes" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Sucursales.sql" />
@@ -178,6 +185,51 @@
     <Build Include="dbo\Stored Procedures\Cuotas\SPObtenerDetalleCuota.sql" />
     <Build Include="dbo\Stored Procedures\Cuotas\SPObtenerCuotas.sql" />
     <Build Include="dbo\Tables\Cuotas.sql" />
+    <Build Include="dbo\Tables\TiposDeTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\TiposDeTelefono\SPInsertarTipoDeTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\TiposDeTelefono\SPActualizarTipoDeTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\TiposDeTelefono\SPObtenerDetalleTipoDeTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\TiposDeTelefono\SPObtenerTiposDeTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\TiposDeTelefono\SPEliminarTipoDeTelefono.sql" />
+    <Build Include="dbo\Tables\Telefonos.sql" />
+    <Build Include="dbo\Stored Procedures\Telefonos\SPInsertarTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\Telefonos\SPActualizarTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\Telefonos\SPEliminarTelefono.sql" />
+    <Build Include="dbo\Stored Procedures\Telefonos\SPObtenerTelefonosPersona.sql" />
+    <Build Include="dbo\Stored Procedures\Telefonos\SPObtenerDetalleTelefonoID.sql" />
+    <Build Include="dbo\Tables\CorreosElectronicos.sql" />
+    <Build Include="dbo\Stored Procedures\CorreosElectronicos\SPInsertarCorreoElectronico.sql" />
+    <Build Include="dbo\Stored Procedures\CorreosElectronicos\SPActualizarCorreoElectronico.sql" />
+    <Build Include="dbo\Stored Procedures\CorreosElectronicos\SPEliminarCorreoElectronico.sql" />
+    <Build Include="dbo\Stored Procedures\CorreosElectronicos\SPObtenerDetalleCorreoElectronicoID.sql" />
+    <Build Include="dbo\Stored Procedures\CorreosElectronicos\SPObtenerCorreosElectronicosPersona.sql" />
+    <Build Include="dbo\Tables\FechasEspecificasDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FechasEspecificasDePago\SPInsertarFechaEspecificaDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FechasEspecificasDePago\SPActualizarFechaEspecificaDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FechasEspecificasDePago\SPEliminarFechaEspecificaDePago.sql" />
+    <Build Include="dbo\Stored Procedures\FechasEspecificasDePago\SPObtenerDetalleFechaEspecificaDePagoID.sql" />
+    <Build Include="dbo\Stored Procedures\FechasEspecificasDePago\SPObtenerFechasEspecificasDePagoClubDeViaje.sql" />
+    <Build Include="dbo\Tables\Paquetes.sql" />
+    <Build Include="dbo\Tables\ComentariosPaquete.sql" />
+    <Build Include="dbo\Stored Procedures\Comentarios\SPInsertarComentario.sql" />
+    <Build Include="dbo\Tables\ClubDeViaje.sql" />
+    <Build Include="dbo\Tables\ComentariosClubDeViaje.sql" />
+    <Build Include="dbo\Tables\CuentasBancariasPaquete.sql" />
+    <Build Include="dbo\Tables\CuentasBancariasClubDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\CuentasBancarias\SPInsertarCuentaBancaria.sql" />
+    <Build Include="dbo\Stored Procedures\Comentarios\SPActualizarComentarioClubDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\Comentarios\SPActualizarComentarioPaquete.sql" />
+    <Build Include="dbo\Stored Procedures\Comentarios\SPObtenerComentariosClubDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\Comentarios\SPObtenerComentariosPaquete.sql" />
+    <Build Include="dbo\Stored Procedures\CuentasBancarias\SPActualizarCuentaBancariaClubDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\CuentasBancarias\SPActualizarCuentaBancariaPaquete.sql" />
+    <Build Include="dbo\Stored Procedures\CuentasBancarias\SPObtenerCuentaBancariaClubDeViaje.sql" />
+    <Build Include="dbo\Stored Procedures\CuentasBancarias\SPObtenerCuentaBancariaPaquete.sql" />
+    <Build Include="dbo\Tables\BeneficiarioPaquetes.sql" />
+    <Build Include="dbo\Stored Procedures\BeneficiarioPaquetes\SPInsertarBeneficiarioPaquete.sql" />
+    <Build Include="dbo\Stored Procedures\BeneficiarioPaquetes\SPActualizarBeneficiarioPaquete.sql" />
+    <Build Include="dbo\Stored Procedures\BeneficiarioPaquetes\SPEliminarBeneficiarioPaquete.sql" />
+    <Build Include="dbo\Stored Procedures\BeneficiarioPaquetes\SPObtenerBeneficiarioPaquete.sql" />
     <Build Include="dbo\Tables\PaquetesDeViajes.sql" />
     <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPActualizarPaquetesDeViajes.sql" />
     <Build Include="dbo\Stored Procedures\PaquetesDeViajes\SPEliminarPaquetesDeViajes.sql" />
@@ -191,6 +243,10 @@
     <Build Include="dbo\Stored Procedures\TourDeViaje\SPObtenerDetalleTourDeViajeID.sql" />
     <Build Include="dbo\Stored Procedures\TourDeViaje\SPObtenerTourDeViaje.sql" />
     <Build Include="dbo\Tables\ClubDeViaje.sql" />
+    <Build Include="dbo\Tables\BitacoraClubDeViaje.sql" />
+    <Build Include="dbo\Tables\TiposDeCuenta.sql" />
+    <Build Include="dbo\Tables\TiposDeTarjeta.sql" />
+    <Build Include="dbo\Tables\FrecuenciasDePago.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />

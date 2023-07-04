@@ -11,6 +11,11 @@ AS
 					, P.Nombre
      				, P.PrimerApellido
 					, P.SegundoApellido
+					, P.Profesion
+					, P.IdProvincia
+					, P.IdCanton
+					, P.IdDistrito
+					, P.DireccionHabitacion AS Direccion
 					, P.FechaNacimiento
 					, CASE WHEN P.Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado
 					, P.FechaCreacion

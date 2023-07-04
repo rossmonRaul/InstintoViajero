@@ -1,0 +1,61 @@
+/* Estilos para el contenedor principal del Card */
+.card-container {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .card-container:hover  {
+    border: 1px solid #7ab1e8;
+    box-shadow: 0 2px 4px #7ab1e8;
+}
+
+  /* Estilos para el título del Card */
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para los datos personales */
+  .personal-info {
+    margin-bottom: 20px;
+  }
+  
+  .personal-info label {
+    font-weight: bold;
+  }
+  
+  .personal-info span {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  /* Estilos para la información de pago */
+  .payment-info {
+    margin-bottom: 20px;
+  }
+  
+  .payment-info label {
+    font-weight: bold;
+  }
+  
+  .payment-info span {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  /* Estilos para el pie del Card */
+  .card-footer {
+    text-align: center;
+  }
+  
+  .card-footer a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .card-footer a:hover {
+    text-decoration: underline;
+  }
