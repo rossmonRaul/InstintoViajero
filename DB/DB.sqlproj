@@ -191,6 +191,10 @@
     <Build Include="dbo\Stored Procedures\TourDeViaje\SPObtenerDetalleTourDeViajeID.sql" />
     <Build Include="dbo\Stored Procedures\TourDeViaje\SPObtenerTourDeViaje.sql" />
     <Build Include="dbo\Tables\ClubDeViaje.sql" />
+    <Build Include="dbo\Tables\BitacoraClubDeViaje.sql" />
+    <Build Include="dbo\Tables\TiposDeCuenta.sql" />
+    <Build Include="dbo\Tables\TiposDeTarjeta.sql" />
+    <Build Include="dbo\Tables\FrecuenciasDePago.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\InitialData\Personas.sql" />
