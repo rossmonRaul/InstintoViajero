@@ -33,6 +33,10 @@ using Dominio.Interfaces.Aplicacion.Regalia;
 using Aplicacion.Regalia;
 using Dominio.Interfaces.Aplicacion.Cuota;
 using Aplicacion.Cuota;
+using Dominio.Interfaces.Aplicacion.PaquetesDeViajes;
+using Aplicacion.PaquetesDeViajes;
+using Aplicacion.TourDeViaje;
+using Dominio.Interfaces.Aplicacion.TourDeViaje;
 using Dominio.Interfaces.Aplicacion.TipoDeTelefono;
 using Aplicacion.TipoDeTelefono;
 
@@ -63,6 +67,8 @@ namespace Aplicacion
             services.AddScoped<IServicioCuota, ServicioCuota>();
             services.AddScoped<IServicioTipoDeTelefono, ServicioTipoDeTelefono>();
 
+            services.AddScoped<IServicioPaquetesDeViajes, ServicioPaquetesDeViajes>();
+            services.AddScoped<IServicioTourDeViaje, ServicioTourDeViaje>();
 
             return services;
         }
