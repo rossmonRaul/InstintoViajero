@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[SPEliminarTelefono]
-( @IdTelefono INT
+﻿CREATE PROCEDURE [dbo].[SPEliminarBeneficiarioPaquete]
+( @IdBeneficiarioPaquete INT
 , @Usuario NVARCHAR(MAX) = NULL
 ,@INDICADOR INT OUT
 ,@MENSAJE VARCHAR(50) OUT)
@@ -12,34 +12,34 @@ AS
 
 			BEGIN TRY
 				BEGIN TRAN DESACTIVAR
-				SET @ESTADO_ACTUAL = (SELECT TOP 1 Estado FROM Telefonos WHERE IdTelefono = @IdTelefono)
+				SET @ESTADO_ACTUAL = (SELECT TOP 1 Estado FROM BeneficiarioPaquetes WHERE IdBeneficiarioPaquete = @IdBeneficiarioPaquete)
 					BEGIN
-						UPDATE Telefonos SET
+						UPDATE BeneficiarioPaquetes SET
 						Estado = CASE WHEN @ESTADO_ACTUAL = 1 THEN 0 ELSE 1 END
 					  , FechaModificacion = @Vfecha
 					  , UsuarioModificacion = @Usuario
-					  WHERE IdTelefono = @IdTelefono
+					  WHERE IdBeneficiarioPaquete = @IdBeneficiarioPaquete
 
 					  -- Ejecuta SPInsertarBitacora
 						DECLARE @vDetalle NVARCHAR(MAX);
 						DECLARE @vAccion NVARCHAR(1);
-						SET @vDetalle = 'IdTelefono: ' + CAST(@IdTelefono AS NVARCHAR(12)) ;
+						SET @vDetalle = 'IdBeneficiarioPaquete: ' + CAST(@IdBeneficiarioPaquete AS NVARCHAR(12)) ;
 						SET @vAccion = CASE WHEN @ESTADO_ACTUAL = 1 THEN 'E' ELSE 'A' END
 
-						EXEC [dbo].[SPInsertarBitacora] 'Telefonos', @vAccion, @vDetalle, @Vfecha, @Usuario;
+						EXEC [dbo].[SPInsertarBitacora] 'BeneficiarioPaquetes', @vAccion, @vDetalle, @Vfecha, @Usuario;
 
 					END
 					COMMIT TRAN DESACTIVAR
 					SET @INDICADOR = 0
 					SET @MENSAJE =(
-									CASE WHEN @ESTADO_ACTUAL = 1 THEN 'El teléfono fue desactivado exitosamente.'
-										 ELSE 'El teléfono fue reactivado exitosamente.'
+									CASE WHEN @ESTADO_ACTUAL = 1 THEN 'El beneficiario fue desactivado exitosamente.'
+										 ELSE 'El beneficiario fue reactivado exitosamente.'
 									END
 									)
 			END TRY
 			BEGIN CATCH
 				SET @INDICADOR = 1
-				SET @MENSAJE = 'Error al eliminar el teléfono.' --+ ERROR_MESSAGE()
+				SET @MENSAJE = 'Error al cambiar estado del beneficiario.' --+ ERROR_MESSAGE()
 				ROLLBACK TRANSACTION DESACTIVAR
 			END CATCH
 	END

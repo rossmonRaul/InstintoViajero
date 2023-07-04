@@ -1,16 +1,14 @@
-﻿CREATE PROCEDURE [dbo].[SPInsertarTelefono]
+﻿CREATE PROCEDURE [dbo].[SPInsertarBeneficiarioPaquete]
 ( 
-  @IdTipoDeTelefono INT
+  @IdPaquete INT
 , @IdPersona INT
-, @Numero NVARCHAR(9)
 , @Estado BIT
-, @Usuario NVARCHAR(MAX)
+, @Usuario NVARCHAR(MAX) = NULL
 , @INDICADOR INT OUT
 , @MENSAJE VARCHAR(50) OUT
 )
 
 AS
-
     BEGIN
 		DECLARE @Vfecha DATETIME;
 		SET @Vfecha = GETDATE();
@@ -18,19 +16,17 @@ AS
             BEGIN TRY
                 BEGIN TRAN INSERTAR
                     BEGIN
-                        INSERT INTO Telefonos
-                        (
-                              IdTipoDeTelefono
+                        INSERT INTO BeneficiarioPaquetes
+                        ( 
+                              IdPaquete
 							, IdPersona
-							, Numero
                             , Estado
                             , FechaCreacion
                             , UsuarioCreacion                            
                         ) VALUES 
                         (
-                            @IdTipoDeTelefono
-							,@IdPersona
-							,@Numero
+                              @IdPaquete
+							, @IdPersona
                             , 1
                             , @Vfecha
                             , @Usuario
@@ -38,22 +34,21 @@ AS
 
 						-- Ejecuta SPInsertarBitacora
 						DECLARE @vDetalle NVARCHAR(600);						
-						SET @vDetalle = 'IdTipoDeTelefono: ' +  CAST(@IdTipoDeTelefono AS NVARCHAR(10)) + ', ' +
-										'IdPersona: ' +  CAST(@IdPersona AS NVARCHAR(10)) + ', ' +
-										'Numero: ' + @Numero + ', ' +
+						SET @vDetalle = 'IdPaquete: ' + CAST(@IdPaquete AS NVARCHAR(12)) + ', ' +
+									   'IdPersona: ' + CAST(@IdPersona AS NVARCHAR(12)) + ', ' +
 									   'Estado: ' + CAST(@Estado AS NVARCHAR(1));
 
-						EXEC [dbo].[SPInsertarBitacora] 'Telefonos', 'I', @vDetalle, @Vfecha, @Usuario;
+						EXEC [dbo].[SPInsertarBitacora] 'BeneficiarioPaquetes', 'I', @vDetalle, @Vfecha, @Usuario;
 
                     END
 
                     COMMIT TRAN INSERTAR
                     SET @INDICADOR = 0
-                    SET @MENSAJE = 'Teléfono registrado exitosamente'
+                    SET @MENSAJE = 'Beneficiario registrado exitosamente'
             END TRY
             BEGIN CATCH
                 SET @INDICADOR = 1
-                SET @MENSAJE = 'Error al registrar el teléfono.' --+ ERROR_MESSAGE()
+                SET @MENSAJE = 'Error al registrar el beneficiario.' --+ ERROR_MESSAGE()
                 ROLLBACK TRANSACTION INSERTAR
             END CATCH
     END

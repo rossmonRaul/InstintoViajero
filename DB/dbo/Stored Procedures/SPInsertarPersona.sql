@@ -68,9 +68,9 @@ AS
 									   'PrimerApellido: ' + @PrimerApellido + ', ' +
 									   'SegundoApellido: ' + @SegundoApellido + ', ' +
 									   'Profesion: ' + @Profesion + ', ' +
-									   'IdProvincia: ' + CAST(@IdProvincia AS NVARCHAR(2)) + ', ' +
-									   'IdCanton: ' + CAST(@IdCanton AS NVARCHAR(2)) + ', ' +
-									   'IdDistrito: ' + CAST(@IdDistrito AS NVARCHAR(2)) + ', ' +
+									   'IdProvincia: ' + CAST(@IdProvincia AS NVARCHAR(3)) + ', ' +
+									   'IdCanton: ' + CAST(@IdCanton AS NVARCHAR(3)) + ', ' +
+									   'IdDistrito: ' + CAST(@IdDistrito AS NVARCHAR(4)) + ', ' +
 									   'FechaNacimiento: ' + CAST(@FechaNacimiento AS NVARCHAR(12)) + ', ' +
 									   'DireccionHabitacion: ' + @Direccion + ', ' +
 									   'Estado: ' + CAST(@Estado AS NVARCHAR(1));

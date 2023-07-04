@@ -1,8 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[SPInsertarTelefono]
+﻿CREATE PROCEDURE [dbo].[SPInsertarCorreoElectronico]
 ( 
-  @IdTipoDeTelefono INT
-, @IdPersona INT
-, @Numero NVARCHAR(9)
+  @IdPersona INT
+, @CorreoElectronico NVARCHAR(100)
+, @Principal BIT
 , @Estado BIT
 , @Usuario NVARCHAR(MAX)
 , @INDICADOR INT OUT
@@ -18,19 +18,19 @@ AS
             BEGIN TRY
                 BEGIN TRAN INSERTAR
                     BEGIN
-                        INSERT INTO Telefonos
-                        (
-                              IdTipoDeTelefono
-							, IdPersona
-							, Numero
+                        INSERT INTO CorreosElectronicos
+                        (                              
+							  IdPersona
+							, CorreoElectronico
+                            , Principal
                             , Estado
                             , FechaCreacion
                             , UsuarioCreacion                            
                         ) VALUES 
                         (
-                            @IdTipoDeTelefono
-							,@IdPersona
-							,@Numero
+							@IdPersona
+							,@CorreoElectronico
+                            ,@Principal
                             , 1
                             , @Vfecha
                             , @Usuario
@@ -38,22 +38,22 @@ AS
 
 						-- Ejecuta SPInsertarBitacora
 						DECLARE @vDetalle NVARCHAR(600);						
-						SET @vDetalle = 'IdTipoDeTelefono: ' +  CAST(@IdTipoDeTelefono AS NVARCHAR(10)) + ', ' +
-										'IdPersona: ' +  CAST(@IdPersona AS NVARCHAR(10)) + ', ' +
-										'Numero: ' + @Numero + ', ' +
+						SET @vDetalle = 'IdPersona: ' +  CAST(@IdPersona AS NVARCHAR(10)) + ', ' +
+										'CorreoElectronico: ' + @CorreoElectronico + ', ' +
+                                        'Principal: ' + CAST(@Principal AS NVARCHAR(1)) +
 									   'Estado: ' + CAST(@Estado AS NVARCHAR(1));
 
-						EXEC [dbo].[SPInsertarBitacora] 'Telefonos', 'I', @vDetalle, @Vfecha, @Usuario;
+						EXEC [dbo].[SPInsertarBitacora] 'CorreosElectronicos', 'I', @vDetalle, @Vfecha, @Usuario;
 
                     END
 
                     COMMIT TRAN INSERTAR
                     SET @INDICADOR = 0
-                    SET @MENSAJE = 'Teléfono registrado exitosamente'
+                    SET @MENSAJE = 'Email registrado exitosamente'
             END TRY
             BEGIN CATCH
                 SET @INDICADOR = 1
-                SET @MENSAJE = 'Error al registrar el teléfono.' --+ ERROR_MESSAGE()
+                SET @MENSAJE = 'Error al registrar el Email.' --+ ERROR_MESSAGE()
                 ROLLBACK TRANSACTION INSERTAR
             END CATCH
     END

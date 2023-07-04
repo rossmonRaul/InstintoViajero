@@ -1,8 +1,7 @@
-﻿CREATE PROCEDURE [dbo].[SPInsertarTelefono]
+﻿CREATE PROCEDURE [dbo].[SPInsertarFechaEspecificaDePago]
 ( 
-  @IdTipoDeTelefono INT
-, @IdPersona INT
-, @Numero NVARCHAR(9)
+  @IdClubDeViaje INT
+, @FechaDePago DATETIME
 , @Estado BIT
 , @Usuario NVARCHAR(MAX)
 , @INDICADOR INT OUT
@@ -18,19 +17,17 @@ AS
             BEGIN TRY
                 BEGIN TRAN INSERTAR
                     BEGIN
-                        INSERT INTO Telefonos
+                        INSERT INTO FechasEspecificasDePago
                         (
-                              IdTipoDeTelefono
-							, IdPersona
-							, Numero
+							 IdClubDeViaje
+							, FechaDePago
                             , Estado
                             , FechaCreacion
                             , UsuarioCreacion                            
                         ) VALUES 
-                        (
-                            @IdTipoDeTelefono
-							,@IdPersona
-							,@Numero
+                        (                           
+							@IdClubDeViaje
+							,@FechaDePago
                             , 1
                             , @Vfecha
                             , @Usuario
@@ -38,22 +35,21 @@ AS
 
 						-- Ejecuta SPInsertarBitacora
 						DECLARE @vDetalle NVARCHAR(600);						
-						SET @vDetalle = 'IdTipoDeTelefono: ' +  CAST(@IdTipoDeTelefono AS NVARCHAR(10)) + ', ' +
-										'IdPersona: ' +  CAST(@IdPersona AS NVARCHAR(10)) + ', ' +
-										'Numero: ' + @Numero + ', ' +
+						SET @vDetalle = 'IdClubDeViaje: ' +  CAST(@IdClubDeViaje AS NVARCHAR(10)) + ', ' +
+									'FechaDePago: ' + @FechaDePago + ', ' +
 									   'Estado: ' + CAST(@Estado AS NVARCHAR(1));
 
-						EXEC [dbo].[SPInsertarBitacora] 'Telefonos', 'I', @vDetalle, @Vfecha, @Usuario;
+						EXEC [dbo].[SPInsertarBitacora] 'FechasEspecificasDePago', 'I', @vDetalle, @Vfecha, @Usuario;
 
                     END
 
                     COMMIT TRAN INSERTAR
                     SET @INDICADOR = 0
-                    SET @MENSAJE = 'Teléfono registrado exitosamente'
+                    SET @MENSAJE = 'Fecha específica de pago registrada exitosamente'
             END TRY
             BEGIN CATCH
                 SET @INDICADOR = 1
-                SET @MENSAJE = 'Error al registrar el teléfono.' --+ ERROR_MESSAGE()
+                SET @MENSAJE = 'Error al registrar fecha específica de pago.' --+ ERROR_MESSAGE()
                 ROLLBACK TRANSACTION INSERTAR
             END CATCH
     END

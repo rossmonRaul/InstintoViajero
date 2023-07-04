@@ -15,7 +15,7 @@ AS
 				FROM Telefonos T WITH (NOLOCK)
 				INNER JOIN TiposDeTelefono TT
 					ON TT.IdTipoDeTelefono =T.IdTipoDeTelefono
-				WHERE T.IdPersona = @IdTelefono
+				WHERE T.IdTelefono = @IdTelefono
 			END
 			END TRY
 			BEGIN CATCH

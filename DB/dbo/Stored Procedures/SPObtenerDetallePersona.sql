@@ -16,6 +16,7 @@ AS
 				P.IdCanton,
 				P.IdDistrito,
 				P.DireccionHabitacion as Direccion,
+				--P.Telefono, 
 				P.Estado,
 				P.FechaCreacion,
 				P.FechaModificacion,
