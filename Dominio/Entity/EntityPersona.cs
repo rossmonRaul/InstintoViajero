@@ -14,6 +14,9 @@ namespace Dominio.Entity
         public int identificacion { get; set; }
 
         public int idTipoIdentificacion { get; set; }
+        public int IdProvincia { get; set; }
+        public int IdCanton { get; set; }
+        public int IdDistrito { get; set; }
 
         public string nombre { get; set; }
 
@@ -21,11 +24,10 @@ namespace Dominio.Entity
 
         public string segundoApellido { get; set; }
 
+        public string Profesion { get; set; }
         public DateTime? fechaNacimiento { get; set; }
 
         public string direccion { get; set; }
-
-        public string telefono { get; set; }
 
         public bool estado { get; set; }
 

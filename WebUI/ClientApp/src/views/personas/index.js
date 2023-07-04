@@ -88,7 +88,7 @@ const Personas = () => {
             respuesta = await ActualizarPersona(data);
         }
 
-        if (respuesta.indicador == 0) {
+        if (respuesta.indicador === 0) {
             setModal(false);
             ObtenerListadoDePersonas();
             setMensajeRespuesta(respuesta);
